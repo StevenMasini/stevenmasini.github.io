@@ -1,0 +1,16 @@
+{
+  "name": "stevenmasini.github.io",
+  "version": "1.0.0",
+  "description": "Steven's personal website",
+  "main": "index.js",
+  "repository": "git@github.com:StevenMasini/stevenmasini.github.io.git",
+  "author": "Steven <steven.masini@icloud.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-router": "^5.2.0",
+    "redux": "^4.1.0",
+    "sagas": "^0.0.1"
+  }
+}
