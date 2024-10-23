@@ -80,7 +80,7 @@ a {
     margin-bottom: 40px;
 }
 
-.item-list > li {
+.item-list>li {
     display: block;
     padding: 20px;
     border-radius: 20px;
@@ -88,7 +88,7 @@ a {
     margin-bottom: 20px;
 }
 
-.item-list > li:last-child {
+.item-list>li:last-child {
     margin-bottom: 0;
 }
 
@@ -153,7 +153,7 @@ footer {
         color: #ddd;
     }
 
-    .item-list > li {
+    .item-list>li {
         background-color: #333;
     }
 
