@@ -1,0 +1,65 @@
+---
+import type { SpotlightProject } from '../data/portfolio';
+
+interface Props {
+  project: SpotlightProject;
+}
+
+const { project } = Astro.props;
+---
+
+<div
+  class="flex flex-col justify-between gap-4 p-6 bg-white border border-neutral-200 rounded"
+>
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center justify-between text-xs font-mono text-neutral-500">
+      <span>{project.category}</span>
+      <span>{project.period}</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <img
+        src={project.icon}
+        alt={`${project.title} icon`}
+        class="w-10 h-10 rounded-lg border border-neutral-200 shadow-sm shrink-0 object-cover"
+        loading="lazy"
+      />
+      <h4 class="text-xl font-semibold text-neutral-950">{project.title}</h4>
+    </div>
+
+    <p class="text-xs text-neutral-600 leading-relaxed">
+      {project.summary}
+    </p>
+
+    <ul class="text-xs text-neutral-600 space-y-2 mt-2 font-mono">
+      {
+        project.bullets.map((bullet) => (
+          <li class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span>{bullet}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div
+    class="pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-mono text-neutral-400"
+  >
+    <span>{project.company}</span>
+    {
+      project.appStoreUrl ? (
+        <a
+          class="text-neutral-900 underline hover:text-neutral-600 font-mono transition-colors"
+          href={project.appStoreUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {project.locationOrLinkText}
+        </a>
+      ) : (
+        <span>{project.locationOrLinkText}</span>
+      )
+    }
+  </div>
+</div>

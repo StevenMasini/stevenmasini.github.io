@@ -1,0 +1,59 @@
+---
+import { navItems, siteMetadata, type NavItem } from '../data/portfolio';
+
+interface Props {
+  activeNav: NavItem['id'];
+}
+
+const { activeNav } = Astro.props;
+---
+
+<footer class="w-full bg-white border-t border-neutral-200/80 mt-16">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 py-12">
+    <div
+      class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-100"
+    >
+      <a href="/" class="flex items-center gap-3 group">
+        <div
+          class="w-7 h-7 rounded bg-neutral-900 text-white flex items-center justify-center font-mono font-medium text-xs group-hover:bg-neutral-800 transition-colors"
+        >
+          {siteMetadata.monogram}
+        </div>
+        <span class="font-medium text-sm text-neutral-900">
+          {siteMetadata.name}
+        </span>
+        <span class="text-xs text-neutral-500">
+          — {siteMetadata.tagline}
+        </span>
+      </a>
+
+      <nav class="flex flex-wrap items-center gap-6" aria-label="Footer Navigation">
+        {
+          navItems.map((item) => {
+            const isActive = item.id === activeNav;
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  'text-xs transition-colors',
+                  isActive
+                    ? 'text-neutral-900 font-semibold'
+                    : 'text-neutral-500 hover:text-neutral-900',
+                ]}
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </nav>
+    </div>
+
+    <div
+      class="pt-6 flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-mono text-neutral-400"
+    >
+      <p>© {siteMetadata.copyrightYear} {siteMetadata.name}</p>
+      <p>{siteMetadata.timezoneLabel}</p>
+    </div>
+  </div>
+</footer>

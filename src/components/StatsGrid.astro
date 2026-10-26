@@ -1,0 +1,43 @@
+---
+import type { StatItem } from '../data/portfolio';
+
+interface Props {
+  stats: StatItem[];
+  variant?: 'compact' | 'detailed';
+}
+
+const { stats, variant = 'compact' } = Astro.props;
+---
+
+{
+  variant === 'compact' ? (
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 mt-4 border-t border-neutral-200/60 font-mono text-xs text-neutral-600">
+      {stats.map((stat) => (
+        <div>
+          <span class="block text-neutral-400 mb-0.5 text-[11px] uppercase">
+            {stat.label}
+          </span>
+          <span class="text-sm font-semibold text-neutral-900">
+            {stat.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-neutral-200/70">
+      {stats.map((stat) => (
+        <div>
+          <div class="font-mono text-[11px] uppercase tracking-wider text-neutral-500">
+            {stat.label}
+          </div>
+          <div class="text-xl font-semibold text-neutral-900 mt-1">
+            {stat.value}
+          </div>
+          {stat.sublabel && (
+            <div class="text-xs text-neutral-500 mt-0.5">{stat.sublabel}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}

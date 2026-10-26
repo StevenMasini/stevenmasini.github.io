@@ -1,0 +1,19 @@
+---
+interface Props {
+  label: string;
+  variant?: 'surface' | 'muted';
+}
+
+const { label, variant = 'surface' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'px-2 py-0.5 border border-neutral-200 rounded text-[11px] font-mono',
+    variant === 'surface'
+      ? 'bg-white text-neutral-700'
+      : 'bg-neutral-100 text-neutral-700 text-xs',
+  ]}
+>
+  {label}
+</span>

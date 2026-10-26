@@ -1,0 +1,128 @@
+---
+import { navItems, siteMetadata, type NavItem } from '../data/portfolio';
+
+interface Props {
+  activeNav: NavItem['id'];
+}
+
+const { activeNav } = Astro.props;
+---
+
+<header
+  class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b border-neutral-200/80"
+>
+  <div
+    class="max-w-6xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between gap-4"
+  >
+    <!-- Brand Identity -->
+    <div class="flex items-center shrink-0">
+      <a class="flex items-center gap-3 group" href="/">
+        <div
+          class="w-8 h-8 rounded-md bg-neutral-900 text-white font-mono font-medium text-xs flex items-center justify-center tracking-wider shrink-0 group-hover:bg-neutral-800 transition-colors"
+        >
+          {siteMetadata.monogram}
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-semibold tracking-tight text-neutral-900 text-sm leading-tight group-hover:text-black"
+          >
+            {siteMetadata.name}
+          </span>
+          <span
+            class="text-[11px] text-neutral-500 font-mono leading-tight mt-0.5"
+          >
+            {siteMetadata.tagline}
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1" aria-label="Primary Navigation">
+      {
+        navItems.map((item) => {
+          const isActive = item.id === activeNav;
+          return (
+            <a
+              href={item.href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'text-xs px-3 py-1.5 rounded transition-colors',
+                isActive
+                  ? 'font-semibold text-neutral-900 bg-neutral-100'
+                  : 'font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100/70',
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <!-- CTA + Mobile Menu Toggle -->
+    <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium px-3.5 py-1.5 rounded-md transition-colors shadow-sm"
+      >
+        Get in touch
+      </a>
+
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        class="md:hidden inline-flex items-center justify-center p-1.5 rounded-md text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
+      >
+        <span class="material-symbols-outlined text-xl" id="mobile-menu-icon">
+          menu
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-neutral-200/80 bg-white px-6 py-4"
+  >
+    <div class="flex flex-col space-y-1">
+      {
+        navItems.map((item) => {
+          const isActive = item.id === activeNav;
+          return (
+            <a
+              href={item.href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'text-sm px-3 py-2 rounded-md transition-colors',
+                isActive
+                  ? 'font-semibold text-neutral-900 bg-neutral-100'
+                  : 'font-normal text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50',
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+
+  btn?.addEventListener('click', () => {
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isExpanded));
+    menu?.classList.toggle('hidden');
+    if (icon) {
+      icon.textContent = isExpanded ? 'menu' : 'close';
+    }
+  });
+</script>

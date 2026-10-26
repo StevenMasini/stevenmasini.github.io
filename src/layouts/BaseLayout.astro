@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { NavItem } from '../data/portfolio';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeNav: NavItem['id'];
+}
+
+const {
+  title = 'Steven Masini — iOS and Backend Developer in Taipei',
+  description = '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
+  activeNav,
+} = Astro.props;
+---
+
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+        color: #18181b;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background font-sans text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white min-h-screen flex flex-col"
+  >
+    <Header activeNav={activeNav} />
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+    <Footer activeNav={activeNav} />
+  </body>
+</html>

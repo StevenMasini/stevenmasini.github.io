@@ -1,0 +1,98 @@
+---
+import type { ExperienceItem } from '../data/portfolio';
+import Badge from './Badge.astro';
+
+interface Props {
+  item: ExperienceItem;
+}
+
+const { item } = Astro.props;
+
+// Split summary around highlightProject if present to bold the project name
+let beforeHighlight = item.summary;
+let afterHighlight = '';
+if (item.highlightProject && item.summary.includes(item.highlightProject)) {
+  const parts = item.summary.split(item.highlightProject);
+  beforeHighlight = parts[0];
+  afterHighlight = parts.slice(1).join(item.highlightProject);
+}
+---
+
+<article
+  class:list={[
+    'relative pl-6 border-l border-neutral-200',
+    item.isCompact ? 'space-y-2' : 'space-y-3',
+  ]}
+>
+  <div
+    class:list={[
+      'absolute -left-[5px] top-1.5 w-2 h-2 rounded-full',
+      item.isCurrent
+        ? 'bg-neutral-900'
+        : item.isCompact
+          ? 'bg-neutral-300'
+          : 'bg-neutral-400',
+    ]}
+  >
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+    <div>
+      <h3
+        class:list={[
+          'font-semibold text-neutral-900',
+          item.isCompact ? 'text-sm' : 'text-base',
+        ]}
+      >
+        {item.role}
+      </h3>
+      <div class="text-xs font-mono text-neutral-500">
+        {item.companyAndLocation}
+      </div>
+    </div>
+    <span class="text-xs font-mono text-neutral-500 sm:text-right shrink-0">
+      {item.period}
+    </span>
+  </div>
+
+  <p
+    class:list={[
+      'text-neutral-600 leading-relaxed',
+      item.isCompact ? 'text-xs' : 'text-sm',
+    ]}
+  >
+    {
+      item.highlightProject && item.summary.includes(item.highlightProject) ? (
+        <>
+          {beforeHighlight}
+          <span class="font-medium text-neutral-900">
+            {item.highlightProject}
+          </span>
+          {afterHighlight}
+        </>
+      ) : (
+        item.summary
+      )
+    }
+  </p>
+
+  {
+    item.bullets && item.bullets.length > 0 && (
+      <ul class="text-xs text-neutral-600 space-y-1.5 list-disc pl-4 leading-relaxed marker:text-neutral-400">
+        {item.bullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    item.tags && item.tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5 pt-1">
+        {item.tags.map((tag) => (
+          <Badge label={tag} />
+        ))}
+      </div>
+    )
+  }
+</article>
