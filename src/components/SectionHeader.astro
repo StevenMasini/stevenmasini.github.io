@@ -10,7 +10,7 @@ const { title, rightLabel, bordered = true } = Astro.props;
 
 <div
   class:list={[
-    'flex items-baseline justify-between',
+    'flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4',
     bordered && 'border-b border-neutral-200 pb-3',
   ]}
 >

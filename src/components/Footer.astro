@@ -9,25 +9,28 @@ const { activeNav } = Astro.props;
 ---
 
 <footer class="w-full bg-white border-t border-neutral-200/80 mt-16">
-  <div class="max-w-6xl mx-auto px-6 sm:px-8 py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-12">
     <div
       class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-100"
     >
       <a href="/" class="flex items-center gap-3 group">
         <div
-          class="w-7 h-7 rounded bg-neutral-900 text-white flex items-center justify-center font-mono font-medium text-xs group-hover:bg-neutral-800 transition-colors"
+          class="w-7 h-7 rounded bg-neutral-900 text-white flex items-center justify-center font-mono font-medium text-xs shrink-0 group-hover:bg-neutral-800 transition-colors"
         >
           {siteMetadata.monogram}
         </div>
-        <span class="font-medium text-sm text-neutral-900">
-          {siteMetadata.name}
-        </span>
-        <span class="text-xs text-neutral-500">
-          — {siteMetadata.tagline}
-        </span>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+          <span class="font-medium text-sm text-neutral-900 leading-tight">
+            {siteMetadata.name}
+          </span>
+          <span class="hidden sm:inline text-xs text-neutral-400">—</span>
+          <span class="text-xs text-neutral-500 leading-tight mt-0.5 sm:mt-0">
+            {siteMetadata.tagline}
+          </span>
+        </div>
       </a>
 
-      <nav class="flex flex-wrap items-center gap-6" aria-label="Footer Navigation">
+      <nav class="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Footer Navigation">
         {
           navItems.map((item) => {
             const isActive = item.id === activeNav;
@@ -50,7 +53,7 @@ const { activeNav } = Astro.props;
     </div>
 
     <div
-      class="pt-6 flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-mono text-neutral-400"
+      class="pt-6 flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-2 sm:gap-4 text-xs font-mono text-neutral-400"
     >
       <p>© {siteMetadata.copyrightYear} {siteMetadata.name}</p>
       <p>{siteMetadata.timezoneLabel}</p>
