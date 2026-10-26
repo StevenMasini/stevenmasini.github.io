@@ -614,10 +614,7 @@ export const technicalFocusList = [
 
 export const languagesList = [
   { language: 'French', proficiency: 'Native' },
-  { language: 'English', proficiency: 'Full Professional Proficiency' },
-  {
-    language: 'Mandarin Chinese',
-    proficiency: 'Professional Working Proficiency',
-  },
-  { language: 'Japanese', proficiency: 'Actively Learning' },
+  { language: 'English', proficiency: 'Bilingual' },
+  { language: 'Mandarin Chinese', proficiency: 'Working Proficiency' },
+  { language: 'Japanese', proficiency: 'Learning' },
 ];
