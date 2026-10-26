@@ -138,7 +138,7 @@ const projectTypes = [
           <form
             class="space-y-5"
             id="contact-form"
-            action={`https://formsubmit.co/${siteMetadata.email}`}
+            action={`https://formsubmit.co/${siteMetadata.formSubmitToken}`}
             method="POST"
           >
             <!-- Honeypot spam protection -->
@@ -365,7 +365,7 @@ const projectTypes = [
       try {
         const payload = Object.fromEntries(formData.entries());
         const response = await fetch(
-          'https://formsubmit.co/ajax/steven.masini@gmail.com',
+          'https://formsubmit.co/ajax/f87fcc8becf3b1ec96cc073c7f5cf448',
           {
             method: 'POST',
             headers: {
@@ -397,7 +397,7 @@ const projectTypes = [
             successMsg
           ) {
             successMsg.innerHTML =
-              '<strong class="font-semibold block mb-0.5">Activation email sent to steven.masini@gmail.com.</strong>Please check your inbox (and Spam folder) and click the <em>Activate Form</em> button from FormSubmit to finish enabling the form.';
+              '<strong class="font-semibold block mb-0.5">Form pending one-time activation.</strong>Please check your inbox and click the <em>Activate Form</em> button from FormSubmit to finish enabling the form.';
           }
           successMsg?.classList.remove('hidden');
         } else {

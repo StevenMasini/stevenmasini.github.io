@@ -95,7 +95,7 @@ export const siteMetadata = {
   linkedinUrl: 'https://www.linkedin.com/in/stevenmasini',
   linkedinDisplay: 'linkedin.com/in/stevenmasini',
   githubUrl: 'https://github.com/StevenMasini',
-  email: 'steven.masini@gmail.com',
+  formSubmitToken: 'f87fcc8becf3b1ec96cc073c7f5cf448',
   copyrightYear: '2026',
   keywords: [
     'Steven Masini',
