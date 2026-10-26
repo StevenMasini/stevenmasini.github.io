@@ -16,6 +16,9 @@ const { project } = Astro.props;
       <img
         src={project.icon}
         alt={`${project.title} icon`}
+        width="40"
+        height="40"
+        decoding="async"
         class="w-10 h-10 rounded-xl border border-neutral-200 shrink-0 object-cover"
         loading="lazy"
       />
