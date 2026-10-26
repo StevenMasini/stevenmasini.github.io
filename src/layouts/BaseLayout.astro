@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import type { NavItem } from '../data/portfolio';
+import { siteMetadata, type NavItem } from '../data/portfolio';
 
 interface Props {
   title?: string;
@@ -14,6 +14,67 @@ const {
   description = '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
   activeNav,
 } = Astro.props;
+
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  Astro.site ?? siteMetadata.siteUrl
+).toString();
+const ogImageUrl = new URL(
+  '/og-image.svg',
+  Astro.site ?? siteMetadata.siteUrl
+).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteMetadata.siteUrl}/#person`,
+      name: siteMetadata.name,
+      jobTitle: 'iOS and Backend Developer',
+      description,
+      url: siteMetadata.siteUrl,
+      sameAs: [siteMetadata.linkedinUrl, siteMetadata.githubUrl],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Taipei',
+        addressCountry: 'TW',
+      },
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'EPITECH - European Institute of Technology',
+        },
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Beijing Jiaotong University',
+        },
+      ],
+      knowsLanguage: ['en', 'fr', 'zh'],
+      knowsAbout: [
+        'iOS Development',
+        'Swift',
+        'Objective-C',
+        'SwiftUI',
+        'UIKit',
+        'Core Data',
+        'Node.js',
+        'React Native',
+        'Mobile Architecture',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteMetadata.siteUrl}/#website`,
+      url: siteMetadata.siteUrl,
+      name: `${siteMetadata.name} — ${siteMetadata.tagline}`,
+      publisher: {
+        '@id': `${siteMetadata.siteUrl}/#person`,
+      },
+      inLanguage: 'en',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -22,9 +83,35 @@ const {
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="web_standard" name="shell-type" />
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteMetadata.name} />
+    <meta name="keywords" content={siteMetadata.keywords.join(', ')} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteMetadata.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
+    />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
