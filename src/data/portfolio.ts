@@ -88,7 +88,7 @@ export const siteMetadata = {
   name: 'Steven Masini',
   monogram: 'SM',
   tagline: 'iOS and Backend Developer in Taipei',
-  siteUrl: 'https://stevenmasini.github.io',
+  siteUrl: 'https://stevenmasini.com',
   location: 'Taipei, Taiwan',
   timezoneLabel: 'Taipei Standard Time (UTC+8)',
   timezoneShort: 'Taipei (UTC+8)',
