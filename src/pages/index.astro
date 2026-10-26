@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OverviewProjectItem from '../components/OverviewProjectItem.astro';
+import {
+  siteMetadata,
+  overviewSelectedWork,
+  overviewExperience,
+} from '../data/portfolio';
+---
+
+<BaseLayout
+  title="Steven Masini — iOS and Backend Developer in Taipei"
+  activeNav="overview"
+>
+  <div
+    class="mx-auto py-16 md:py-20 flex flex-col gap-16 md:gap-20 max-w-6xl px-6 sm:px-8"
+  >
+    <!-- Hero / Quiet Introduction -->
+    <section class="flex flex-col gap-6 max-w-2xl" id="about">
+      <div class="flex flex-col gap-2">
+        <h1
+          class="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight"
+        >
+          {siteMetadata.name}
+        </h1>
+        <p class="text-neutral-500 text-base sm:text-lg font-normal">
+          {siteMetadata.tagline}
+        </p>
+      </div>
+      <p class="text-neutral-700 text-base leading-relaxed">
+        15+ years building native iOS apps and backend services since 2011.
+        Focused on clean architecture, performance, and code that lasts.
+      </p>
+      <div class="flex items-center gap-5 text-sm pt-1">
+        <a
+          class="text-neutral-500 hover:text-neutral-900 transition-colors inline-flex items-center gap-1"
+          href={siteMetadata.linkedinUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          LinkedIn
+          <span class="material-symbols-outlined text-xs">arrow_outward</span>
+        </a>
+        <span class="text-neutral-300">/</span>
+        <span class="text-neutral-500 text-xs font-mono">
+          {siteMetadata.timezoneShort}
+        </span>
+      </div>
+    </section>
+
+    <div class="w-full border-t border-neutral-200/80"></div>
+
+    <!-- Selected Works (Calm, Editorial List) -->
+    <section class="flex flex-col gap-8" id="work">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">
+          Selected Work
+        </h2>
+        <div class="flex items-center gap-4">
+          <span class="text-xs text-neutral-400 font-mono">2015 — Present</span>
+          <a
+            href="/apps-and-work"
+            class="text-xs font-mono text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors"
+          >
+            All Apps →
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col divide-y divide-neutral-200/80">
+        {
+          overviewSelectedWork.map((project) => (
+            <OverviewProjectItem project={project} />
+          ))
+        }
+      </div>
+    </section>
+
+    <div class="w-full border-t border-neutral-200/80"></div>
+
+    <!-- Background & Experience -->
+    <section
+      class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
+      id="experience"
+    >
+      <div class="md:col-span-4 flex flex-col gap-2">
+        <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">
+          Background
+        </h2>
+        <p class="text-sm text-neutral-600 leading-relaxed pt-2">
+          Master's in Computer Science from EPITECH. Rigor derived from C99 and
+          Unix foundations applied to modern Swift architecture.
+        </p>
+        <div class="pt-4 text-xs font-mono text-neutral-400 flex flex-col gap-1.5">
+          <span>Languages: English, French, Mandarin</span>
+          <span>Location: {siteMetadata.location}</span>
+        </div>
+        <div class="pt-3">
+          <a
+            href="/experience"
+            class="text-xs font-mono text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors"
+          >
+            Full Resume &amp; Timeline →
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-8 flex flex-col divide-y divide-neutral-200/80">
+        {
+          overviewExperience.map((exp, idx) => (
+            <div
+              class:list={[
+                'flex flex-col gap-1',
+                idx === 0
+                  ? 'pb-6'
+                  : idx === overviewExperience.length - 1
+                    ? 'pt-6'
+                    : 'py-6',
+              ]}
+            >
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-neutral-900">{exp.role}</span>
+                <span class="text-xs font-mono text-neutral-400">
+                  {exp.period}
+                </span>
+              </div>
+              <span class="text-xs text-neutral-500">{exp.location}</span>
+              <p class="text-xs text-neutral-600 mt-2 leading-relaxed">
+                {exp.summary}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <div class="w-full border-t border-neutral-200/80"></div>
+
+    <!-- Quiet Contact Footer Callout -->
+    <section class="flex flex-col gap-4 py-2" id="contact">
+      <div class="flex flex-col gap-2">
+        <h2 class="text-lg font-medium text-neutral-900 tracking-tight">
+          Get in touch
+        </h2>
+        <p class="text-sm text-neutral-600 leading-relaxed max-w-lg">
+          Whether you have an upcoming iOS project, need assistance refactoring
+          an existing codebase, or would like to talk code over coffee in
+          Taipei.
+        </p>
+      </div>
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2"
+      >
+        <a
+          class="inline-flex items-center gap-1.5 bg-neutral-900 text-white text-xs font-medium px-4 py-2 rounded hover:bg-neutral-800 transition-colors"
+          href="/contact"
+        >
+          Send a Message via Contact Form
+          <span class="material-symbols-outlined text-xs">arrow_outward</span>
+        </a>
+        <span class="text-neutral-400 text-xs">or reach out via</span>
+        <a
+          class="text-xs font-mono text-neutral-900 underline underline-offset-4 hover:text-neutral-600 inline-flex items-center gap-1"
+          href={siteMetadata.linkedinUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          LinkedIn
+          <span class="material-symbols-outlined text-xs">arrow_outward</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
