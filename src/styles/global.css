@@ -10,3 +10,17 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #18181b !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+

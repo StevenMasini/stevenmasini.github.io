@@ -20,7 +20,7 @@ if (item.highlightProject && item.summary.includes(item.highlightProject)) {
 
 <article
   class:list={[
-    'relative pl-6 border-l border-neutral-200',
+    'relative pl-6 border-l border-neutral-200 print:break-inside-avoid',
     item.isCompact ? 'space-y-2' : 'space-y-3',
   ]}
 >
@@ -36,7 +36,7 @@ if (item.highlightProject && item.summary.includes(item.highlightProject)) {
   >
   </div>
 
-  <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+  <div class="flex flex-col sm:flex-row print:flex-row sm:items-baseline print:items-baseline sm:justify-between print:justify-between gap-1">
     <div>
       <h3
         class:list={[
@@ -50,7 +50,7 @@ if (item.highlightProject && item.summary.includes(item.highlightProject)) {
         {item.companyAndLocation}
       </div>
     </div>
-    <span class="text-xs font-mono text-neutral-500 sm:text-right shrink-0">
+    <span class="text-xs font-mono text-neutral-500 sm:text-right print:text-right shrink-0">
       {item.period}
     </span>
   </div>
