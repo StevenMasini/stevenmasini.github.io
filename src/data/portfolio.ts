@@ -242,9 +242,9 @@ export const flagshipProjects: FlagshipProject[] = [
           'Improved Exercise List caching for faster loading performance, refined filtering and sorting methods, and helped develop fuzzy search with real-time character highlighting.',
       },
       {
-        title: 'Customizable Themes, Diagnostics & Privacy Compliance',
+        title: 'Customizable Themes, Diagnostics, Privacy & Maintenance',
         description:
-          'Developed customizable themes and alternate app icons, built local database diagnostic tools, and implemented GDPR and Apple Privacy Nutrition Label compliance.',
+          'Developed customizable themes and alternate app icons, built local database diagnostic tools, implemented GDPR and Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.',
       },
     ],
     footerNote: 'App Store: 4.9 ★ (100k+ reviews)',
@@ -345,11 +345,11 @@ export const agencyProjects: AgencyProject[] = [
     techOrLinkLabel: 'Objective-C / APNs',
   },
   {
-    title: 'myPMU (v1.0)',
+    title: "myPMU — L'information Hippique (v1.0)",
     subtitle: 'Horse Racing Information App',
     icon: '/images/apps/mypmu.jpg',
     description:
-      'Developed within a 3-developer iOS engineering team, responsible for custom UI implementation and Core Data local database support.',
+      'Took over a project already in development within a 3-developer iOS engineering team, responsible for custom UI implementation and Core Data local database support.',
     techOrLinkLabel: 'App Store ↗',
     appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
   },
@@ -363,7 +363,7 @@ export const agencyProjects: AgencyProject[] = [
     appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
   },
   {
-    title: 'FFB — Déchets BTP',
+    title: 'Fédération Française du Bâtiment (FFB) — Déchets BTP',
     subtitle: 'Construction Waste Management (iOS 7 & Windows Phone 8)',
     icon: '/images/apps/ffb.jpg',
     description:
@@ -377,7 +377,7 @@ export const earlyFoundations: EarlyFoundation[] = [
     category: 'Android • C4M Prod (2011)',
     title: 'Qobuz Music Streaming',
     description:
-      'Developed the Android music player interface, custom artist information section, and social sharing (Facebook, Twitter, SMS, Email) for tracks and playlists.',
+      'Developed the Android music player interface, customizable artist information section, and social sharing (Facebook, Twitter, SMS, Email) for tracks and playlists.',
     stack: 'Java / Android SDK / Social APIs',
   },
   {
@@ -412,7 +412,7 @@ export const earlyFoundations: EarlyFoundation[] = [
     category: 'Web Frontend • Technivore (2009)',
     title: 'CMS & XHTML Platforms',
     description:
-      'Upgraded Joomla 1.0 to 1.5 with DB migration for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and managed SPIP CMS for Faire du sport à Marseille.',
+      'Upgraded Joomla 1.0 to 1.5 with DB migration, SEO partner visibility, and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and maintained SPIP CMS for Faire du sport à Marseille.',
     stack: 'XHTML / CSS2 & CSS3 / JS / Joomla / SPIP',
   },
 ];
@@ -454,7 +454,7 @@ export const experienceTimeline: ExperienceItem[] = [
       'Implemented and shipped the Live Activity and Dynamic Island feature displaying active rest timers on the Lock Screen and Dynamic Island.',
       'Improved the xRM (x Repetition Maximum) estimation formula by adding support for both Brzycki and Epley formulas across Personal Records, Charts, and analytics.',
       'Enhanced Exercise List filters, sorting methods, and caching to improve loading performance, and helped develop fuzzy search with real-time character highlighting.',
-      'Developed customizable themes, alternate app icons, local database diagnostic tools, and GDPR / Apple Privacy Nutrition Label compliance.',
+      'Developed customizable themes, alternate app icons, local database diagnostic tools, GDPR / Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.',
     ],
     tags: [
       'Swift',
@@ -531,8 +531,8 @@ export const experienceTimeline: ExperienceItem[] = [
     bullets: [
       'Corse Matin per noï (v1.0–1.2): Integrated MiLibris API v3 & v4 for enriched PDF viewing, designed/developed the iPad version, and built for iOS 4.3+ with longevity through iOS 11.',
       'Le Trot - Cheval Français (v1.1): Rewrote source code for iPhone and iPad, ensured iOS 5+ compatibility, and fixed push notification issues.',
-      'myPMU (v1.0) & Belles Demeures (v1.0): Worked in 3-developer teams handling universal iPhone/iPad development, UI integration, and Core Data support.',
-      'FFB - Déchets BTP: Developed both iOS 7 and Windows Phone 8 apps with REST API integration, UI/navigation, and Core Data cache management.',
+      "myPMU - L'information Hippique (v1.0) & Belles Demeures (v1.0): Worked in 3-developer teams taking over an in-progress project (myPMU) and delivering universal iPhone/iPad apps, UI integration, and Core Data support.",
+      'Fédération Française du Bâtiment (FFB) - Déchets BTP: Developed both iOS 7 and Windows Phone 8 apps with REST API integration, UI/navigation, and Core Data cache management.',
     ],
     tags: [
       'Objective-C',
@@ -549,9 +549,9 @@ export const experienceTimeline: ExperienceItem[] = [
     period: 'May 2011 – Aug 2011',
     isCompact: true,
     summary:
-      'Third-year multi-platform internship across Android, PHP Web Services, and Windows C#/.NET.',
+      "End-of-third-year Bachelor's multi-platform internship across Android, PHP Web Services, and Windows C#/.NET.",
     bullets: [
-      'Android: Developed Qobuz music player UI, artist info views, and social sharing; updated RATP internal database and integrated AdMob.',
+      'Android: Developed Qobuz music player UI, customizable artist info views, and social sharing (Facebook, Twitter, SMS, Email); updated RATP internal database and integrated AdMob.',
       'Web & Push: Maintained Zend Framework web services (Atol les opticiens, Volkswagen, Digitick) and built a PHP deployment automation client library for the Pushmii server.',
       'Windows C#: Built an HTML template generator in C# and .NET 4.0 with Excel data extraction for Daiichi-Sankyo e-ADV.',
     ],
@@ -563,7 +563,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: 'Jul 2009 – Nov 2009',
     isCompact: true,
     summary:
-      'First-year internship focused on web frontend development and CMS migrations: upgraded Joomla 1.0 to 1.5 with database migration and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and managed SPIP CMS for Faire du sport à Marseille.',
+      'End-of-first-year internship focused on web frontend development and CMS migrations: upgraded Joomla 1.0 to 1.5 with database migration, commercial partner search visibility, and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and maintained SPIP CMS for Faire du sport à Marseille.',
     tags: ['HTML/XHTML', 'CSS2/CSS3', 'JavaScript', 'Joomla', 'SPIP', 'PHP'],
   },
 ];
@@ -573,14 +573,15 @@ export const educationList = [
     institution: 'EPITECH Paris',
     period: '2008 – 2013',
     subtitle: 'European Institute of Technology',
-    degree: "Master's in Computer Science",
+    degree: "Master's in Information Technology",
     description:
-      'Rigorous foundations in Unix environments, C99, systems architecture, algorithmic complexity, and OOP patterns.',
+      'Rigorous foundations in UNIX and C99 programming, followed by Object-Oriented Programming (OOP) and design patterns with C++, PHP, and C#.',
   },
   {
     institution: 'Beijing Jiaotong University',
     period: '2011 – 2012',
-    subtitle: "Master's Academic Exchange",
+    subtitle: 'International Academic Exchange',
+    degree: "Master's in Computer Software Engineering",
     description:
       'Curriculum focused on software engineering methodologies, international collaboration, and Chinese language.',
   },
@@ -594,7 +595,8 @@ export const technicalFocusList = [
   },
   {
     category: 'Architecture',
-    skills: 'MVVM, MVC, Reactive, Modular Framework, Dependency Injection',
+    skills:
+      'MVVM, MVC, Functional Programming, Reactive, Modular Framework, Dependency Injection',
   },
   {
     category: 'Tooling & Testing',
