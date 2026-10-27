@@ -124,12 +124,12 @@ export const navItems: NavItem[] = [
 export const overviewSelectedWork: OverviewWorkItem[] = [
   {
     title: 'Strong Workout Tracker',
-    subtitle: 'iOS Client',
+    subtitle: 'iOS Client • 4.9 ★ (185k+ Ratings)',
     period: '2019 — Present',
     icon: '/images/apps/strong.jpg',
     href: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
     description:
-      'Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas) across Personal Records and Charts, and enhanced Exercise List caching, filtering, and fuzzy search with character highlighting.',
+      'Multi-million download workout tracker featured by CNBC and The Verge. Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas), and enhanced Exercise List caching, filtering, and fuzzy search.',
   },
   {
     title: 'SELECT',
@@ -150,12 +150,12 @@ export const overviewSelectedWork: OverviewWorkItem[] = [
   },
   {
     title: 'Talkmate',
-    subtitle: 'Beijing 200H Education',
+    subtitle: 'Beijing 200H Education • 10M+ Users',
     period: '2015',
     icon: '/images/apps/talkmate.jpg',
     href: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
     description:
-      'Led a team of 3–4 iOS developers for Talkmate, a language learning platform connecting students with native speakers. Inherited a stalled 1+ year project, completely rewrote the codebase in Swift, reduced bundle size, and shipped v1.0 through v2.1.',
+      'Led a team of 3–4 iOS developers for Talkmate (4.7 ★, 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a stalled 1+ year project, completely rewrote the codebase in Swift, reduced bundle size, and shipped v1.0 through v2.1.',
   },
 ];
 
@@ -165,7 +165,7 @@ export const overviewExperience: OverviewExperienceSummary[] = [
     period: '2019 — Present',
     location: 'Taipei City, Taiwan',
     summary:
-      'Long-term iOS engineering on Strong Workout Tracker (SwiftUI/Combine v6.0 refactor, Live Activities, xRM formulas, fuzzy search) and companion Node.js backend services.',
+      'Long-term iOS engineering on Strong Workout Tracker (4.9 ★, 185k+ global ratings — SwiftUI/Combine v6.0 refactor, Live Activities, xRM formulas, fuzzy search) and companion Node.js backend services.',
   },
   {
     role: 'Mobile Developer (iOS & React Native) — Super Effective',
@@ -186,7 +186,7 @@ export const overviewExperience: OverviewExperienceSummary[] = [
     period: '2015',
     location: 'Beijing, China',
     summary:
-      'Led 3–4 iOS developers on Talkmate. Rewrote the entire codebase in Swift, optimized bundle size, and delivered versions 1.0 through 2.1.',
+      'Led 3–4 iOS developers on Talkmate (10M+ users, 4.7 ★). Rewrote the entire codebase in Swift, optimized bundle size, and delivered versions 1.0 through 2.1.',
   },
   {
     role: 'iOS Mobile Developer — userADgents',
@@ -200,7 +200,7 @@ export const overviewExperience: OverviewExperienceSummary[] = [
 export const workPageStats: StatItem[] = [
   { label: 'Track Record', value: '15+ Store Apps' },
   { label: 'Specialization', value: 'Swift, SwiftUI & UIKit' },
-  { label: 'Scale', value: 'Millions of Users' },
+  { label: 'Combined Reach', value: '20M+ Users' },
   { label: 'Experience', value: 'Since 2011' },
 ];
 
@@ -211,7 +211,7 @@ export const flagshipProjects: FlagshipProject[] = [
     roleType: 'Freelance',
     icon: '/images/apps/strong.jpg',
     summary:
-      'One of the world’s leading workout and strength-training apps on the App Store, trusted by millions of lifters worldwide. Long-term collaboration across major architectural milestones and core user-facing features.',
+      'One of the world’s leading workout and strength-training apps, with multi-million downloads across iOS and Android, 185,000+ global App Store ratings (4.9 ★), and recognition from CNBC and The Verge. Long-term collaboration across major architectural milestones and core user-facing features.',
     tags: [
       'Swift',
       'SwiftUI',
@@ -247,7 +247,7 @@ export const flagshipProjects: FlagshipProject[] = [
           'Developed customizable themes and alternate app icons, built local database diagnostic tools, implemented GDPR and Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.',
       },
     ],
-    footerNote: 'App Store: 4.9 ★ (100k+ reviews)',
+    footerNote: 'App Store: 4.9 ★ (185k+ global ratings • 108k+ US) • Multi-Million Downloads',
     appStoreUrl:
       'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
     appStoreLabel: 'View on App Store →',
@@ -285,7 +285,7 @@ export const flagshipProjects: FlagshipProject[] = [
           'Built a custom Objective-C native image picker module bridged to React Native for optimal performance, and implemented responsive Flexbox screen layouts across iOS and Android.',
       },
     ],
-    footerNote: 'Shipped to iOS App Store & Google Play',
+    footerNote: 'App Store: 5.0 ★ • Shipped on iOS & Google Play',
     appStoreUrl:
       'https://apps.apple.com/us/app/select-your-community/id1076478889',
     appStoreLabel: 'View on App Store →',
@@ -310,18 +310,18 @@ export const spotlightProjects: SpotlightProject[] = [
   },
   {
     title: 'Talkmate',
-    category: 'Lead iOS Developer • EduTech',
+    category: 'Lead iOS Developer • 10M+ Users',
     period: '2015',
     icon: '/images/apps/talkmate.jpg',
     summary:
-      'Language learning platform connecting students with native speakers for real-time conversation practice. Inherited a project in development for over a year and transformed it into a polished product (v1.0 to v2.1).',
+      'Language learning platform (10M+ users, 4.7 ★ with 19k+ App Store ratings, Apple App Store Featured, and UNESCO Official Partner). Inherited a project in development for over a year and transformed it into a flagship release (v1.0 to v2.1).',
     bullets: [
       'Led a team of 3–4 iOS developers, managing task allocation, architecture decisions, and release planning.',
       'Completely rewrote and re-architected the entire codebase in Swift and UIKit for scalability and maintainability.',
       'Reduced app bundle size through resource optimization and drove App Store Optimization (ASO) and product decisions.',
     ],
     company: 'Beijing 200H Education',
-    locationOrLinkText: 'App Store →',
+    locationOrLinkText: '4.7 ★ (19k+) • App Store →',
     appStoreUrl:
       'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
   },
@@ -346,20 +346,20 @@ export const agencyProjects: AgencyProject[] = [
   },
   {
     title: "myPMU — L'information Hippique (v1.0)",
-    subtitle: 'Horse Racing Information App',
+    subtitle: 'Horse Racing Information App • 4.6 ★ (45k+ Ratings)',
     icon: '/images/apps/mypmu.jpg',
     description:
-      'Took over a project already in development within a 3-developer iOS engineering team, responsible for custom UI implementation and Core Data local database support.',
-    techOrLinkLabel: 'App Store ↗',
+      "Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform (45,400+ App Store ratings), responsible for custom UI implementation and Core Data local database support.",
+    techOrLinkLabel: '4.6 ★ (45k+) • App Store ↗',
     appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
   },
   {
     title: 'Belles Demeures (v1.0)',
-    subtitle: 'Luxury Real Estate (iPhone & iPad)',
+    subtitle: 'Luxury Real Estate (iPhone & iPad) • 4.8 ★ (3.1k+ Ratings)',
     icon: '/images/apps/belledemeures.jpg',
     description:
-      'Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for prestige property listings.',
-    techOrLinkLabel: 'App Store ↗',
+      'Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries.',
+    techOrLinkLabel: '4.8 ★ (3.1k+) • App Store ↗',
     appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
   },
   {
@@ -375,16 +375,16 @@ export const agencyProjects: AgencyProject[] = [
 export const earlyFoundations: EarlyFoundation[] = [
   {
     category: 'Android • C4M Prod (2011)',
-    title: 'Qobuz Music Streaming',
+    title: 'Qobuz Music Streaming (1M+ Downloads • 4.8 ★)',
     description:
       'Developed the Android music player interface, customizable artist information section, and social sharing (Facebook, Twitter, SMS, Email) for tracks and playlists.',
     stack: 'Java / Android SDK / Social APIs',
   },
   {
     category: 'Android • C4M Prod (2011)',
-    title: 'RATP Paris Transit',
+    title: 'RATP Paris Transit (10M+ Downloads • 4.6 ★)',
     description:
-      'Updated the internal Paris transit schedule database and integrated the AdMob mobile advertising framework.',
+      'Updated the internal Paris transit schedule database and integrated the AdMob mobile advertising framework for the official Paris metro and transit app.',
     stack: 'Java / Android / AdMob',
   },
   {
@@ -426,7 +426,7 @@ export const experiencePageStats: StatItem[] = [
   {
     label: 'Shipped Apps',
     value: '15+ Releases',
-    sublabel: 'Consumer & Enterprise',
+    sublabel: '20M+ Combined Users',
   },
   {
     label: 'Core Focus',
@@ -447,7 +447,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: 'Dec 2019 – Present',
     isCurrent: true,
     summary:
-      'Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker, one of the most popular fitness tracking apps on the App Store.',
+      'Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker (4.9 ★, 185k+ global ratings, multi-million downloads), featured by CNBC and The Verge.',
     highlightProject: 'Strong Workout Tracker',
     bullets: [
       'Contributed to the major codebase refactoring adopting SwiftUI and Combine, leading to the release of Strong 6.0.',
@@ -507,7 +507,7 @@ export const experienceTimeline: ExperienceItem[] = [
     companyAndLocation: 'Beijing 200H Education • Beijing, China',
     period: 'Mar 2015 – Dec 2015',
     summary:
-      'Led a team of 3–4 iOS developers for Talkmate, a language learning platform connecting students with native speakers worldwide. Inherited a project in development for over a year and delivered versions 1.0 through 2.1.',
+      'Led a team of 3–4 iOS developers for Talkmate (10M+ users, 4.7 ★ with 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a project in development for over a year and delivered versions 1.0 through 2.1.',
     highlightProject: 'Talkmate',
     bullets: [
       'Completely rewrote and re-architected the entire codebase in Swift and UIKit for scalability and maintainability.',
@@ -531,7 +531,7 @@ export const experienceTimeline: ExperienceItem[] = [
     bullets: [
       'Corse Matin per noï (v1.0–1.2): Integrated MiLibris API v3 & v4 for enriched PDF viewing, designed/developed the iPad version, and built for iOS 4.3+ with longevity through iOS 11.',
       'Le Trot - Cheval Français (v1.1): Rewrote source code for iPhone and iPad, ensured iOS 5+ compatibility, and fixed push notification issues.',
-      "myPMU - L'information Hippique (v1.0) & Belles Demeures (v1.0): Worked in 3-developer teams taking over an in-progress project (myPMU) and delivering universal iPhone/iPad apps, UI integration, and Core Data support.",
+      "myPMU - L'information Hippique (v1.0, 4.6 ★ / 45k+ ratings) & Belles Demeures (v1.0, 4.8 ★ / 3.1k+ ratings): Worked in 3-developer teams taking over an in-progress project (myPMU) and delivering universal iPhone/iPad apps, UI integration, and Core Data support.",
       'Fédération Française du Bâtiment (FFB) - Déchets BTP: Developed both iOS 7 and Windows Phone 8 apps with REST API integration, UI/navigation, and Core Data cache management.',
     ],
     tags: [
@@ -551,7 +551,7 @@ export const experienceTimeline: ExperienceItem[] = [
     summary:
       "End-of-third-year Bachelor's multi-platform internship across Android, PHP Web Services, and Windows C#/.NET.",
     bullets: [
-      'Android: Developed Qobuz music player UI, customizable artist info views, and social sharing (Facebook, Twitter, SMS, Email); updated RATP internal database and integrated AdMob.',
+      'Android: Developed Qobuz music player UI (1M+ downloads, 4.8 ★), customizable artist info views, and social sharing (Facebook, Twitter, SMS, Email); updated RATP internal database (10M+ downloads, 4.6 ★) and integrated AdMob.',
       'Web & Push: Maintained Zend Framework web services (Atol les opticiens, Volkswagen, Digitick) and built a PHP deployment automation client library for the Pushmii server.',
       'Windows C#: Built an HTML template generator in C# and .NET 4.0 with Excel data extraction for Daiichi-Sankyo e-ADV.',
     ],
