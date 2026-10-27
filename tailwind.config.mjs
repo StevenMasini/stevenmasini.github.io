@@ -32,8 +32,16 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: [
+          'Inter',
+          'Noto Sans TC',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'PingFang TC',
+          'Microsoft JhengHei',
+          'sans-serif',
+        ],
+        mono: ['JetBrains Mono', 'Noto Sans TC', 'monospace'],
       },
     },
   },

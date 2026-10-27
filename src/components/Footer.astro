@@ -1,11 +1,20 @@
 ---
-import { navItems, siteMetadata, type NavItem } from '../data/portfolio';
+import {
+  defaultLocale,
+  getLocalizedPath,
+  getPortfolioData,
+  type Locale,
+  type NavItem,
+} from '../data/portfolio';
 
 interface Props {
   activeNav: NavItem['id'];
+  lang?: Locale;
 }
 
-const { activeNav } = Astro.props;
+const { activeNav, lang = defaultLocale } = Astro.props;
+const { siteMetadata, navItems } = getPortfolioData(lang);
+const homeHref = getLocalizedPath(lang, '/');
 ---
 
 <footer class="w-full bg-white border-t border-neutral-200/80 mt-16 print:hidden">
@@ -13,7 +22,7 @@ const { activeNav } = Astro.props;
     <div
       class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-100"
     >
-      <a href="/" class="flex items-center gap-3 group">
+      <a href={homeHref} class="flex items-center gap-3 group">
         <div
           class="w-7 h-7 rounded bg-neutral-900 text-white flex items-center justify-center font-mono font-medium text-xs shrink-0 group-hover:bg-neutral-800 transition-colors"
         >

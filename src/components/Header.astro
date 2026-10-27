@@ -1,11 +1,33 @@
 ---
-import { navItems, siteMetadata, type NavItem } from '../data/portfolio';
+import {
+  defaultLocale,
+  getLocalizedPath,
+  getPortfolioData,
+  localeConfigs,
+  locales,
+  type Locale,
+  type NavItem,
+} from '../data/portfolio';
 
 interface Props {
   activeNav: NavItem['id'];
+  lang?: Locale;
 }
 
-const { activeNav } = Astro.props;
+const { activeNav, lang = defaultLocale } = Astro.props;
+const data = getPortfolioData(lang);
+const { siteMetadata, navItems, ui, localeInfo } = data;
+
+const pageSlugMap: Record<NavItem['id'], string> = {
+  overview: '/',
+  'apps-and-work': '/apps-and-work',
+  experience: '/experience',
+  contact: '/contact',
+};
+
+const currentSlug = pageSlugMap[activeNav] ?? '/';
+const homeHref = getLocalizedPath(lang, '/');
+const contactHref = getLocalizedPath(lang, '/contact');
 ---
 
 <header
@@ -16,7 +38,7 @@ const { activeNav } = Astro.props;
   >
     <!-- Brand Identity -->
     <div class="flex items-center min-w-0">
-      <a class="flex items-center gap-2.5 sm:gap-3 group min-w-0" href="/">
+      <a class="flex items-center gap-2.5 sm:gap-3 group min-w-0" href={homeHref}>
         <div
           class="w-8 h-8 rounded-md bg-neutral-900 text-white font-mono font-medium text-xs flex items-center justify-center tracking-wider shrink-0 group-hover:bg-neutral-800 transition-colors"
         >
@@ -38,7 +60,10 @@ const { activeNav } = Astro.props;
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-1 shrink-0" aria-label="Primary Navigation">
+    <nav
+      class="hidden md:flex items-center gap-1 shrink-0"
+      aria-label="Primary Navigation"
+    >
       {
         navItems.map((item) => {
           const isActive = item.id === activeNav;
@@ -60,19 +85,75 @@ const { activeNav } = Astro.props;
       }
     </nav>
 
-    <!-- CTA + Mobile Menu Toggle -->
-    <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+    <!-- Language Selector + CTA + Mobile Menu Toggle -->
+    <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+      <!-- Language Selection Button (Left of "Get in touch") -->
+      <div class="relative" id="lang-dropdown-container">
+        <button
+          type="button"
+          id="lang-menu-btn"
+          aria-label={ui.header.languageLabel}
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="inline-flex items-center gap-1.5 border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-neutral-300 text-neutral-700 hover:text-neutral-900 text-xs font-mono font-medium px-2.5 py-1.5 rounded-md transition-colors cursor-pointer"
+        >
+          <span class="material-symbols-outlined text-[15px] text-neutral-500">
+            language
+          </span>
+          <span>{localeInfo.shortLabel}</span>
+          <span
+            class="material-symbols-outlined text-[15px] text-neutral-400 transition-transform duration-150"
+            id="lang-menu-chevron"
+          >
+            expand_more
+          </span>
+        </button>
+
+        <div
+          id="lang-dropdown-menu"
+          role="menu"
+          aria-orientation="vertical"
+          class="hidden absolute right-0 mt-1.5 w-40 bg-white border border-neutral-200 rounded-md shadow-md py-1 z-50"
+        >
+          {
+            locales.map((targetLocale) => {
+              const info = localeConfigs[targetLocale];
+              const isCurrent = targetLocale === lang;
+              const targetHref = getLocalizedPath(targetLocale, currentSlug);
+              return (
+                <a
+                  href={targetHref}
+                  role="menuitem"
+                  aria-current={isCurrent ? 'true' : undefined}
+                  class:list={[
+                    'flex items-center justify-between px-3 py-1.5 text-xs transition-colors',
+                    isCurrent
+                      ? 'bg-neutral-100/80 text-neutral-900 font-semibold'
+                      : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900',
+                  ]}
+                >
+                  <span>{info.label}</span>
+                  <span class="font-mono text-[10px] text-neutral-400">
+                    {info.shortLabel}
+                  </span>
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+
       <a
-        href="/contact"
+        href={contactHref}
         class="hidden sm:inline-flex items-center gap-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium px-3.5 py-1.5 rounded-md transition-colors shadow-sm"
       >
-        Get in touch
+        {ui.header.getInTouch}
       </a>
 
       <button
         type="button"
         id="mobile-menu-btn"
-        aria-label="Toggle navigation menu"
+        aria-label={ui.header.toggleMenuLabel}
         aria-expanded="false"
         class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
       >
@@ -111,10 +192,10 @@ const { activeNav } = Astro.props;
     </div>
     <div class="pt-2 border-t border-neutral-100 sm:hidden">
       <a
-        href="/contact"
+        href={contactHref}
         class="w-full inline-flex items-center justify-center gap-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium px-4 py-2.5 rounded-md transition-colors shadow-sm"
       >
-        Get in touch
+        {ui.header.getInTouch}
       </a>
     </div>
   </div>
@@ -131,6 +212,38 @@ const { activeNav } = Astro.props;
     menu?.classList.toggle('hidden');
     if (icon) {
       icon.textContent = isExpanded ? 'menu' : 'close';
+    }
+  });
+
+  // Language dropdown toggle
+  const langContainer = document.getElementById('lang-dropdown-container');
+  const langBtn = document.getElementById('lang-menu-btn');
+  const langMenu = document.getElementById('lang-dropdown-menu');
+  const langChevron = document.getElementById('lang-menu-chevron');
+
+  function closeLangMenu() {
+    langBtn?.setAttribute('aria-expanded', 'false');
+    langMenu?.classList.add('hidden');
+    langChevron?.classList.remove('rotate-180');
+  }
+
+  langBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+    langBtn.setAttribute('aria-expanded', String(!isExpanded));
+    langMenu?.classList.toggle('hidden');
+    langChevron?.classList.toggle('rotate-180', !isExpanded);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (langContainer && !langContainer.contains(e.target as Node)) {
+      closeLangMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLangMenu();
     }
   });
 </script>

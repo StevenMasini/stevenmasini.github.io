@@ -2,19 +2,43 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { siteMetadata, type NavItem } from '../data/portfolio';
+import {
+  defaultLocale,
+  getLocalizedPath,
+  getPortfolioData,
+  localeConfigs,
+  locales,
+  type Locale,
+  type NavItem,
+} from '../data/portfolio';
 
 interface Props {
   title?: string;
   description?: string;
   activeNav: NavItem['id'];
+  lang?: Locale;
 }
 
 const {
-  title = 'Steven Masini — iOS and Backend Developer in Taipei',
-  description = '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
   activeNav,
+  lang = defaultLocale,
+  title: propTitle,
+  description: propDescription,
 } = Astro.props;
+
+const data = getPortfolioData(lang);
+const { siteMetadata, localeInfo, ui } = data;
+
+const title = propTitle ?? ui.overview.metaTitle;
+const description = propDescription ?? ui.overview.metaDescription;
+
+const pageSlugMap: Record<NavItem['id'], string> = {
+  overview: '/',
+  'apps-and-work': '/apps-and-work/',
+  experience: '/experience/',
+  contact: '/contact/',
+};
+const currentSlug = pageSlugMap[activeNav] ?? '/';
 
 const canonicalUrl = new URL(
   Astro.url.pathname,
@@ -25,6 +49,19 @@ const ogImageUrl = new URL(
   Astro.site ?? siteMetadata.siteUrl
 ).toString();
 
+const alternateLinks = locales.map((loc) => ({
+  hreflang: localeConfigs[loc].htmlLang,
+  href: new URL(
+    getLocalizedPath(loc, currentSlug),
+    Astro.site ?? siteMetadata.siteUrl
+  ).toString(),
+}));
+
+const defaultHref = new URL(
+  getLocalizedPath(defaultLocale, currentSlug),
+  Astro.site ?? siteMetadata.siteUrl
+).toString();
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -32,7 +69,7 @@ const jsonLd = {
       '@type': 'Person',
       '@id': `${siteMetadata.siteUrl}/#person`,
       name: siteMetadata.name,
-      jobTitle: 'iOS and Backend Developer',
+      jobTitle: siteMetadata.jobTitleSchema,
       description,
       url: siteMetadata.siteUrl,
       sameAs: [siteMetadata.linkedinUrl, siteMetadata.githubUrl],
@@ -72,14 +109,14 @@ const jsonLd = {
       publisher: {
         '@id': `${siteMetadata.siteUrl}/#person`,
       },
-      inLanguage: 'en',
+      inLanguage: localeInfo.htmlLang,
     },
   ],
 };
 ---
 
 <!doctype html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang={localeInfo.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -90,6 +127,12 @@ const jsonLd = {
     <meta name="keywords" content={siteMetadata.keywords.join(', ')} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
+    {
+      alternateLinks.map((alt) => (
+        <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={defaultHref} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -100,7 +143,7 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={localeInfo.ogLocale} />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -116,7 +159,7 @@ const jsonLd = {
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -127,10 +170,10 @@ const jsonLd = {
   <body
     class="bg-background font-sans text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white min-h-screen flex flex-col"
   >
-    <Header activeNav={activeNav} />
+    <Header activeNav={activeNav} lang={lang} />
     <main class="flex-1 w-full">
       <slot />
     </main>
-    <Footer activeNav={activeNav} />
+    <Footer activeNav={activeNav} lang={lang} />
   </body>
 </html>
