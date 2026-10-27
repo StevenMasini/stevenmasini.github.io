@@ -45,7 +45,7 @@ const canonicalUrl = new URL(
   Astro.site ?? siteMetadata.siteUrl
 ).toString();
 const ogImageUrl = new URL(
-  '/og-image.svg',
+  '/og-image.png',
   Astro.site ?? siteMetadata.siteUrl
 ).toString();
 
@@ -148,6 +148,7 @@ gtag('config', '${siteMetadata.googleAnalyticsId}');`}
     <link rel="alternate" hreflang="x-default" href={defaultHref} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
@@ -156,6 +157,13 @@ gtag('config', '${siteMetadata.googleAnalyticsId}');`}
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={`${siteMetadata.name} — ${siteMetadata.tagline}`}
+    />
     <meta property="og:locale" content={localeInfo.ogLocale} />
     {
       locales
