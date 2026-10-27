@@ -45,6 +45,7 @@ export interface SpotlightProject {
   summary: string;
   bullets: string[];
   company: string;
+  ratingLabel?: string;
   locationOrLinkText: string;
   appStoreUrl?: string;
 }
@@ -52,10 +53,12 @@ export interface SpotlightProject {
 export interface AgencyProject {
   title: string;
   subtitle: string;
+  ratingLabel?: string;
   icon: string;
   description: string;
-  techOrLinkLabel: string;
+  techLabel: string;
   appStoreUrl?: string;
+  appStoreLabel?: string;
 }
 
 export interface EarlyFoundation {
@@ -124,12 +127,12 @@ export const navItems: NavItem[] = [
 export const overviewSelectedWork: OverviewWorkItem[] = [
   {
     title: 'Strong Workout Tracker',
-    subtitle: 'iOS Client • 4.9 ★ (185k+ Ratings)',
+    subtitle: 'iOS Client • ~5M Users • ~580k MAU',
     period: '2019 — Present',
     icon: '/images/apps/strong.jpg',
     href: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
     description:
-      'Multi-million download workout tracker featured by CNBC and The Verge. Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas), and enhanced Exercise List caching, filtering, and fuzzy search.',
+      'Workout tracker with ~5,000,000 registered users, ~580,000 monthly active users, and 4.9 ★ (185k+ global ratings). Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas), and enhanced Exercise List caching, filtering, and fuzzy search.',
   },
   {
     title: 'SELECT',
@@ -165,7 +168,7 @@ export const overviewExperience: OverviewExperienceSummary[] = [
     period: '2019 — Present',
     location: 'Taipei City, Taiwan',
     summary:
-      'Long-term iOS engineering on Strong Workout Tracker (4.9 ★, 185k+ global ratings — SwiftUI/Combine v6.0 refactor, Live Activities, xRM formulas, fuzzy search) and companion Node.js backend services.',
+      'Long-term iOS engineering on Strong Workout Tracker (~5M registered users, ~580k MAU, 4.9 ★ — SwiftUI/Combine v6.0 refactor, Live Activities, xRM formulas, fuzzy search) and companion Node.js backend services.',
   },
   {
     role: 'Mobile Developer (iOS & React Native) — Super Effective',
@@ -200,7 +203,7 @@ export const overviewExperience: OverviewExperienceSummary[] = [
 export const workPageStats: StatItem[] = [
   { label: 'Track Record', value: '15+ Store Apps' },
   { label: 'Specialization', value: 'Swift, SwiftUI & UIKit' },
-  { label: 'Combined Reach', value: '20M+ Users' },
+  { label: 'Combined Reach', value: '25M+ Users' },
   { label: 'Experience', value: 'Since 2011' },
 ];
 
@@ -211,7 +214,7 @@ export const flagshipProjects: FlagshipProject[] = [
     roleType: 'Freelance',
     icon: '/images/apps/strong.jpg',
     summary:
-      'One of the world’s leading workout and strength-training apps, with multi-million downloads across iOS and Android, 185,000+ global App Store ratings (4.9 ★), and recognition from CNBC and The Verge. Long-term collaboration across major architectural milestones and core user-facing features.',
+      'One of the world’s leading workout and strength-training apps, with ~5,000,000 registered users, ~580,000 monthly active users (MAU), 185,000+ global App Store ratings (4.9 ★), and recognition from CNBC and The Verge. Long-term collaboration across major architectural milestones and core user-facing features.',
     tags: [
       'Swift',
       'SwiftUI',
@@ -247,7 +250,7 @@ export const flagshipProjects: FlagshipProject[] = [
           'Developed customizable themes and alternate app icons, built local database diagnostic tools, implemented GDPR and Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.',
       },
     ],
-    footerNote: 'App Store: 4.9 ★ (185k+ global ratings • 108k+ US) • Multi-Million Downloads',
+    footerNote: 'App Store: 4.9 ★ (185k+ ratings) • ~5M Registered Users • ~580k MAU',
     appStoreUrl:
       'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
     appStoreLabel: 'View on App Store →',
@@ -314,14 +317,15 @@ export const spotlightProjects: SpotlightProject[] = [
     period: '2015',
     icon: '/images/apps/talkmate.jpg',
     summary:
-      'Language learning platform (10M+ users, 4.7 ★ with 19k+ App Store ratings, Apple App Store Featured, and UNESCO Official Partner). Inherited a project in development for over a year and transformed it into a flagship release (v1.0 to v2.1).',
+      'Language learning platform (10M+ users, Apple App Store Featured, and UNESCO Official Partner). Inherited a project in development for over a year and transformed it into a flagship release (v1.0 to v2.1).',
     bullets: [
       'Led a team of 3–4 iOS developers, managing task allocation, architecture decisions, and release planning.',
       'Completely rewrote and re-architected the entire codebase in Swift and UIKit for scalability and maintainability.',
       'Reduced app bundle size through resource optimization and drove App Store Optimization (ASO) and product decisions.',
     ],
     company: 'Beijing 200H Education',
-    locationOrLinkText: '4.7 ★ (19k+) • App Store →',
+    ratingLabel: 'App Store: 4.7 ★ (19,000+ ratings)',
+    locationOrLinkText: 'View on App Store →',
     appStoreUrl:
       'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
   },
@@ -334,7 +338,7 @@ export const agencyProjects: AgencyProject[] = [
     icon: '/images/apps/corsematin.jpg',
     description:
       'Integrated MiLibris API v3 and v4 for enriched PDF viewing of daily and weekly publications and designed/developed the iPad version. Built for iOS 4.3+ with forward-thinking architecture that continued running on iOS 11 without major updates.',
-    techOrLinkLabel: 'Objective-C / MiLibris',
+    techLabel: 'Objective-C / MiLibris',
   },
   {
     title: 'Le Trot — Cheval Français (v1.1)',
@@ -342,25 +346,29 @@ export const agencyProjects: AgencyProject[] = [
     icon: '/images/apps/letrot.jpg',
     description:
       "Completely rewrote the source code for both iPhone and iPad versions for France's harness racing authority, ensured iOS 5+ compatibility, and fixed critical Apple Push Notification service (APNs) issues.",
-    techOrLinkLabel: 'Objective-C / APNs',
+    techLabel: 'Objective-C / APNs',
   },
   {
     title: "myPMU — L'information Hippique (v1.0)",
-    subtitle: 'Horse Racing Information App • 4.6 ★ (45k+ Ratings)',
+    subtitle: 'Horse Racing Information (iPhone & iPad)',
+    ratingLabel: 'App Store: 4.6 ★ (45,400+ ratings)',
     icon: '/images/apps/mypmu.jpg',
     description:
-      "Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform (45,400+ App Store ratings), responsible for custom UI implementation and Core Data local database support.",
-    techOrLinkLabel: '4.6 ★ (45k+) • App Store ↗',
+      "Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform, responsible for custom UI implementation and Core Data local database support.",
+    techLabel: 'Objective-C / Core Data',
     appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
+    appStoreLabel: 'View on App Store →',
   },
   {
     title: 'Belles Demeures (v1.0)',
-    subtitle: 'Luxury Real Estate (iPhone & iPad) • 4.8 ★ (3.1k+ Ratings)',
+    subtitle: 'Luxury Real Estate (iPhone & iPad)',
+    ratingLabel: 'App Store: 4.8 ★ (3,100+ ratings)',
     icon: '/images/apps/belledemeures.jpg',
     description:
       'Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries.',
-    techOrLinkLabel: '4.8 ★ (3.1k+) • App Store ↗',
+    techLabel: 'Objective-C / UIKit',
     appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
+    appStoreLabel: 'View on App Store →',
   },
   {
     title: 'Fédération Française du Bâtiment (FFB) — Déchets BTP',
@@ -368,7 +376,7 @@ export const agencyProjects: AgencyProject[] = [
     icon: '/images/apps/ffb.jpg',
     description:
       'Developed both the iOS 7 and Windows Phone 8 clients, handling REST API integration, navigation and UI implementation, and Core Data cache management.',
-    techOrLinkLabel: 'iOS 7 & WP8 / Core Data',
+    techLabel: 'Objective-C & WP8 / Core Data',
   },
 ];
 
@@ -426,7 +434,7 @@ export const experiencePageStats: StatItem[] = [
   {
     label: 'Shipped Apps',
     value: '15+ Releases',
-    sublabel: '20M+ Combined Users',
+    sublabel: '25M+ Combined Users',
   },
   {
     label: 'Core Focus',
@@ -447,7 +455,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: 'Dec 2019 – Present',
     isCurrent: true,
     summary:
-      'Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker (4.9 ★, 185k+ global ratings, multi-million downloads), featured by CNBC and The Verge.',
+      'Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker (~5,000,000 registered users, ~580,000 MAU, 4.9 ★ with 185k+ global ratings), featured by CNBC and The Verge.',
     highlightProject: 'Strong Workout Tracker',
     bullets: [
       'Contributed to the major codebase refactoring adopting SwiftUI and Combine, leading to the release of Strong 6.0.',
