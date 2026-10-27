@@ -166,6 +166,7 @@ export interface SiteMetadata {
   linkedinDisplay: string;
   githubUrl: string;
   formSubmitToken: string;
+  googleAnalyticsId: string;
   copyrightYear: string;
   keywords: string[];
 }
@@ -295,6 +296,7 @@ const baseMetadata = {
   linkedinDisplay: 'linkedin.com/in/stevenmasini',
   githubUrl: 'https://github.com/StevenMasini',
   formSubmitToken: 'f87fcc8becf3b1ec96cc073c7f5cf448',
+  googleAnalyticsId: 'G-7CND8FWF9R',
   copyrightYear: '2026',
   keywords: [
     'Steven Masini',

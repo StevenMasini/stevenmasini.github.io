@@ -119,6 +119,19 @@ const jsonLd = {
 <html class="scroll-smooth" lang={localeInfo.htmlLang}>
   <head>
     <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${siteMetadata.googleAnalyticsId}`}
+    ></script>
+    <script
+      is:inline
+      set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${siteMetadata.googleAnalyticsId}');`}
+    />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="web_standard" name="shell-type" />
     <title>{title}</title>
