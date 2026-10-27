@@ -1,7 +1,11 @@
 import type { APIRoute } from 'astro';
-import { siteMetadata } from '../data/portfolio';
+import {
+  getLocalizedPath,
+  locales,
+  siteMetadata,
+} from '../data/portfolio';
 
-const pages = [
+const basePages = [
   { path: '/', priority: '1.0', changefreq: 'monthly' },
   { path: '/apps-and-work/', priority: '0.9', changefreq: 'monthly' },
   { path: '/experience/', priority: '0.9', changefreq: 'monthly' },
@@ -11,10 +15,22 @@ const pages = [
 export const GET: APIRoute = () => {
   const lastmod = new Date().toISOString().split('T')[0];
 
-  const urlsXml = pages
+  const localizedPages = locales.flatMap((lang) =>
+    basePages.map((page) => {
+      const rawPath = getLocalizedPath(lang, page.path);
+      const pathWithSlash = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+      return {
+        loc: `${siteMetadata.siteUrl}${pathWithSlash}`,
+        priority: page.priority,
+        changefreq: page.changefreq,
+      };
+    })
+  );
+
+  const urlsXml = localizedPages
     .map(
       (page) => `  <url>
-    <loc>${siteMetadata.siteUrl}${page.path}</loc>
+    <loc>${page.loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>

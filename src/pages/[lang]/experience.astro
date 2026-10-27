@@ -1,0 +1,15 @@
+---
+import ExperiencePage from '../../components/pages/ExperiencePage.astro';
+import type { Locale } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' }, props: { lang: 'fr' as Locale } },
+    { params: { lang: 'zh-tw' }, props: { lang: 'zh-tw' as Locale } },
+  ];
+}
+
+const { lang } = Astro.props;
+---
+
+<ExperiencePage lang={lang} />
