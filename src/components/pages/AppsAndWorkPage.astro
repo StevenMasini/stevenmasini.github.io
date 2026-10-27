@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsGrid from '../StatsGrid.astro';
+import SectionHeader from '../SectionHeader.astro';
+import FlagshipProjectCard from '../FlagshipProjectCard.astro';
+import SpotlightProjectCard from '../SpotlightProjectCard.astro';
+import AgencyAppRow from '../AgencyAppRow.astro';
+import FoundationCard from '../FoundationCard.astro';
+import {
+  defaultLocale,
+  getLocalizedPath,
+  getPortfolioData,
+  type Locale,
+} from '../../data/portfolio';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = defaultLocale } = Astro.props;
+const {
+  ui,
+  workPageStats,
+  flagshipProjects,
+  spotlightProjects,
+  agencyProjects,
+  earlyFoundations,
+} = getPortfolioData(lang);
+
+const contactHref = getLocalizedPath(lang, '/contact');
+const experienceHref = getLocalizedPath(lang, '/experience');
+---
+
+<BaseLayout
+  title={ui.appsAndWork.metaTitle}
+  description={ui.appsAndWork.metaDescription}
+  activeNav="apps-and-work"
+  lang={lang}
+>
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-16 md:py-20 flex flex-col gap-16 sm:gap-20"
+  >
+    <!-- Hero Section -->
+    <section class="flex flex-col gap-4 border-b border-neutral-200 pb-12">
+      <div
+        class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-mono text-neutral-400 tracking-wider uppercase"
+      >
+        <span>{ui.appsAndWork.heroEyebrowLeft}</span>
+        <span>•</span>
+        <span>{ui.appsAndWork.heroEyebrowRight}</span>
+      </div>
+      <h1
+        class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-neutral-950"
+      >
+        {ui.appsAndWork.heroTitle}
+      </h1>
+      <p
+        class="text-base sm:text-lg text-neutral-600 font-normal leading-relaxed max-w-2xl mt-1"
+      >
+        {ui.appsAndWork.heroDescription}
+      </p>
+
+      <StatsGrid stats={workPageStats} variant="compact" />
+    </section>
+
+    <!-- 01 / Flagship Productions -->
+    <section class="flex flex-col gap-14">
+      <SectionHeader
+        title={ui.appsAndWork.section01Title}
+        rightLabel={ui.appsAndWork.section01Right}
+      />
+
+      {
+        flagshipProjects.map((project) => (
+          <FlagshipProjectCard project={project} />
+        ))
+      }
+
+      <!-- Spotlight Projects (CURIO EYE & Talkmate) -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pb-14 border-b border-neutral-200"
+      >
+        {
+          spotlightProjects.map((project) => (
+            <SpotlightProjectCard project={project} />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 02 / Earlier Work & Agency Era -->
+    <section class="flex flex-col gap-10">
+      <SectionHeader
+        title={ui.appsAndWork.section02Title}
+        rightLabel={ui.appsAndWork.section02Right}
+      />
+
+      <div class="flex flex-col gap-8">
+        <div>
+          <h3 class="text-sm font-semibold text-neutral-900 mb-3">
+            {ui.appsAndWork.agencySubheading}
+          </h3>
+          <div class="border border-neutral-200 rounded overflow-hidden bg-white">
+            <div class="divide-y divide-neutral-200">
+              {
+                agencyProjects.map((project) => (
+                  <AgencyAppRow project={project} />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-semibold text-neutral-900 mb-3">
+            {ui.appsAndWork.foundationsSubheading}
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {earlyFoundations.map((item) => <FoundationCard item={item} />)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Callout CTA -->
+    <section class="border-t border-neutral-200 pt-12 pb-4">
+      <div
+        class="flex flex-col md:flex-row md:items-baseline justify-between gap-6"
+      >
+        <div class="flex flex-col gap-2 max-w-lg">
+          <span
+            class="text-xs font-mono uppercase tracking-widest text-neutral-400"
+          >
+            {ui.appsAndWork.ctaEyebrow}
+          </span>
+          <h3 class="text-2xl font-semibold text-neutral-950 tracking-tight">
+            {ui.appsAndWork.ctaTitle}
+          </h3>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            {ui.appsAndWork.ctaDescription}
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <a
+            class="px-5 py-2.5 bg-neutral-900 text-white rounded text-xs font-mono font-medium hover:bg-neutral-800 transition-colors"
+            href={contactHref}
+          >
+            {ui.appsAndWork.ctaPrimaryBtn}
+          </a>
+          <a
+            class="px-4 py-2.5 border border-neutral-300 rounded text-xs font-mono text-neutral-700 hover:text-neutral-950 hover:border-neutral-900 transition-colors"
+            href={experienceHref}
+          >
+            {ui.appsAndWork.ctaSecondaryBtn}
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

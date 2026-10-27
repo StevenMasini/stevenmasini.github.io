@@ -1,0 +1,432 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  defaultLocale,
+  getPortfolioData,
+  type Locale,
+} from '../../data/portfolio';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = defaultLocale } = Astro.props;
+const { siteMetadata, ui } = getPortfolioData(lang);
+const projectTypes = ui.contact.projectTypes;
+---
+
+<BaseLayout
+  title={ui.contact.metaTitle}
+  description={ui.contact.metaDescription}
+  activeNav="contact"
+  lang={lang}
+>
+  <div
+    class="flex flex-col w-full max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-16 lg:py-20"
+  >
+    <!-- Page Title Header -->
+    <section class="max-w-2xl mb-16 lg:mb-20">
+      <p class="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">
+        {ui.contact.eyebrow}
+      </p>
+      <h1
+        class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-tight mb-4"
+      >
+        {ui.contact.title}
+      </h1>
+      <p class="text-base text-neutral-600 font-normal leading-relaxed">
+        {ui.contact.description}
+      </p>
+    </section>
+
+    <!-- Main Grid: Left Details & Right Form -->
+    <section
+      class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pb-8"
+    >
+      <!-- Left Column: Clear Direct Contact Details & Working Notes (5 cols) -->
+      <div class="lg:col-span-5 space-y-10">
+        <!-- Direct Contact Details -->
+        <div>
+          <h2
+            class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4"
+          >
+            {ui.contact.directContactTitle}
+          </h2>
+          <div class="space-y-4">
+            <!-- Location & Time -->
+            <div class="p-4 border border-neutral-200 rounded bg-white">
+              <div
+                class="text-[11px] font-mono text-neutral-500 uppercase tracking-wide mb-1"
+              >
+                {ui.contact.locationAndTimezoneLabel}
+              </div>
+              <div class="text-sm font-medium text-neutral-900">
+                {siteMetadata.location}{' '}
+                <span class="text-neutral-400 font-normal">/</span>{' '}
+                {ui.contact.remoteLabel}
+              </div>
+              <div
+                class="text-xs text-neutral-500 font-mono mt-1 flex items-center gap-2"
+              >
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-neutral-400"
+                ></span>
+                <span
+                  id="taipei-clock"
+                  data-prefix={ui.contact.clockPrefix}
+                  data-fallback={siteMetadata.timezoneShort}
+                >
+                  {siteMetadata.timezoneShort}
+                </span>
+              </div>
+            </div>
+
+            <!-- Social / Profile -->
+            <div class="p-4 border border-neutral-200 rounded bg-white">
+              <div
+                class="text-[11px] font-mono text-neutral-500 uppercase tracking-wide mb-1"
+              >
+                {ui.contact.professionalProfileLabel}
+              </div>
+              <a
+                class="text-sm font-medium text-neutral-900 hover:underline flex items-center justify-between group"
+                href={siteMetadata.linkedinUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span>{siteMetadata.linkedinDisplay}</span>
+                <span
+                  class="material-symbols-outlined text-xs text-neutral-400 group-hover:text-neutral-900"
+                >
+                  arrow_outward
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brief Working Notes -->
+        <div>
+          <h2
+            class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4"
+          >
+            {ui.contact.workingNotesTitle}
+          </h2>
+          <div class="space-y-4 text-xs leading-relaxed text-neutral-600">
+            {
+              ui.contact.notes.map((note) => (
+                <div>
+                  <span class="font-medium text-neutral-900 block mb-0.5">
+                    {note.title}
+                  </span>
+                  {note.description}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Simple Clean Form (7 cols) -->
+      <div class="lg:col-span-7">
+        <div class="bg-white border border-neutral-200 rounded p-6 sm:p-8">
+          <h2 class="text-base font-semibold text-neutral-900 mb-1">
+            {ui.contact.formTitle}
+          </h2>
+          <p class="text-xs text-neutral-500 mb-6">
+            {ui.contact.formSubtitle}
+          </p>
+
+          <form
+            class="space-y-5"
+            id="contact-form"
+            action={`https://formsubmit.co/${siteMetadata.formSubmitToken}`}
+            method="POST"
+            data-sending={ui.contact.sendingBtn}
+            data-sent={ui.contact.sentBtn}
+            data-submit={ui.contact.submitBtn}
+          >
+            <!-- Honeypot spam protection -->
+            <input
+              type="text"
+              name="_honey"
+              class="hidden"
+              tabindex="-1"
+              autocomplete="off"
+            />
+            <input type="hidden" name="_template" value="table" />
+
+            <!-- Name & Email Inputs -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label
+                  class="block text-xs font-medium text-neutral-700"
+                  for="sender-name"
+                >
+                  {ui.contact.nameLabel}
+                </label>
+                <input
+                  class="w-full bg-white border border-neutral-200 text-neutral-900 px-3.5 py-2.5 rounded text-sm placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 transition-colors"
+                  id="sender-name"
+                  name="name"
+                  placeholder={ui.contact.namePlaceholder}
+                  required
+                  type="text"
+                />
+              </div>
+              <div class="space-y-1.5">
+                <label
+                  class="block text-xs font-medium text-neutral-700"
+                  for="sender-email"
+                >
+                  {ui.contact.emailLabel}
+                </label>
+                <input
+                  class="w-full bg-white border border-neutral-200 text-neutral-900 px-3.5 py-2.5 rounded text-sm placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 transition-colors"
+                  id="sender-email"
+                  name="email"
+                  placeholder={ui.contact.emailPlaceholder}
+                  required
+                  type="email"
+                />
+              </div>
+            </div>
+
+            <!-- Project Type Selection -->
+            <div class="space-y-1.5">
+              <label class="block text-xs font-medium text-neutral-700">
+                {ui.contact.projectTypeLabel}
+              </label>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-2"
+                id="project-type-selector"
+              >
+                {
+                  projectTypes.map((type, idx) => (
+                    <button
+                      type="button"
+                      data-project-type={type}
+                      class:list={[
+                        'project-pill text-left px-3 py-2 rounded border border-neutral-200 text-xs font-medium transition-colors',
+                        idx === 0
+                          ? 'bg-neutral-900 text-white'
+                          : 'bg-white text-neutral-700 hover:border-neutral-400',
+                      ]}
+                    >
+                      {type}
+                    </button>
+                  ))
+                }
+              </div>
+              <input
+                id="selected-type-input"
+                name="project_type"
+                type="hidden"
+                value={projectTypes[0]}
+              />
+            </div>
+
+            <!-- Project Details / Message -->
+            <div class="space-y-1.5">
+              <label
+                class="block text-xs font-medium text-neutral-700"
+                for="project-details"
+              >
+                {ui.contact.messageLabel}
+              </label>
+              <textarea
+                class="w-full bg-white border border-neutral-200 text-neutral-900 px-3.5 py-2.5 rounded text-sm placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 transition-colors resize-none"
+                id="project-details"
+                name="message"
+                placeholder={ui.contact.messagePlaceholder}
+                required
+                rows="4"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-neutral-900 text-white rounded text-xs font-medium hover:bg-neutral-800 active:bg-neutral-950 transition-colors cursor-pointer"
+                id="submit-btn"
+                type="submit"
+              >
+                <span>{ui.contact.submitBtn}</span>
+                <span class="material-symbols-outlined text-sm">
+                  arrow_forward
+                </span>
+              </button>
+            </div>
+
+            <!-- Confirmation State -->
+            <div
+              class="hidden p-3.5 rounded border border-neutral-200 bg-neutral-50 text-neutral-800 text-xs leading-relaxed"
+              id="form-success"
+            >
+              <strong class="font-semibold block mb-0.5">
+                {ui.contact.successTitle}
+              </strong>
+              {ui.contact.successBody}
+            </div>
+
+            <!-- Error State -->
+            <div
+              class="hidden p-3.5 rounded border border-red-200 bg-red-50 text-red-800 text-xs leading-relaxed"
+              id="form-error"
+            >
+              <strong class="font-semibold block mb-0.5">
+                {ui.contact.errorTitle}
+              </strong>
+              {ui.contact.errorBodyPrefix}{' '}
+              <a
+                href={siteMetadata.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline font-medium"
+              >
+                LinkedIn
+              </a>
+              .
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Project Type Selection Pills
+    const allPills = document.querySelectorAll('.project-pill');
+    const hiddenInput = document.getElementById(
+      'selected-type-input'
+    ) as HTMLInputElement | null;
+
+    allPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        allPills.forEach((p) => {
+          p.classList.remove('bg-neutral-900', 'text-white');
+          p.classList.add('bg-white', 'text-neutral-700');
+        });
+        pill.classList.remove('bg-white', 'text-neutral-700');
+        pill.classList.add('bg-neutral-900', 'text-white');
+
+        const typeName = pill.getAttribute('data-project-type');
+        if (hiddenInput && typeName) {
+          hiddenInput.value = typeName;
+        }
+      });
+    });
+
+    // Taipei Local Time Clock updater
+    function updateTaipeiClock() {
+      const clockEl = document.getElementById('taipei-clock');
+      if (!clockEl) return;
+      const prefix = clockEl.getAttribute('data-prefix') || 'Taipei';
+      const fallback =
+        clockEl.getAttribute('data-fallback') || 'Taipei (UTC+8)';
+      try {
+        const options: Intl.DateTimeFormatOptions = {
+          timeZone: 'Asia/Taipei',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        };
+        const formatter = new Intl.DateTimeFormat([], options);
+        clockEl.textContent =
+          `${prefix} ` + formatter.format(new Date()) + ' (UTC+8)';
+      } catch {
+        clockEl.textContent = fallback;
+      }
+    }
+    updateTaipeiClock();
+    setInterval(updateTaipeiClock, 30000);
+
+    // Formsubmit.co AJAX submission handler
+    const form = document.getElementById(
+      'contact-form'
+    ) as HTMLFormElement | null;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById(
+        'submit-btn'
+      ) as HTMLButtonElement | null;
+      const successMsg = document.getElementById('form-success');
+      const errorMsg = document.getElementById('form-error');
+
+      const sendingLabel = form.getAttribute('data-sending') || 'Sending...';
+      const sentLabel = form.getAttribute('data-sent') || 'Message Sent';
+      const submitLabel = form.getAttribute('data-submit') || 'Send Message';
+
+      successMsg?.classList.add('hidden');
+      errorMsg?.classList.add('hidden');
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60');
+        submitBtn.innerHTML = `<span>${sendingLabel}</span>`;
+      }
+
+      const formData = new FormData(form);
+      const senderName = String(formData.get('name') || 'Visitor');
+      const projectType = String(formData.get('project_type') || 'Inquiry');
+      const senderEmail = String(formData.get('email') || '');
+
+      formData.append(
+        '_subject',
+        `Portfolio Inquiry: ${projectType} — ${senderName}`
+      );
+      if (senderEmail) {
+        formData.append('_replyto', senderEmail);
+      }
+
+      try {
+        const payload = Object.fromEntries(formData.entries());
+        const response = await fetch(
+          'https://formsubmit.co/ajax/f87fcc8becf3b1ec96cc073c7f5cf448',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        const result = await response.json();
+
+        if (
+          response.ok &&
+          (result.success === 'true' ||
+            result.success === true ||
+            (typeof result.message === 'string' &&
+              result.message.toLowerCase().includes('activation')))
+        ) {
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-60');
+            submitBtn.innerHTML = `<span>${sentLabel}</span>`;
+          }
+          if (
+            typeof result.message === 'string' &&
+            result.message.toLowerCase().includes('activation') &&
+            successMsg
+          ) {
+            successMsg.innerHTML =
+              '<strong class="font-semibold block mb-0.5">Form pending one-time activation.</strong>Please check your inbox and click the <em>Activate Form</em> button from FormSubmit to finish enabling the form.';
+          }
+          successMsg?.classList.remove('hidden');
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-60');
+          submitBtn.innerHTML = `<span>${submitLabel}</span><span class="material-symbols-outlined text-sm">arrow_forward</span>`;
+        }
+        errorMsg?.classList.remove('hidden');
+      }
+    });
+  </script>
+</BaseLayout>
