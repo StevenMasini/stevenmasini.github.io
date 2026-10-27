@@ -123,6 +123,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
               return (
                 <a
                   href={targetHref}
+                  data-locale={targetLocale}
                   role="menuitem"
                   aria-current={isCurrent ? 'true' : undefined}
                   class:list={[
@@ -246,4 +247,43 @@ const contactHref = getLocalizedPath(lang, '/contact');
       closeLangMenu();
     }
   });
+
+  // Save language choice & track GA4 language_switch event
+  const langLinks = langMenu?.querySelectorAll('a[data-locale]');
+  langLinks?.forEach((link) => {
+    link.addEventListener('click', () => {
+      const selectedLocale = link.getAttribute('data-locale');
+      if (selectedLocale) {
+        try {
+          localStorage.setItem('preferred_locale', selectedLocale);
+        } catch {
+          // Ignore storage errors
+        }
+        const gtagFn = (window as any).gtag as
+          | ((...args: any[]) => void)
+          | undefined;
+        if (typeof gtagFn === 'function') {
+          gtagFn('event', 'language_switch', {
+            target_language: selectedLocale,
+          });
+        }
+      }
+    });
+  });
+
+  // Respect saved language preference on direct root visit
+  try {
+    const savedLocale = localStorage.getItem('preferred_locale');
+    const isDirectRootVisit =
+      window.location.pathname === '/' &&
+      (!document.referrer || !document.referrer.includes(window.location.host));
+    if (
+      isDirectRootVisit &&
+      (savedLocale === 'fr' || savedLocale === 'zh-tw')
+    ) {
+      window.location.replace(`/${savedLocale}`);
+    }
+  } catch {
+    // Ignore storage errors
+  }
 </script>
