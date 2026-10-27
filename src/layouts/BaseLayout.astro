@@ -144,6 +144,16 @@ const jsonLd = {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:locale" content={localeInfo.ogLocale} />
+    {
+      locales
+        .filter((loc) => loc !== lang)
+        .map((loc) => (
+          <meta
+            property="og:locale:alternate"
+            content={localeConfigs[loc].ogLocale}
+          />
+        ))
+    }
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
