@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "astro build && node scripts/deploy.mjs",
+    "metrics": "node scripts/metrics.mjs",
     "astro": "astro"
   },
   "dependencies": {
