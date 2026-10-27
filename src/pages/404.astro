@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found | Steven Masini"
+  description="The page you are looking for could not be found."
+  activeNav="overview"
+  lang="en"
+>
+  <div
+    class="max-w-6xl mx-auto px-4 sm:px-8 py-20 sm:py-28 md:py-36 flex flex-col items-start gap-6"
+  >
+    <div
+      class="inline-flex items-center gap-2 px-2.5 py-1 bg-neutral-100 border border-neutral-200 rounded text-xs font-mono text-neutral-600 uppercase tracking-wider"
+    >
+      <span>Error 404</span>
+    </div>
+
+    <div class="flex flex-col gap-3 max-w-xl">
+      <h1
+        id="error-title"
+        class="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight"
+      >
+        Page not found.
+      </h1>
+      <p
+        id="error-description"
+        class="text-base text-neutral-600 leading-relaxed"
+      >
+        The page you are looking for doesn’t exist or may have been moved. Use
+        the links below to return to the portfolio.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 pt-2">
+      <a
+        id="error-home-btn"
+        href="/"
+        class="inline-flex items-center gap-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-mono font-medium px-4 py-2.5 rounded transition-colors"
+      >
+        <span id="error-home-label">Back to Overview</span>
+        <span>→</span>
+      </a>
+      <a
+        id="error-apps-btn"
+        href="/apps-and-work"
+        class="inline-flex items-center gap-1.5 border border-neutral-300 bg-white hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 text-xs font-mono px-4 py-2.5 rounded transition-colors"
+      >
+        <span id="error-apps-label">Apps &amp; Work</span>
+      </a>
+      <a
+        id="error-contact-btn"
+        href="/contact"
+        class="inline-flex items-center gap-1.5 border border-neutral-300 bg-white hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 text-xs font-mono px-4 py-2.5 rounded transition-colors"
+      >
+        <span id="error-contact-label">Contact</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const copy = {
+      fr: {
+        title: 'Page introuvable.',
+        description:
+          'La page que vous recherchez n’existe pas ou a été déplacée. Utilisez les liens ci-dessous pour revenir au portfolio.',
+        home: 'Retour à l’aperçu',
+        apps: 'Applications & Projets',
+        contact: 'Contact',
+        prefix: '/fr',
+      },
+      'zh-tw': {
+        title: '找不到此頁面。',
+        description:
+          '您所尋找的頁面不存在或已移至其他位置，請透過下方連結返回作品集。',
+        home: '返回總覽首頁',
+        apps: '作品與專案',
+        contact: '聯絡方式',
+        prefix: '/zh-tw',
+      },
+    };
+
+    const path = window.location.pathname;
+    let detectedLocale: 'fr' | 'zh-tw' | null = null;
+    if (path.startsWith('/fr/') || path === '/fr') {
+      detectedLocale = 'fr';
+    } else if (path.startsWith('/zh-tw/') || path === '/zh-tw') {
+      detectedLocale = 'zh-tw';
+    } else {
+      try {
+        const saved = localStorage.getItem('preferred_locale');
+        if (saved === 'fr' || saved === 'zh-tw') {
+          detectedLocale = saved;
+        }
+      } catch {
+        // Ignore storage errors
+      }
+    }
+
+    if (detectedLocale && copy[detectedLocale]) {
+      const t = copy[detectedLocale];
+      const titleEl = document.getElementById('error-title');
+      const descEl = document.getElementById('error-description');
+      const homeLabel = document.getElementById('error-home-label');
+      const appsLabel = document.getElementById('error-apps-label');
+      const contactLabel = document.getElementById('error-contact-label');
+      const homeBtn = document.getElementById(
+        'error-home-btn'
+      ) as HTMLAnchorElement | null;
+      const appsBtn = document.getElementById(
+        'error-apps-btn'
+      ) as HTMLAnchorElement | null;
+      const contactBtn = document.getElementById(
+        'error-contact-btn'
+      ) as HTMLAnchorElement | null;
+
+      if (titleEl) titleEl.textContent = t.title;
+      if (descEl) descEl.textContent = t.description;
+      if (homeLabel) homeLabel.textContent = t.home;
+      if (appsLabel) appsLabel.textContent = t.apps;
+      if (contactLabel) contactLabel.textContent = t.contact;
+      if (homeBtn) homeBtn.href = t.prefix;
+      if (appsBtn) appsBtn.href = `${t.prefix}/apps-and-work`;
+      if (contactBtn) contactBtn.href = `${t.prefix}/contact`;
+    }
+  </script>
+</BaseLayout>
