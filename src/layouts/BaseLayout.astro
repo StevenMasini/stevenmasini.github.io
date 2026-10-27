@@ -206,5 +206,42 @@ gtag('config', '${siteMetadata.googleAnalyticsId}');`}
       <slot />
     </main>
     <Footer activeNav={activeNav} lang={lang} />
+
+    <script>
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement | null;
+        if (!target) return;
+        const gtagFn = (window as any).gtag as
+          | ((...args: any[]) => void)
+          | undefined;
+        if (typeof gtagFn !== 'function') return;
+
+        const resumeBtn = target.closest('#download-resume-btn');
+        if (resumeBtn) {
+          gtagFn('event', 'download_resume', {
+            event_category: 'engagement',
+            language: document.documentElement.lang,
+          });
+          return;
+        }
+
+        const link = target.closest('a') as HTMLAnchorElement | null;
+        if (!link || !link.href) return;
+
+        if (link.href.includes('apps.apple.com')) {
+          gtagFn('event', 'app_store_click', {
+            event_category: 'outbound',
+            app_url: link.href,
+            link_text: link.textContent?.trim() || '',
+          });
+        } else if (link.href.includes('linkedin.com')) {
+          gtagFn('event', 'social_click', {
+            event_category: 'outbound',
+            platform: 'linkedin',
+            link_url: link.href,
+          });
+        }
+      });
+    </script>
   </body>
 </html>
