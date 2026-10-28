@@ -87,11 +87,13 @@ const contactHref = getLocalizedPath(lang, '/contact');
             {ui.experience.downloadPdfBtn}
           </button>
           <a
-            class="inline-flex items-center gap-1 font-mono text-xs text-neutral-500 hover:text-neutral-900 transition-colors underline"
+            class="inline-flex items-center gap-1 font-mono text-xs text-neutral-500 hover:text-neutral-900 transition-colors"
             href={contactHref}
           >
             <span class="material-symbols-outlined text-[14px]">mail</span>
-            {ui.experience.contactFormLink}
+            <span class="underline underline-offset-4">
+              {ui.experience.contactFormLink}
+            </span>
           </a>
         </div>
 
