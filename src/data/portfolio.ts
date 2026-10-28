@@ -346,13 +346,13 @@ const enData: PortfolioData = {
         '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
       selectedWorkTitle: 'Selected Work',
       selectedWorkPeriod: '2015 — Present',
-      allAppsLink: 'All Apps →',
+      allAppsLink: 'All Apps',
       backgroundTitle: 'Background',
       backgroundDescription:
         "Master's in Information Technology from EPITECH. Rigor derived from UNIX and C99 foundations applied to modern Swift architecture.",
       languagesSummary: 'Languages: French, English, Mandarin, Japanese',
       locationPrefix: 'Location:',
-      fullResumeLink: 'Full Resume & Timeline →',
+      fullResumeLink: 'Full Resume & Timeline',
       contactTitle: 'Get in touch',
       contactDescription:
         'Whether you have an upcoming iOS project, need assistance refactoring an existing codebase, or would like to talk code over coffee in Taipei.',
@@ -380,8 +380,8 @@ const enData: PortfolioData = {
       ctaTitle: 'Need native iOS engineering support?',
       ctaDescription:
         'Available for contract roles, performance diagnostics, and greenfield app releases. Direct communication, clean Git history, zero bloat.',
-      ctaPrimaryBtn: 'Get in Touch →',
-      ctaSecondaryBtn: 'View Experience Bio →',
+      ctaPrimaryBtn: 'Get in Touch',
+      ctaSecondaryBtn: 'View Experience Bio',
     },
     experience: {
       metaTitle: 'Experience & Background — Steven Masini',
@@ -392,7 +392,7 @@ const enData: PortfolioData = {
       description:
         'Developing software & native iOS applications since 2011. 15+ years across Paris, Beijing, and Taipei. From fundamental Unix and C systems to native iOS architecture, companion Node.js backend infrastructure, and modern AI workflows.',
       downloadPdfBtn: 'Download PDF Resume',
-      contactFormLink: 'Contact Form →',
+      contactFormLink: 'Contact Form',
       workHistoryTitle: 'Work History',
       workHistoryPeriod: '2009 — Present',
       educationTitle: 'Education & Honors',
@@ -403,7 +403,7 @@ const enData: PortfolioData = {
       inquiriesTitle: 'Inquiries',
       inquiriesDescription:
         'Open for selective contract work, mobile architecture audits, or advisory engagements.',
-      inquiriesLink: 'Get in touch via Contact Form →',
+      inquiriesLink: 'Get in touch via Contact Form',
     },
     contact: {
       metaTitle: 'Contact — Steven Masini',
@@ -591,7 +591,7 @@ const enData: PortfolioData = {
         'App Store: 4.9 ★ (185k+ ratings) • ~5M Registered Users • ~580k MAU',
       appStoreUrl:
         'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
-      appStoreLabel: 'View on App Store →',
+      appStoreLabel: 'View on App Store',
     },
     {
       title: 'SELECT — Your Community',
@@ -631,7 +631,7 @@ const enData: PortfolioData = {
       footerNote: 'App Store: 5.0 ★ • Shipped on iOS & Google Play',
       appStoreUrl:
         'https://apps.apple.com/us/app/select-your-community/id1076478889',
-      appStoreLabel: 'View on App Store →',
+      appStoreLabel: 'View on App Store',
     },
   ],
   spotlightProjects: [
@@ -648,7 +648,7 @@ const enData: PortfolioData = {
         'Minimized app bundle size and resource footprint for fast downloads and smooth runtime performance.',
       ],
       company: 'CuriosityChina (A Farfetch Company)',
-      locationOrLinkText: 'View Product Showcase →',
+      locationOrLinkText: 'View Product Showcase',
       appStoreUrl: '/curio-eye',
     },
     {
@@ -665,7 +665,7 @@ const enData: PortfolioData = {
       ],
       company: 'Beijing 200H Education',
       ratingLabel: 'App Store: 4.7 ★ (19,000+ ratings)',
-      locationOrLinkText: 'View on App Store →',
+      locationOrLinkText: 'View on App Store',
       appStoreUrl:
         'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
     },
@@ -696,7 +696,7 @@ const enData: PortfolioData = {
         "Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform, responsible for custom UI implementation and Core Data local database support.",
       techLabel: 'Objective-C / Core Data',
       appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
-      appStoreLabel: 'View on App Store →',
+      appStoreLabel: 'View on App Store',
     },
     {
       title: 'Belles Demeures (v1.0)',
@@ -707,7 +707,7 @@ const enData: PortfolioData = {
         'Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries.',
       techLabel: 'Objective-C / UIKit',
       appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
-      appStoreLabel: 'View on App Store →',
+      appStoreLabel: 'View on App Store',
     },
     {
       title: 'Fédération Française du Bâtiment (FFB) — Déchets BTP',
@@ -1009,13 +1009,13 @@ const frData: PortfolioData = {
         'Plus de 15 ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Orienté architecture propre, haute performance et code pérenne.',
       selectedWorkTitle: 'Projets Sélectionnés',
       selectedWorkPeriod: '2015 — Présent',
-      allAppsLink: 'Toutes les applications →',
+      allAppsLink: 'Toutes les applications',
       backgroundTitle: 'Parcours',
       backgroundDescription:
         'Master en Technologies de l’Information (EPITECH). Une rigueur issue des fondations UNIX et C99 appliquée aux architectures Swift modernes.',
       languagesSummary: 'Langues : Français, Anglais, Mandarin, Japonais',
       locationPrefix: 'Localisation :',
-      fullResumeLink: 'CV complet & Chronologie →',
+      fullResumeLink: 'CV complet & Chronologie',
       contactTitle: 'Me contacter',
       contactDescription:
         'Que vous ayez un projet iOS à venir, besoin d’accompagnement pour refondre une base de code existante ou envie d’échanger autour d’un café à Taipei.',
@@ -1043,8 +1043,8 @@ const frData: PortfolioData = {
       ctaTitle: 'Besoin d’une expertise iOS native ?',
       ctaDescription:
         'Disponible pour des missions freelance, audits de performance et créations d’applications de bout en bout. Communication directe, historique Git irréprochable, zéro superflu.',
-      ctaPrimaryBtn: 'Me contacter →',
-      ctaSecondaryBtn: 'Voir le parcours complet →',
+      ctaPrimaryBtn: 'Me contacter',
+      ctaSecondaryBtn: 'Voir le parcours complet',
     },
     experience: {
       metaTitle: 'Expérience & Parcours — Steven Masini',
@@ -1055,7 +1055,7 @@ const frData: PortfolioData = {
       description:
         'Développement logiciel et applications iOS natives depuis 2011. Plus de 15 ans d’expérience entre Paris, Pékin et Taipei. Des fondations systèmes Unix et C jusqu’aux architectures iOS modernes, services backend Node.js et workflows d’IA.',
       downloadPdfBtn: 'Télécharger le CV en PDF',
-      contactFormLink: 'Formulaire de contact →',
+      contactFormLink: 'Formulaire de contact',
       workHistoryTitle: 'Parcours Professionnel',
       workHistoryPeriod: '2009 — Présent',
       educationTitle: 'Formation & Distinctions',
@@ -1066,7 +1066,7 @@ const frData: PortfolioData = {
       inquiriesTitle: 'Collaborations',
       inquiriesDescription:
         'Ouvert aux missions freelance sélectives, aux audits d’architecture mobile et au conseil technique.',
-      inquiriesLink: 'Me contacter via le formulaire →',
+      inquiriesLink: 'Me contacter via le formulaire',
     },
     contact: {
       metaTitle: 'Contact — Steven Masini',
@@ -1256,7 +1256,7 @@ const frData: PortfolioData = {
         'App Store : 4.9 ★ (185k+ avis) • ~5M d’inscrits • ~580k MAU',
       appStoreUrl:
         'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
-      appStoreLabel: 'Voir sur l’App Store →',
+      appStoreLabel: 'Voir sur l’App Store',
     },
     {
       title: 'SELECT — Your Community',
@@ -1296,7 +1296,7 @@ const frData: PortfolioData = {
       footerNote: 'App Store : 5.0 ★ • Publié sur iOS & Google Play',
       appStoreUrl:
         'https://apps.apple.com/us/app/select-your-community/id1076478889',
-      appStoreLabel: 'Voir sur l’App Store →',
+      appStoreLabel: 'Voir sur l’App Store',
     },
   ],
   spotlightProjects: [
@@ -1313,7 +1313,7 @@ const frData: PortfolioData = {
         'Réduction maximale de la taille du binaire et de l’empreinte mémoire pour des téléchargements rapides et une exécution fluide.',
       ],
       company: 'CuriosityChina (Groupe Farfetch)',
-      locationOrLinkText: 'Voir la présentation →',
+      locationOrLinkText: 'Voir la présentation',
       appStoreUrl: '/fr/curio-eye',
     },
     {
@@ -1330,7 +1330,7 @@ const frData: PortfolioData = {
       ],
       company: 'Beijing 200H Education',
       ratingLabel: 'App Store : 4.7 ★ (19 000+ avis)',
-      locationOrLinkText: 'Voir sur l’App Store →',
+      locationOrLinkText: 'Voir sur l’App Store',
       appStoreUrl:
         'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
     },
@@ -1361,7 +1361,7 @@ const frData: PortfolioData = {
         'Reprise d’un projet en cours de développement au sein d’une équipe de 3 ingénieurs iOS pour la principale plateforme hippique française, en charge des interfaces sur mesure et de la base de données locale Core Data.',
       techLabel: 'Objective-C / Core Data',
       appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
-      appStoreLabel: 'Voir sur l’App Store →',
+      appStoreLabel: 'Voir sur l’App Store',
     },
     {
       title: 'Belles Demeures (v1.0)',
@@ -1372,7 +1372,7 @@ const frData: PortfolioData = {
         'Développement universel iPhone et iPad au sein d’une équipe de 3 développeurs et intégration d’interfaces personnalisées pour plus de 30 000 annonces immobilières de luxe dans plus de 10 pays.',
       techLabel: 'Objective-C / UIKit',
       appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
-      appStoreLabel: 'Voir sur l’App Store →',
+      appStoreLabel: 'Voir sur l’App Store',
     },
     {
       title: 'Fédération Française du Bâtiment (FFB) — Déchets BTP',
@@ -1670,13 +1670,13 @@ const zhTwData: PortfolioData = {
         '自 2011 年起投入原生 iOS 應用程式與後端服務開發，累積逾 15 年實戰經驗。專注於高擴充性架構、極致效能與易於長期維護的程式碼。',
       selectedWorkTitle: '精選專案作品',
       selectedWorkPeriod: '2015 — 至今',
-      allAppsLink: '查看所有作品 →',
+      allAppsLink: '查看所有作品',
       backgroundTitle: '專業背景',
       backgroundDescription:
         '法國 EPITECH 資訊科技碩士。將深厚的 UNIX 與 C99 系統底層嚴謹思維，融入現代 Swift 軟體架構設計。',
       languagesSummary: '語言能力：法文、英文、中文、日文',
       locationPrefix: '所在地：',
-      fullResumeLink: '完整履歷與職涯時程 →',
+      fullResumeLink: '完整履歷與職涯時程',
       contactTitle: '合作洽談',
       contactDescription:
         '無論您有即將啟動的 iOS 專案、需要重構既有程式碼庫，或想在台北約杯咖啡交流技術，都歡迎隨時聯繫。',
@@ -1702,8 +1702,8 @@ const zhTwData: PortfolioData = {
       ctaTitle: '需要資深原生 iOS 工程支援嗎？',
       ctaDescription:
         '提供專案合約開發、效能診斷優化與全新 App 從零打造服務。溝通直接透明、Git 提交紀錄清晰、零冗餘程式碼。',
-      ctaPrimaryBtn: '立即聯絡 →',
-      ctaSecondaryBtn: '查看完整經歷 →',
+      ctaPrimaryBtn: '立即聯絡',
+      ctaSecondaryBtn: '查看完整經歷',
     },
     experience: {
       metaTitle: '經歷與專業背景 — Steven Masini',
@@ -1714,7 +1714,7 @@ const zhTwData: PortfolioData = {
       description:
         '自 2011 年起從事軟體與原生 iOS 應用程式開發，橫跨巴黎、北京與台北逾 15 年。從底層 Unix 與 C 語言系統出發，延伸至現代原生 iOS 架構、Node.js 後端服務與 AI 輔助開發流程。',
       downloadPdfBtn: '下載 PDF 履歷',
-      contactFormLink: '聯絡表單 →',
+      contactFormLink: '聯絡表單',
       workHistoryTitle: '工作經歷',
       workHistoryPeriod: '2009 — 至今',
       educationTitle: '學歷與榮譽',
@@ -1725,7 +1725,7 @@ const zhTwData: PortfolioData = {
       inquiriesTitle: '合作諮詢',
       inquiriesDescription:
         '開放特定合約專案開發、行動端架構審查與技術顧問合作。',
-      inquiriesLink: '透過聯絡表單洽詢 →',
+      inquiriesLink: '透過聯絡表單洽詢',
     },
     contact: {
       metaTitle: '聯絡方式 — Steven Masini',
@@ -1910,7 +1910,7 @@ const zhTwData: PortfolioData = {
         'App Store：4.9 ★ (18.5萬+ 則評分) • ~500萬註冊用戶 • ~58萬 MAU',
       appStoreUrl:
         'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
-      appStoreLabel: '於 App Store 查看 →',
+      appStoreLabel: '於 App Store 查看',
     },
     {
       title: 'SELECT — Your Community',
@@ -1949,7 +1949,7 @@ const zhTwData: PortfolioData = {
       footerNote: 'App Store：5.0 ★ • 於 iOS 與 Google Play 雙平台發布',
       appStoreUrl:
         'https://apps.apple.com/us/app/select-your-community/id1076478889',
-      appStoreLabel: '於 App Store 查看 →',
+      appStoreLabel: '於 App Store 查看',
     },
   ],
   spotlightProjects: [
@@ -1966,7 +1966,7 @@ const zhTwData: PortfolioData = {
         '極小化安裝包體積與記憶體資源佔用，確保快速下載與流暢的執行效能。',
       ],
       company: 'CuriosityChina (Farfetch 集團旗下)',
-      locationOrLinkText: '查看產品專頁 →',
+      locationOrLinkText: '查看產品專頁',
       appStoreUrl: '/zh-tw/curio-eye',
     },
     {
@@ -1983,7 +1983,7 @@ const zhTwData: PortfolioData = {
       ],
       company: '北京兩百小時教育科技',
       ratingLabel: 'App Store：4.7 ★ (19,000+ 則評分)',
-      locationOrLinkText: '於 App Store 查看 →',
+      locationOrLinkText: '於 App Store 查看',
       appStoreUrl:
         'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
     },
@@ -2014,7 +2014,7 @@ const zhTwData: PortfolioData = {
         '於 3 人 iOS 工程團隊中接手開發中的法國最大賽馬平台專案，負責客製化 UI 元件實作與 Core Data 本地資料庫架構支援。',
       techLabel: 'Objective-C / Core Data',
       appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
-      appStoreLabel: '於 App Store 查看 →',
+      appStoreLabel: '於 App Store 查看',
     },
     {
       title: 'Belles Demeures (v1.0)',
@@ -2025,7 +2025,7 @@ const zhTwData: PortfolioData = {
         '於 3 人開發團隊中完成 iPhone 與 iPad 通用版開發與客製化介面整合，支援橫跨 10 多個國家、超過 30,000 筆頂級豪宅物件瀏覽。',
       techLabel: 'Objective-C / UIKit',
       appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
-      appStoreLabel: '於 App Store 查看 →',
+      appStoreLabel: '於 App Store 查看',
     },
     {
       title: 'Fédération Française du Bâtiment (FFB) — Déchets BTP',

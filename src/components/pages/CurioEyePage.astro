@@ -18,17 +18,17 @@ const archiveBannerCopy: Record<
   { back: string; badge: string; note: string }
 > = {
   en: {
-    back: '← Back to Apps & Work',
+    back: 'Back to Apps & Work',
     badge: 'Historical Product Showcase (2016–2017)',
     note: 'Sole iOS Developer at CuriosityChina (A Farfetch Company) • Swift v1.0 – v1.1.5',
   },
   fr: {
-    back: '← Retour aux Applications & Projets',
+    back: 'Retour aux Applications & Projets',
     badge: 'Présentation Produit d’Archive (2016–2017)',
     note: 'Unique Développeur iOS chez CuriosityChina (Groupe Farfetch) • Swift v1.0 – v1.1.5',
   },
   'zh-tw': {
-    back: '← 返回作品與專案',
+    back: '返回作品與專案',
     badge: '歷史產品專頁存檔 (2016–2017)',
     note: 'CuriosityChina (Farfetch 集團旗下) 唯一 iOS 開發工程師 • Swift v1.0 – v1.1.5',
   },
@@ -50,9 +50,12 @@ const banner = archiveBannerCopy[lang] ?? archiveBannerCopy.en;
     >
       <a
         href={appsHref}
-        class="text-neutral-700 hover:text-neutral-950 font-medium transition-colors"
+        class="group/link inline-flex items-center gap-1 text-neutral-700 hover:text-neutral-950 font-medium transition-colors"
       >
-        {banner.back}
+        <span class="material-symbols-outlined text-xs">arrow_back</span>
+        <span class="group-hover/link:underline underline-offset-4">
+          {banner.back}
+        </span>
       </a>
       <div class="flex flex-wrap items-center gap-2 text-neutral-500">
         <span

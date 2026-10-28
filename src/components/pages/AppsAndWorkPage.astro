@@ -143,16 +143,18 @@ const experienceHref = getLocalizedPath(lang, '/experience');
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
           <a
-            class="px-5 py-2.5 bg-neutral-900 text-white rounded text-xs font-mono font-medium hover:bg-neutral-800 transition-colors"
+            class="inline-flex items-center gap-1.5 px-5 py-2.5 bg-neutral-900 text-white rounded text-xs font-mono font-medium hover:bg-neutral-800 transition-colors"
             href={contactHref}
           >
-            {ui.appsAndWork.ctaPrimaryBtn}
+            <span>{ui.appsAndWork.ctaPrimaryBtn}</span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </a>
           <a
-            class="px-4 py-2.5 border border-neutral-300 rounded text-xs font-mono text-neutral-700 hover:text-neutral-950 hover:border-neutral-900 transition-colors"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 border border-neutral-300 rounded text-xs font-mono text-neutral-700 hover:text-neutral-950 hover:border-neutral-900 transition-colors"
             href={experienceHref}
           >
-            {ui.appsAndWork.ctaSecondaryBtn}
+            <span>{ui.appsAndWork.ctaSecondaryBtn}</span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </a>
         </div>
       </div>

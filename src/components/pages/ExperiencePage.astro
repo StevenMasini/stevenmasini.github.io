@@ -94,6 +94,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
             <span class="underline underline-offset-4">
               {ui.experience.contactFormLink}
             </span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </a>
         </div>
 
@@ -259,10 +260,13 @@ const contactHref = getLocalizedPath(lang, '/contact');
             {ui.experience.inquiriesDescription}
           </div>
           <a
-            class="inline-flex items-center gap-1 text-xs font-mono font-medium text-neutral-900 underline hover:text-black pt-1"
+            class="inline-flex items-center gap-1 text-xs font-mono font-medium text-neutral-900 hover:text-black pt-1"
             href={contactHref}
           >
-            {ui.experience.inquiriesLink}
+            <span class="underline underline-offset-4">
+              {ui.experience.inquiriesLink}
+            </span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
           </a>
         </section>
       </div>

@@ -85,12 +85,17 @@ const isExternal = project.appStoreUrl
     {
       project.appStoreUrl ? (
         <a
-          class="text-neutral-900 underline underline-offset-4 hover:text-neutral-600 font-mono transition-colors whitespace-nowrap shrink-0"
+          class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 font-mono transition-colors whitespace-nowrap shrink-0"
           href={project.appStoreUrl}
           rel={isExternal ? 'noopener noreferrer' : undefined}
           target={isExternal ? '_blank' : undefined}
         >
-          {project.locationOrLinkText}
+          <span class="underline underline-offset-4">
+            {project.locationOrLinkText}
+          </span>
+          <span class="material-symbols-outlined text-xs">
+            {isExternal ? 'arrow_outward' : 'arrow_forward'}
+          </span>
         </a>
       ) : (
         <span class="shrink-0">{project.locationOrLinkText}</span>

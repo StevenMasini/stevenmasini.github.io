@@ -6,6 +6,9 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const isExternal = project.appStoreUrl
+  ? project.appStoreUrl.startsWith('http')
+  : false;
 ---
 
 <div
@@ -24,7 +27,25 @@ const { project } = Astro.props;
       />
       <div class="flex flex-col gap-0.5">
         <span class="font-medium text-sm text-neutral-950 leading-snug">
-          {project.title}
+          {
+            project.appStoreUrl ? (
+              <a
+                class="group/link inline-flex items-center gap-1"
+                href={project.appStoreUrl}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                target={isExternal ? '_blank' : undefined}
+              >
+                <span class="group-hover/link:underline underline-offset-4">
+                  {project.title}
+                </span>
+                <span class="material-symbols-outlined text-xs text-neutral-400">
+                  {isExternal ? 'arrow_outward' : 'arrow_forward'}
+                </span>
+              </a>
+            ) : (
+              project.title
+            )
+          }
         </span>
         <span class="text-xs font-mono text-neutral-400">
           {project.subtitle}
@@ -49,12 +70,17 @@ const { project } = Astro.props;
     {
       project.appStoreUrl && (
         <a
-          class="text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors whitespace-nowrap"
+          class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 transition-colors whitespace-nowrap"
           href={project.appStoreUrl}
-          rel="noopener noreferrer"
-          target="_blank"
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          target={isExternal ? '_blank' : undefined}
         >
-          {project.appStoreLabel ?? 'View on App Store →'}
+          <span class="underline underline-offset-4">
+            {project.appStoreLabel ?? 'View on App Store'}
+          </span>
+          <span class="material-symbols-outlined text-xs">
+            {isExternal ? 'arrow_outward' : 'arrow_forward'}
+          </span>
         </a>
       )
     }
