@@ -10,6 +10,7 @@ import {
 const basePages = [
   { path: '/', priority: '1.0', changefreq: 'monthly' },
   { path: '/apps-and-work/', priority: '0.9', changefreq: 'monthly' },
+  { path: '/curio-eye/', priority: '0.8', changefreq: 'yearly' },
   { path: '/experience/', priority: '0.9', changefreq: 'monthly' },
   { path: '/contact/', priority: '0.8', changefreq: 'yearly' },
 ];

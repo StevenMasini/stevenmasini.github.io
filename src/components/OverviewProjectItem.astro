@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const isExternal = project.href ? project.href.startsWith('http') : false;
 ---
 
 <article
@@ -29,12 +30,12 @@ const { project } = Astro.props;
               <a
                 class="hover:underline underline-offset-4 inline-flex items-center gap-1"
                 href={project.href}
-                rel="noopener noreferrer"
-                target="_blank"
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                target={isExternal ? '_blank' : undefined}
               >
                 {project.title}
                 <span class="material-symbols-outlined text-xs text-neutral-400">
-                  arrow_outward
+                  {isExternal ? 'arrow_outward' : 'arrow_forward'}
                 </span>
               </a>
             ) : (

@@ -487,6 +487,7 @@ const enData: PortfolioData = {
       subtitle: 'CuriosityChina (A Farfetch Company)',
       period: '2016 — 2017',
       icon: '/images/apps/curioeye.jpg',
+      href: '/curio-eye',
       description:
         'Sole iOS developer for CURIO EYE, a companion app for WeChat Official Account managers. Built the entire application from scratch in Swift (v1.0 to v1.1.5), managing bi-weekly releases, ASO, bundle optimization, and product direction.',
     },
@@ -647,7 +648,8 @@ const enData: PortfolioData = {
         'Minimized app bundle size and resource footprint for fast downloads and smooth runtime performance.',
       ],
       company: 'CuriosityChina (A Farfetch Company)',
-      locationOrLinkText: 'Beijing',
+      locationOrLinkText: 'View Product Showcase →',
+      appStoreUrl: '/curio-eye',
     },
     {
       title: 'Talkmate',
@@ -1149,6 +1151,7 @@ const frData: PortfolioData = {
       subtitle: 'CuriosityChina (Groupe Farfetch)',
       period: '2016 — 2017',
       icon: '/images/apps/curioeye.jpg',
+      href: '/fr/curio-eye',
       description:
         'Unique développeur iOS pour CURIO EYE, application compagnon dédiée aux gestionnaires de comptes officiels WeChat. Développement intégral en Swift (v1.0 à v1.1.5), gestion des cycles de publication bi-hebdomadaires, ASO, optimisation de la taille du binaire et orientation produit.',
     },
@@ -1310,7 +1313,8 @@ const frData: PortfolioData = {
         'Réduction maximale de la taille du binaire et de l’empreinte mémoire pour des téléchargements rapides et une exécution fluide.',
       ],
       company: 'CuriosityChina (Groupe Farfetch)',
-      locationOrLinkText: 'Pékin',
+      locationOrLinkText: 'Voir la présentation →',
+      appStoreUrl: '/fr/curio-eye',
     },
     {
       title: 'Talkmate',
@@ -1802,6 +1806,7 @@ const zhTwData: PortfolioData = {
       subtitle: 'CuriosityChina (Farfetch 集團旗下)',
       period: '2016 — 2017',
       icon: '/images/apps/curioeye.jpg',
+      href: '/zh-tw/curio-eye',
       description:
         '擔任 CURIO EYE 唯一 iOS 開發工程師，專為微信公眾號管理者打造的行動端工具。以 Swift 從零獨立完成 v1.0 至 v1.1.5 全部開發，負責雙週版本發布、App Store 搜尋優化 (ASO)、安裝包體積瘦身與產品規劃。',
     },
@@ -1961,7 +1966,8 @@ const zhTwData: PortfolioData = {
         '極小化安裝包體積與記憶體資源佔用，確保快速下載與流暢的執行效能。',
       ],
       company: 'CuriosityChina (Farfetch 集團旗下)',
-      locationOrLinkText: '北京',
+      locationOrLinkText: '查看產品專頁 →',
+      appStoreUrl: '/zh-tw/curio-eye',
     },
     {
       title: 'Talkmate (全球說)',

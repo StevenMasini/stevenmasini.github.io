@@ -38,7 +38,12 @@ const pageSlugMap: Record<NavItem['id'], string> = {
   experience: '/experience/',
   contact: '/contact/',
 };
-const currentSlug = pageSlugMap[activeNav] ?? '/';
+const rawPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const strippedPath =
+  rawPath.replace(/^\/(fr|zh-tw)(?=\/|$)/, '') || pageSlugMap[activeNav] || '/';
+const currentSlug = strippedPath.endsWith('/')
+  ? strippedPath
+  : `${strippedPath}/`;
 
 const canonicalUrl = new URL(
   Astro.url.pathname,

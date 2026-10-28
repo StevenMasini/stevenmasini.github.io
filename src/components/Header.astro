@@ -25,7 +25,9 @@ const pageSlugMap: Record<NavItem['id'], string> = {
   contact: '/contact',
 };
 
-const currentSlug = pageSlugMap[activeNav] ?? '/';
+const rawPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const currentSlug =
+  rawPath.replace(/^\/(fr|zh-tw)(?=\/|$)/, '') || pageSlugMap[activeNav] || '/';
 const homeHref = getLocalizedPath(lang, '/');
 const contactHref = getLocalizedPath(lang, '/contact');
 ---

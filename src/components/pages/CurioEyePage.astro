@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  defaultLocale,
+  getLocalizedPath,
+  type Locale,
+} from '../../data/portfolio';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = defaultLocale } = Astro.props;
+const appsHref = getLocalizedPath(lang, '/apps-and-work');
+
+const archiveBannerCopy: Record<
+  Locale,
+  { back: string; badge: string; note: string }
+> = {
+  en: {
+    back: '← Back to Apps & Work',
+    badge: 'Historical Product Showcase (2016–2017)',
+    note: 'Sole iOS Developer at CuriosityChina (A Farfetch Company) • Swift v1.0 – v1.1.5',
+  },
+  fr: {
+    back: '← Retour aux Applications & Projets',
+    badge: 'Présentation Produit d’Archive (2016–2017)',
+    note: 'Unique Développeur iOS chez CuriosityChina (Groupe Farfetch) • Swift v1.0 – v1.1.5',
+  },
+  'zh-tw': {
+    back: '← 返回作品與專案',
+    badge: '歷史產品專頁存檔 (2016–2017)',
+    note: 'CuriosityChina (Farfetch 集團旗下) 唯一 iOS 開發工程師 • Swift v1.0 – v1.1.5',
+  },
+};
+
+const banner = archiveBannerCopy[lang] ?? archiveBannerCopy.en;
+---
+
+<BaseLayout
+  title="CURIO EYE — Advanced WeChat Official Account Monitoring System | Steven Masini"
+  description="Historical product showcase of CURIO EYE by CuriosityChina (A Farfetch Company). Companion iOS application built from scratch in Swift for WeChat Official Account monitoring and analytics."
+  activeNav="apps-and-work"
+  lang={lang}
+>
+  <!-- Subtle Top Return Bar -->
+  <div class="w-full bg-neutral-100 border-b border-neutral-200">
+    <div
+      class="max-w-6xl mx-auto px-4 sm:px-8 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono"
+    >
+      <a
+        href={appsHref}
+        class="text-neutral-700 hover:text-neutral-950 font-medium transition-colors"
+      >
+        {banner.back}
+      </a>
+      <div class="flex flex-wrap items-center gap-2 text-neutral-500">
+        <span
+          class="px-2 py-0.5 bg-white border border-neutral-200 rounded text-[11px] text-neutral-700"
+        >
+          {banner.badge}
+        </span>
+        <span class="hidden sm:inline text-[11px]">{banner.note}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Width Responsive Infographic -->
+  <div class="w-full bg-white">
+    <picture class="block w-full">
+      <source srcset="/images/curioeye/infographic.webp" type="image/webp" />
+      <img
+        src="/images/curioeye/infographic.jpg"
+        alt="CURIO EYE — Advanced WeChat Official Account Monitoring System by CuriosityChina"
+        width="1920"
+        height="13553"
+        decoding="async"
+        class="w-full h-auto block"
+      />
+    </picture>
+  </div>
+</BaseLayout>
+
