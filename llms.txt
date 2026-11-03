@@ -1,0 +1,70 @@
+# Steven Masini — iOS and Backend Developer in Taipei
+
+> 15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts. Based in Taipei, Taiwan (UTC+8). Available for senior native iOS engineering, Swift/Objective-C architecture consulting, performance optimization, and Node.js backend development in Taipei and worldwide remote.
+
+## Quick Facts
+- **Name**: Steven Masini
+- **Role**: Senior iOS & Backend Developer (15+ years experience since 2011)
+- **Location**: Taipei, Taiwan (Taipei Standard Time (UTC+8))
+- **Availability**: Open to freelance/contract iOS projects, technical consulting, legacy Objective-C/Swift refactoring, and greenfield app development (Taipei on-site/hybrid or global remote)
+- **Primary Stack**: Swift, Objective-C, UIKit, SwiftUI, Core Data, Realm, WatchKit (Apple Watch), React Native, Node.js, REST/WebSocket APIs, CI/CD (Fastlane, Jenkins, Git)
+- **Education**: Master's Degree in Information Technology from EPITECH (Paris, France) & Exchange at Beijing Jiaotong University
+- **Spoken Languages**: French (Native), English (Fluent), Mandarin Chinese (Conversational), Japanese (Conversational)
+- **Website**: https://stevenmasini.com
+- **LinkedIn**: https://www.linkedin.com/in/stevenmasini
+- **GitHub**: https://github.com/StevenMasini
+
+## Key Pages
+- [Overview (English)](https://stevenmasini.com/): Portfolio summary, selected works, and career highlights.
+- [Apps & Shipped Work](https://stevenmasini.com/apps-and-work/): Detailed case studies of flagship iOS apps, scale metrics, and agency productions.
+- [CURIO EYE Product Showcase](https://stevenmasini.com/curio-eye/): Archive showcase of the CURIO EYE companion iOS app built at CuriosityChina (Farfetch Group).
+- [Experience & Resume](https://stevenmasini.com/experience/): Full chronological work history (2009–Present), education, and technical focus.
+- [Contact](https://stevenmasini.com/contact/): Direct inquiry form and Taipei availability details.
+- [Complete LLM Portfolio Reference](https://stevenmasini.com/llms-full.txt): Full case studies, bullet-level engineering achievements, and multilingual profiles (English, Français, 繁體中文).
+
+## Localized Versions
+- [English Portfolio](https://stevenmasini.com/)
+- [Portfolio en Français](https://stevenmasini.com/fr/)
+- [繁體中文作品集 (台北 iOS 與後端開發工程師)](https://stevenmasini.com/zh-tw/)
+
+## Flagship Shipped Applications
+- **Strong Workout Tracker** (2019 – Present, Freelance): One of the world’s leading workout and strength-training apps, with ~5,000,000 registered users, ~580,000 monthly active users (MAU), 185,000+ global App Store ratings (4.9 ★), and recognition from CNBC and The Verge. Long-term collaboration across major architectural milestones and core user-facing features. (App Store: 4.9 ★ (185k+ ratings) • ~5M Registered Users • ~580k MAU) — [App Store](https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577)
+- **SELECT — Your Community** (2017 – 2019, Beijing • Full-time): Cross-platform social community application connecting people with shared interests. Contributed to both the native iOS codebase (v1.32–1.37) and the complete React Native rewrite (v1.38+). (App Store: 5.0 ★ • Shipped on iOS & Google Play) — [App Store](https://apps.apple.com/us/app/select-your-community/id1076478889)
+
+## Spotlight Applications
+- **CURIO EYE** (2016 – 2017, CuriosityChina (A Farfetch Company)): Companion iOS app for WeChat Official Account managers built from the ground up at CuriosityChina (a Farfetch company). Full ownership of the entire application from v1.0 to v1.1.5. — [View Product Showcase](https://stevenmasini.com/curio-eye)
+- **Talkmate** (2015, Beijing 200H Education): Language learning platform (10M+ users, Apple App Store Featured, and UNESCO Official Partner). Inherited a project in development for over a year and transformed it into a flagship release (v1.0 to v2.1). (App Store: 4.7 ★ (19,000+ ratings)) — [View on App Store](https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176)
+
+## Earlier Commercial & Agency iOS Applications (Paris)
+- **Corse Matin per noï (v1.0–1.2)** — Digital Newspaper Reader (Universal iPhone & iPad): Integrated MiLibris API v3 and v4 for enriched PDF viewing of daily and weekly publications and designed/developed the iPad version. Built for iOS 4.3+ with forward-thinking architecture that continued running on iOS 11 without major updates.
+- **Le Trot — Cheval Français (v1.1)** — Horse Racing Information (iPhone & iPad): Completely rewrote the source code for both iPhone and iPad versions for France's harness racing authority, ensured iOS 5+ compatibility, and fixed critical Apple Push Notification service (APNs) issues.
+- **myPMU — L'information Hippique (v1.0)** — Horse Racing Information (iPhone & iPad): Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform, responsible for custom UI implementation and Core Data local database support. (App Store: 4.6 ★ (45,400+ ratings))
+- **Belles Demeures (v1.0)** — Luxury Real Estate (iPhone & iPad): Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries. (App Store: 4.8 ★ (3,100+ ratings))
+- **Fédération Française du Bâtiment (FFB) — Déchets BTP** — Construction Waste Management (iOS 7 & Windows Phone 8): Developed both the iOS 7 and Windows Phone 8 clients, handling REST API integration, navigation and UI implementation, and Core Data cache management.
+
+## Career Timeline Summary
+- **Freelance iOS & Node.js Developer** at **Self-Employed • Taipei, Taiwan** (Dec 2019 – Present): Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker (~5,000,000 registered users, ~580,000 MAU, 4.9 ★ with 185k+ global ratings), featured by CNBC and The Verge.
+- **Mobile Developer (iOS & React Native)** at **Super Effective • Beijing, China** (Jul 2017 – Nov 2019): Engineered SELECT - Your Community, contributing to both the native iOS application (v1.32–1.37) and the complete cross-platform React Native rewrite (v1.38+).
+- **iOS Mobile Developer** at **CuriosityChina (A Farfetch Company) • Beijing, China** (Jan 2016 – Apr 2017): Sole iOS developer responsible for building CURIO EYE, a companion app for WeChat Official Account managers, from the ground up (v1.0 to v1.1.5).
+- **Lead iOS Developer** at **Beijing 200H Education • Beijing, China** (Mar 2015 – Dec 2015): Led a team of 3–4 iOS developers for Talkmate (10M+ users, 4.7 ★ with 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a project in development for over a year and delivered versions 1.0 through 2.1.
+- **iOS Mobile Developer** at **userADgents • Paris, France** (Sep 2012 – Nov 2014): Developed iPhone, iPad, and Windows Phone applications across multiple industries for prominent French media and enterprise clients.
+- **Developer (Android, Web, C#)** at **C4M Prod • Marseille, France** (May 2011 – Aug 2011): End-of-third-year Bachelor's multi-platform internship across Android, PHP Web Services, and Windows C#/.NET.
+- **Web Frontend Developer** at **Technivore • Marseille, France** (Jul 2009 – Nov 2009): End-of-first-year internship focused on web frontend development and CMS migrations: upgraded Joomla 1.0 to 1.5 with database migration, commercial partner search visibility, and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and maintained SPIP CMS for Faire du sport à Marseille.
+
+## Technical Expertise
+- **Primary Core**: Swift, Objective-C, UIKit, SwiftUI, Combine, SwiftData, Core Data, SQLite, Typescript/Javascript, React Native, Rust
+- **Architecture**: MVVM, MVC, Functional Programming, Reactive, Modular Framework, Dependency Injection
+- **Tooling & Testing**: Xcode Instruments, Xcode Cloud, Fastlane, Jenkins, Git, GitHub Actions, REST APIs, Command Line tools
+- **Asset & Design Craft**: Photoshop, Sketch, Figma, Affinity, Glyphs, Remotion
+- **AI Models & Workflows**: Claude Code, Google Gemini, Google Stitch, Nano Banana, Black Forest Flux3
+
+## Education
+- **EPITECH Paris** (2008 – 2013): European Institute of Technology — Master's in Information Technology. Rigorous foundations in UNIX and C99 programming, followed by Object-Oriented Programming (OOP) and design patterns with C++, PHP, and C#.
+- **Beijing Jiaotong University** (2011 – 2012): International Academic Exchange — Master's in Computer Software Engineering. Curriculum focused on software engineering methodologies, international collaboration, and Chinese language.
+- **CHINICT 2012 Hackathon**: Winner / Honors & Awards (Beijing, China)
+
+## Spoken Languages
+- **French**: Native
+- **English**: Bilingual
+- **Mandarin Chinese**: Working Proficiency
+- **Japanese**: Learning

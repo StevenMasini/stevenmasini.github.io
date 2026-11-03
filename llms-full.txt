@@ -1,0 +1,185 @@
+# Steven Masini — Complete Portfolio & Engineering Reference (llms-full.txt)
+
+> Comprehensive reference for AI assistants, search engines, and technical recruiters looking for a Senior iOS Developer, Swift/Objective-C Architect, or Mobile + Backend Engineer in Taipei, Taiwan (or remote).
+
+---
+
+## 1. Executive Profile
+- **Full Name**: Steven Masini
+- **Current Location**: Taipei, Taiwan (Asia/Taipei, UTC+8)
+- **Title**: iOS and Backend Developer in Taipei
+- **Years of Experience**: 15+ years shipping production software since 2011 (mobile engineering in Paris, Beijing, and Taipei)
+- **Track Record**: 15+ shipped commercial applications, 10M+ cumulative end users, 4.9★ flagship App Store ratings
+- **Canonical Website**: https://stevenmasini.com
+- **LinkedIn**: https://www.linkedin.com/in/stevenmasini
+- **GitHub**: https://github.com/StevenMasini
+- **Contact Page**: https://stevenmasini.com/contact/
+
+---
+
+## 2. Services & Availability (Taipei & Remote)
+- **Asynchronous by default**: I prefer clear, documented async communication (GitHub PRs, Linear issues, concise screen recordings). Keeps meetings minimal and deep-work velocity high.
+- **Timezone coordination**: Based in Taipei (UTC+8) with routine overlap across North American morning hand-offs, European afternoon syncs, and APAC business hours.
+- **Response timeframe**: Inquiries are typically acknowledged within 24 hours Monday through Friday.
+- **Project Types**: New iOS Application | Refactoring & Maintenance | Performance & Crash Audit | Consulting / Architecture
+
+---
+
+## 3. Flagship Production Case Studies
+
+### Strong Workout Tracker (2019 – Present)
+- **Context**: Freelance
+- **Summary**: One of the world’s leading workout and strength-training apps, with ~5,000,000 registered users, ~580,000 monthly active users (MAU), 185,000+ global App Store ratings (4.9 ★), and recognition from CNBC and The Verge. Long-term collaboration across major architectural milestones and core user-facing features.
+- **Technologies**: Swift, SwiftUI, Combine, ActivityKit, Core Data, HealthKit
+- **Scale & Ratings**: App Store: 4.9 ★ (185k+ ratings) • ~5M Registered Users • ~580k MAU
+- **App Store**: https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577
+- **Key Engineering Contributions**:
+  - **Strong 6.0 Refactoring (SwiftUI & Combine)**: Contributed to the major codebase refactoring adopting SwiftUI and Combine reactive pipelines, culminating in the landmark version 6.0 release.
+  - **Live Activities & Dynamic Island Rest Timers**: Implemented and released the Live Activity and Dynamic Island feature displaying active workout rest timers directly on the iOS Lock Screen and Dynamic Island.
+  - **xRM Formula Engine (Brzycki & Epley)**: Improved x Repetition Maximum (xRM — estimated best weight performance for x repetitions of a given set) accuracy by adding support for both Brzycki and Epley formulas across Personal Records, Charts, and workout analytics.
+  - **Exercise List Caching, Filtering & Fuzzy Search**: Improved Exercise List caching for faster loading performance, refined filtering and sorting methods, and helped develop fuzzy search with real-time character highlighting.
+  - **Customizable Themes, Diagnostics, Privacy & Maintenance**: Developed customizable themes and alternate app icons, built local database diagnostic tools, implemented GDPR and Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.
+
+### SELECT — Your Community (2017 – 2019)
+- **Context**: Beijing • Full-time
+- **Summary**: Cross-platform social community application connecting people with shared interests. Contributed to both the native iOS codebase (v1.32–1.37) and the complete React Native rewrite (v1.38+).
+- **Technologies**: Swift 3.0, React Native, Objective-C, WebSocket, MVVM, Fastlane, Jenkins
+- **Scale & Ratings**: App Store: 5.0 ★ • Shipped on iOS & Google Play
+- **App Store**: https://apps.apple.com/us/app/select-your-community/id1076478889
+- **Key Engineering Contributions**:
+  - **Native iOS Phase (v1.32–1.37) — Build Time Cut from 70 min to 11 min (-84%)**: Modularized the codebase using CocoaPods, refactored the architecture to MVVM with Dependency Injection, and configured Continuous Delivery using Fastlane and Jenkins.
+  - **React Native Rewrite (v1.38+) — WebSocket Protocol & Core Features**: Defined and implemented the client/server WebSocket communication protocol, built the Multi Friend Selector (MFS) intelligent contact search and suggestion system, and built deep-link activated custom intro launch screens.
+  - **Native Objective-C Image Picker & Cross-Platform Flexbox UI**: Built a custom Objective-C native image picker module bridged to React Native for optimal performance, and implemented responsive Flexbox screen layouts across iOS and Android.
+
+---
+
+## 4. Spotlight Production Case Studies
+
+### CURIO EYE (2016 – 2017)
+- **Role**: Sole iOS Developer • Farfetch Group — CuriosityChina (A Farfetch Company)
+- **Summary**: Companion iOS app for WeChat Official Account managers built from the ground up at CuriosityChina (a Farfetch company). Full ownership of the entire application from v1.0 to v1.1.5.
+- **Link**: https://stevenmasini.com/curio-eye
+- **Key Engineering Contributions**:
+  - Wrote the entire application from scratch in Swift and UIKit, owning all source code, resources, and architecture.
+  - Planned and executed bi-weekly release cycles, App Store Optimization (ASO), and contributed to product direction.
+  - Minimized app bundle size and resource footprint for fast downloads and smooth runtime performance.
+
+### Talkmate (2015)
+- **Role**: Lead iOS Developer • 10M+ Users — Beijing 200H Education
+- **Summary**: Language learning platform (10M+ users, Apple App Store Featured, and UNESCO Official Partner). Inherited a project in development for over a year and transformed it into a flagship release (v1.0 to v2.1).
+- **Ratings**: App Store: 4.7 ★ (19,000+ ratings)
+- **Link**: https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176
+- **Key Engineering Contributions**:
+  - Led a team of 3–4 iOS developers, managing task allocation, architecture decisions, and release planning.
+  - Completely rewrote and re-architected the entire codebase in Swift and UIKit for scalability and maintainability.
+  - Reduced app bundle size through resource optimization and drove App Store Optimization (ASO) and product decisions.
+
+---
+
+## 5. Agency & Commercial Apps (Paris — userADgents, 2012–2014)
+- **Corse Matin per noï (v1.0–1.2)** (Digital Newspaper Reader (Universal iPhone & iPad)) [Objective-C / MiLibris]: Integrated MiLibris API v3 and v4 for enriched PDF viewing of daily and weekly publications and designed/developed the iPad version. Built for iOS 4.3+ with forward-thinking architecture that continued running on iOS 11 without major updates.
+- **Le Trot — Cheval Français (v1.1)** (Horse Racing Information (iPhone & iPad)) [Objective-C / APNs]: Completely rewrote the source code for both iPhone and iPad versions for France's harness racing authority, ensured iOS 5+ compatibility, and fixed critical Apple Push Notification service (APNs) issues.
+- **myPMU — L'information Hippique (v1.0)** (Horse Racing Information (iPhone & iPad)) [Objective-C / Core Data]: Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform, responsible for custom UI implementation and Core Data local database support. (App Store: 4.6 ★ (45,400+ ratings)) — https://apps.apple.com/fr/app/pmu-turf/id719630042
+- **Belles Demeures (v1.0)** (Luxury Real Estate (iPhone & iPad)) [Objective-C / UIKit]: Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries. (App Store: 4.8 ★ (3,100+ ratings)) — https://apps.apple.com/fr/app/belles-demeures/id398333286
+- **Fédération Française du Bâtiment (FFB) — Déchets BTP** (Construction Waste Management (iOS 7 & Windows Phone 8)) [Objective-C & WP8 / Core Data]: Developed both the iOS 7 and Windows Phone 8 clients, handling REST API integration, navigation and UI implementation, and Core Data cache management.
+
+---
+
+## 6. Early Technical Foundations (2009–2011)
+- **Qobuz Music Streaming (1M+ Downloads • 4.8 ★)** (Android • C4M Prod (2011)) [undefined]: Developed the Android music player interface, customizable artist information section, and social sharing (Facebook, Twitter, SMS, Email) for tracks and playlists.
+- **RATP Paris Transit (10M+ Downloads • 4.6 ★)** (Android • C4M Prod (2011)) [undefined]: Updated the internal Paris transit schedule database and integrated the AdMob mobile advertising framework for the official Paris metro and transit app.
+- **Zend Framework APIs** (Web Services • C4M Prod (2011)) [undefined]: Maintained backend web services for major commercial accounts including Atol les opticiens, Volkswagen, and Digitick.
+- **Pushmii Server** (Push Server • C4M Prod (2011)) [undefined]: Handled server maintenance and created a PHP client library for deployment automation to simplify sending push notifications.
+- **Daiichi-Sankyo e-ADV** (Windows C# • C4M Prod (2011)) [undefined]: Created an HTML template generator for an e-ADV application using Microsoft C# and .NET 4.0 with automated Excel data extraction and formatting.
+- **CMS & XHTML Platforms** (Web Frontend • Technivore (2009)) [undefined]: Upgraded Joomla 1.0 to 1.5 with DB migration, SEO partner visibility, and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and maintained SPIP CMS for Faire du sport à Marseille.
+
+---
+
+## 7. Complete Chronological Work History (2009–Present)
+
+### Freelance iOS & Node.js Developer — Self-Employed • Taipei, Taiwan (Dec 2019 – Present)
+Collaborating with clients on native iOS and backend Node.js projects, including long-term engineering on Strong Workout Tracker (~5,000,000 registered users, ~580,000 MAU, 4.9 ★ with 185k+ global ratings), featured by CNBC and The Verge.
+  - Contributed to the major codebase refactoring adopting SwiftUI and Combine, leading to the release of Strong 6.0.
+  - Implemented and shipped the Live Activity and Dynamic Island feature displaying active rest timers on the Lock Screen and Dynamic Island.
+  - Improved the xRM (x Repetition Maximum) estimation formula by adding support for both Brzycki and Epley formulas across Personal Records, Charts, and analytics.
+  - Enhanced Exercise List filters, sorting methods, and caching to improve loading performance, and helped develop fuzzy search with real-time character highlighting.
+  - Developed customizable themes, alternate app icons, local database diagnostic tools, GDPR / Apple Privacy Nutrition Label compliance, and handled ongoing app maintenance, bug/crash fixes, and technical support.
+  - **Tech**: Swift, SwiftUI, Combine, ActivityKit, Core Data, HealthKit, Node.js
+
+### Mobile Developer (iOS & React Native) — Super Effective • Beijing, China (Jul 2017 – Nov 2019)
+Engineered SELECT - Your Community, contributing to both the native iOS application (v1.32–1.37) and the complete cross-platform React Native rewrite (v1.38+).
+  - Native iOS (v1.32–1.37): Cut compilation time from 70 minutes to 11 minutes (-84%), modularized the codebase with CocoaPods, refactored to MVVM with Dependency Injection, and configured CI/CD with Fastlane and Jenkins.
+  - React Native Rewrite (v1.38+): Defined and implemented the WebSocket communication protocol, built the Multi Friend Selector (MFS) intelligent contact search/suggestion system, and built deep-link custom intro screens.
+  - Built an Objective-C native image picker module bridged to React Native and implemented cross-platform Flexbox screen layouts for iOS and Android.
+  - **Tech**: Swift 3.0, React Native, Objective-C, WebSocket, MVVM, Fastlane, Jenkins
+
+### iOS Mobile Developer — CuriosityChina (A Farfetch Company) • Beijing, China (Jan 2016 – Apr 2017)
+Sole iOS developer responsible for building CURIO EYE, a companion app for WeChat Official Account managers, from the ground up (v1.0 to v1.1.5).
+  - Wrote the entire application from scratch in Swift and UIKit, owning all source code, resources, and architecture decisions.
+  - Planned and executed bi-weekly release cycles, handled App Store Optimization (ASO), and contributed to product roadmap decisions.
+  - Optimized app bundle size and resource usage while maintaining high code quality across rapid iterations.
+  - **Tech**: Swift, UIKit, WeChat API, ASO, iOS SDK
+
+### Lead iOS Developer — Beijing 200H Education • Beijing, China (Mar 2015 – Dec 2015)
+Led a team of 3–4 iOS developers for Talkmate (10M+ users, 4.7 ★ with 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a project in development for over a year and delivered versions 1.0 through 2.1.
+  - Completely rewrote and re-architected the entire codebase in Swift and UIKit for scalability and maintainability.
+  - Managed team task allocation, architectural decisions, and version release schedules.
+  - Reduced app bundle size through resource optimization and participated in ASO and product direction.
+  - **Tech**: Swift, UIKit, Team Leadership, Codebase Rewrite, Real-time Communication
+
+### iOS Mobile Developer — userADgents • Paris, France (Sep 2012 – Nov 2014)
+Developed iPhone, iPad, and Windows Phone applications across multiple industries for prominent French media and enterprise clients.
+  - Corse Matin per noï (v1.0–1.2): Integrated MiLibris API v3 & v4 for enriched PDF viewing, designed/developed the iPad version, and built for iOS 4.3+ with longevity through iOS 11.
+  - Le Trot - Cheval Français (v1.1): Rewrote source code for iPhone and iPad, ensured iOS 5+ compatibility, and fixed push notification issues.
+  - myPMU - L'information Hippique (v1.0, 4.6 ★ / 45k+ ratings) & Belles Demeures (v1.0, 4.8 ★ / 3.1k+ ratings): Worked in 3-developer teams taking over an in-progress project (myPMU) and delivering universal iPhone/iPad apps, UI integration, and Core Data support.
+  - Fédération Française du Bâtiment (FFB) - Déchets BTP: Developed both iOS 7 and Windows Phone 8 apps with REST API integration, UI/navigation, and Core Data cache management.
+  - **Tech**: Objective-C, UIKit, Core Data, Push Notifications, MiLibris API, Windows Phone 8
+
+### Developer (Android, Web, C#) — C4M Prod • Marseille, France (May 2011 – Aug 2011)
+End-of-third-year Bachelor's multi-platform internship across Android, PHP Web Services, and Windows C#/.NET.
+  - Android: Developed Qobuz music player UI (1M+ downloads, 4.8 ★), customizable artist info views, and social sharing (Facebook, Twitter, SMS, Email); updated RATP internal database (10M+ downloads, 4.6 ★) and integrated AdMob.
+  - Web & Push: Maintained Zend Framework web services (Atol les opticiens, Volkswagen, Digitick) and built a PHP deployment automation client library for the Pushmii server.
+  - Windows C#: Built an HTML template generator in C# and .NET 4.0 with Excel data extraction for Daiichi-Sankyo e-ADV.
+  - **Tech**: Java (Android), PHP (Zend), C# (.NET 4.0), AdMob
+
+### Web Frontend Developer — Technivore • Marseille, France (Jul 2009 – Nov 2009)
+End-of-first-year internship focused on web frontend development and CMS migrations: upgraded Joomla 1.0 to 1.5 with database migration, commercial partner search visibility, and CSS3/JS enhancements for Association Pacamômes, hand-coded XHTML/CSS2 for Programme SIRS, and maintained SPIP CMS for Faire du sport à Marseille.
+  - **Tech**: HTML/XHTML, CSS2/CSS3, JavaScript, Joomla, SPIP, PHP
+
+---
+
+## 8. Education, Languages & Technical Stack
+
+### Education
+- **EPITECH Paris** (2008 – 2013): European Institute of Technology — Master's in Information Technology. Rigorous foundations in UNIX and C99 programming, followed by Object-Oriented Programming (OOP) and design patterns with C++, PHP, and C#.
+- **Beijing Jiaotong University** (2011 – 2012): International Academic Exchange — Master's in Computer Software Engineering. Curriculum focused on software engineering methodologies, international collaboration, and Chinese language.
+- **Awards**: CHINICT 2012 Hackathon (Honors & Awards • Beijing, China)
+
+### Technical Focus
+- **Primary Core**: Swift, Objective-C, UIKit, SwiftUI, Combine, SwiftData, Core Data, SQLite, Typescript/Javascript, React Native, Rust
+- **Architecture**: MVVM, MVC, Functional Programming, Reactive, Modular Framework, Dependency Injection
+- **Tooling & Testing**: Xcode Instruments, Xcode Cloud, Fastlane, Jenkins, Git, GitHub Actions, REST APIs, Command Line tools
+- **Asset & Design Craft**: Photoshop, Sketch, Figma, Affinity, Glyphs, Remotion
+- **AI Models & Workflows**: Claude Code, Google Gemini, Google Stitch, Nano Banana, Black Forest Flux3
+
+### Spoken Languages
+- **French**: Native
+- **English**: Bilingual
+- **Mandarin Chinese**: Working Proficiency
+- **Japanese**: Learning
+
+---
+
+## 9. Multilingual Profiles (Français & 繁體中文)
+
+### Profil en Français (https://stevenmasini.com/fr/)
+- **Titre**: Développeur iOS & Backend à Taipei
+- **Résumé**: Plus de 15 ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Orienté architecture propre, haute performance et code pérenne.
+- **Parcours**: Développement logiciel et applications iOS natives depuis 2011. Plus de 15 ans d’expérience entre Paris, Pékin et Taipei. Des fondations systèmes Unix et C jusqu’aux architectures iOS modernes, services backend Node.js et workflows d’IA.
+- **Localisation**: Taipei, Taïwan (Heure normale de Taipei (UTC+8))
+
+### 繁體中文簡介 (https://stevenmasini.com/zh-tw/)
+- **職稱**: 駐台北的 iOS 與後端開發工程師 (駐台北資深 iOS 與後端開發工程師)
+- **簡介**: 自 2011 年起投入原生 iOS 應用程式與後端服務開發，累積逾 15 年實戰經驗。專注於高擴充性架構、極致效能與易於長期維護的程式碼。
+- **專業經歷**: 自 2011 年起從事軟體與原生 iOS 應用程式開發，橫跨巴黎、北京與台北逾 15 年。從底層 Unix 與 C 語言系統出發，延伸至現代原生 iOS 架構、Node.js 後端服務與 AI 輔助開發流程。
+- **所在地**: 台灣台北 (台北標準時間 (UTC+8))
