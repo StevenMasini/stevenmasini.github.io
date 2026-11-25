@@ -12,13 +12,12 @@ import {
   sections,
   sitemapEntries,
 } from './pages';
+import { llmsPageSummaries, siteMetadata } from './portfolio';
 import {
   defaultLocale,
-  llmsPageSummaries,
   localeConfigs,
   locales,
-  siteMetadata,
-} from './portfolio';
+} from './locales';
 
 const pagesDir = fileURLToPath(new URL('../pages/', import.meta.url));
 

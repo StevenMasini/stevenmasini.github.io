@@ -2,11 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StatsGrid from '../StatsGrid.astro';
 import TimelineItem from '../TimelineItem.astro';
-import {
-  defaultLocale,
-  getPortfolioData,
-  type Locale,
-} from '../../data/portfolio';
+import { getPortfolioData } from '../../data/portfolio';
+import { defaultLocale, type Locale } from '../../data/locales';
 import { pagePath } from '../../data/pages';
 
 interface Props {

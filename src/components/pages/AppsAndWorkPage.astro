@@ -6,11 +6,8 @@ import FlagshipProjectCard from '../FlagshipProjectCard.astro';
 import SpotlightProjectCard from '../SpotlightProjectCard.astro';
 import AgencyAppRow from '../AgencyAppRow.astro';
 import FoundationCard from '../FoundationCard.astro';
-import {
-  defaultLocale,
-  getPortfolioData,
-  type Locale,
-} from '../../data/portfolio';
+import { getPortfolioData } from '../../data/portfolio';
+import { defaultLocale, type Locale } from '../../data/locales';
 import { pagePath } from '../../data/pages';
 
 interface Props {

@@ -6,15 +6,14 @@
  * See CONTEXT.md. Translated wording (Section labels, etc.) lives in
  * `portfolio.ts`; this module only knows ids, paths and SEO hints.
  */
+import { getPortfolioData, siteMetadata } from './portfolio';
 import {
   defaultLocale,
   getLocalizedPath,
-  getPortfolioData,
   localeConfigs,
   locales,
-  siteMetadata,
   type Locale,
-} from './portfolio';
+} from './locales';
 
 export type SectionId = 'overview' | 'apps-and-work' | 'experience' | 'contact';
 

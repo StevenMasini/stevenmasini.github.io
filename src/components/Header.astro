@@ -1,11 +1,11 @@
 ---
+import { getPortfolioData } from '../data/portfolio';
 import {
   defaultLocale,
-  getPortfolioData,
   localeConfigs,
   locales,
   type Locale,
-} from '../data/portfolio';
+} from '../data/locales';
 import {
   navLinks,
   pagePath,
@@ -201,6 +201,14 @@ const contactHref = pagePath('contact', lang);
 </header>
 
 <script>
+  import {
+    defaultLocale,
+    getLocalizedPath,
+    getPreferredLocale,
+    isLocale,
+    setPreferredLocale,
+  } from '../data/locales';
+
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const icon = document.getElementById('mobile-menu-icon');
@@ -251,12 +259,8 @@ const contactHref = pagePath('contact', lang);
   langLinks?.forEach((link) => {
     link.addEventListener('click', () => {
       const selectedLocale = link.getAttribute('data-locale');
-      if (selectedLocale) {
-        try {
-          localStorage.setItem('preferred_locale', selectedLocale);
-        } catch {
-          // Ignore storage errors
-        }
+      if (isLocale(selectedLocale)) {
+        setPreferredLocale(selectedLocale);
         const gtagFn = (window as any).gtag as
           | ((...args: any[]) => void)
           | undefined;
@@ -270,18 +274,11 @@ const contactHref = pagePath('contact', lang);
   });
 
   // Respect saved language preference on direct root visit
-  try {
-    const savedLocale = localStorage.getItem('preferred_locale');
-    const isDirectRootVisit =
-      window.location.pathname === '/' &&
-      (!document.referrer || !document.referrer.includes(window.location.host));
-    if (
-      isDirectRootVisit &&
-      (savedLocale === 'fr' || savedLocale === 'zh-tw')
-    ) {
-      window.location.replace(`/${savedLocale}`);
-    }
-  } catch {
-    // Ignore storage errors
+  const savedLocale = getPreferredLocale();
+  const isDirectRootVisit =
+    window.location.pathname === '/' &&
+    (!document.referrer || !document.referrer.includes(window.location.host));
+  if (isDirectRootVisit && savedLocale && savedLocale !== defaultLocale) {
+    window.location.replace(getLocalizedPath(savedLocale, '/'));
   }
 </script>

@@ -1,10 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import {
-  defaultLocale,
-  getPortfolioData,
-  type Locale,
-} from '../../data/portfolio';
+import { getPortfolioData } from '../../data/portfolio';
+import { defaultLocale, type Locale } from '../../data/locales';
 
 interface Props {
   lang?: Locale;

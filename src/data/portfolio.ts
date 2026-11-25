@@ -1,53 +1,11 @@
 import type { PageId, SectionId } from './pages';
 
-export type Locale = 'en' | 'fr' | 'zh-tw';
-
-export const locales: Locale[] = ['en', 'fr', 'zh-tw'];
-export const defaultLocale: Locale = 'en';
-
-export interface LocaleInfo {
-  code: Locale;
-  shortLabel: string;
-  label: string;
-  htmlLang: string;
-  ogLocale: string;
-}
-
-export const localeConfigs: Record<Locale, LocaleInfo> = {
-  en: {
-    code: 'en',
-    shortLabel: 'EN',
-    label: 'English',
-    htmlLang: 'en',
-    ogLocale: 'en_US',
-  },
-  fr: {
-    code: 'fr',
-    shortLabel: 'FR',
-    label: 'Français',
-    htmlLang: 'fr',
-    ogLocale: 'fr_FR',
-  },
-  'zh-tw': {
-    code: 'zh-tw',
-    shortLabel: '繁中',
-    label: '繁體中文',
-    htmlLang: 'zh-Hant-TW',
-    ogLocale: 'zh_TW',
-  },
-};
-
-export function getLocalizedPath(lang: Locale, path: string = '/'): string {
-  const normalized = path.startsWith('/') ? path : `/${path}`;
-  if (lang === defaultLocale) {
-    return normalized;
-  }
-  if (normalized === '/') {
-    return `/${lang}`;
-  }
-  return `/${lang}${normalized}`;
-}
-
+import {
+  defaultLocale,
+  localeConfigs,
+  type Locale,
+  type LocaleInfo,
+} from './locales';
 
 export interface StatItem {
   label: string;
@@ -169,6 +127,16 @@ export interface SiteMetadata {
 }
 
 export interface PortfolioUI {
+  notFound: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    homeLink: string;
+    appsLink: string;
+    contactLink: string;
+  };
   header: {
     getInTouch: string;
     languageLabel: string;
@@ -331,6 +299,17 @@ const enData: PortfolioData = {
     contact: 'Contact',
   },
   ui: {
+    notFound: {
+      metaTitle: '404 — Page Not Found | Steven Masini',
+      metaDescription: 'The page you are looking for could not be found.',
+      eyebrow: 'Error 404',
+      title: 'Page not found.',
+      description:
+        'The page you are looking for doesn’t exist or may have been moved. Use the links below to return to the portfolio.',
+      homeLink: 'Back to Overview',
+      appsLink: 'Apps & Work',
+      contactLink: 'Contact',
+    },
     header: {
       getInTouch: 'Get in touch',
       languageLabel: 'Select language',
@@ -990,6 +969,17 @@ const frData: PortfolioData = {
     contact: 'Contact',
   },
   ui: {
+    notFound: {
+      metaTitle: '404 — Page introuvable | Steven Masini',
+      metaDescription: 'La page que vous recherchez est introuvable.',
+      eyebrow: 'Erreur 404',
+      title: 'Page introuvable.',
+      description:
+        'La page que vous recherchez n’existe pas ou a été déplacée. Utilisez les liens ci-dessous pour revenir au portfolio.',
+      homeLink: 'Retour à l’aperçu',
+      appsLink: 'Applications & Projets',
+      contactLink: 'Contact',
+    },
     header: {
       getInTouch: 'Me contacter',
       languageLabel: 'Choisir la langue',
@@ -1651,6 +1641,17 @@ const zhTwData: PortfolioData = {
     contact: '聯絡方式',
   },
   ui: {
+    notFound: {
+      metaTitle: '404 — 找不到此頁面 | Steven Masini',
+      metaDescription: '找不到您所尋找的頁面。',
+      eyebrow: '錯誤 404',
+      title: '找不到此頁面。',
+      description:
+        '您所尋找的頁面不存在或已移至其他位置，請透過下方連結返回作品集。',
+      homeLink: '返回總覽首頁',
+      appsLink: '作品與專案',
+      contactLink: '聯絡方式',
+    },
     header: {
       getInTouch: '聯絡我',
       languageLabel: '選擇語言',
