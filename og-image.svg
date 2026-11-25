@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#FAFAFA"/>
+  <rect x="48" y="48" width="1104" height="534" rx="12" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2"/>
+  <rect x="112" y="128" width="64" height="64" rx="12" fill="#18181B"/>
+  <text x="144" y="168" text-anchor="middle" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="600" font-size="24" letter-spacing="1.5">SM</text>
+  <text x="112" y="276" fill="#18181B" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="600" font-size="60" letter-spacing="-1.5">Steven Masini</text>
+  <text x="112" y="332" fill="#71717A" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="400" font-size="30">iOS and Backend Developer in Taipei</text>
+  <line x1="112" y1="384" x2="1088" y2="384" stroke="#E4E4E7" stroke-width="1.5"/>
+  <text x="112" y="442" fill="#52525B" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="400" font-size="24">15+ years building native iOS apps and backend services since 2011.</text>
+  <text x="112" y="502" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="500" font-size="18" letter-spacing="1">SWIFT • OBJECTIVE-C • CORE DATA • NODE.JS • TAIPEI (UTC+8)</text>
+</svg>
