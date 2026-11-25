@@ -11,4 +11,5 @@
 ## Architecture & Component Conventions
 - Keep all portfolio content and metadata centralized in `src/data/portfolio.ts`.
 - Site structure (Pages, Sections, paths, sitemap hints) lives in `src/data/pages.ts`. To add a Page: register it there, add its two route stubs (`src/pages/<name>.astro` and `src/pages/[lang]/<name>.astro`), and add its `llmsPageSummaries` entry. Link internally with `pagePath(id, lang)`, never hand-written paths. `npm test` checks all of this. Domain terms are defined in `CONTEXT.md`.
+- Locales (the list, path prefixing/parsing, saved language preference) live in `src/data/locales.ts`. It must stay free of portfolio content because browser `<script>`s import it. Never hardcode Locale codes like `'fr'` in components or scripts.
 - Use reusable Astro components in `src/components/` and the shared shell in `src/layouts/BaseLayout.astro` so UI elements (Header, Footer, Cards, Badges, Stats, Timeline) stay consistent across all pages.
