@@ -1,0 +1,27 @@
+/** Site facts identical in every Locale; spread into each Locale's siteMetadata. */
+export const baseMetadata = {
+  name: 'Steven Masini',
+  monogram: 'SM',
+  siteUrl: 'https://stevenmasini.com',
+  linkedinUrl: 'https://www.linkedin.com/in/stevenmasini',
+  linkedinDisplay: 'linkedin.com/in/stevenmasini',
+  githubUrl: 'https://github.com/StevenMasini',
+  formSubmitToken: 'f87fcc8becf3b1ec96cc073c7f5cf448',
+  googleAnalyticsId: 'G-7CND8FWF9R',
+  copyrightYear: '2026',
+  keywords: [
+    'Steven Masini',
+    'iOS Developer',
+    'Senior iOS Engineer',
+    'Swift Developer',
+    'Backend Developer',
+    'Taipei',
+    'Taiwan',
+    'Objective-C',
+    'SwiftUI',
+    'UIKit',
+    'Core Data',
+    'Node.js',
+    'Mobile Architecture',
+  ],
+};
