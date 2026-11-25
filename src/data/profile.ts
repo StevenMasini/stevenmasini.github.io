@@ -9,6 +9,7 @@
 import { getPortfolioData, siteMetadata } from './portfolio';
 import { defaultLocale, localeConfigs, type Locale } from './locales';
 import { linkUrl, pageUrl, type Link, type PageId } from './pages';
+import { appStoreLink, apps, formatRating, type AppId } from './apps';
 
 export interface ShowcasedApp {
   name: string;
@@ -16,7 +17,8 @@ export interface ShowcasedApp {
   /** Schema.org applicationCategory. */
   category: string;
   link: Link;
-  rating?: { value: string; count: string };
+  /** Catalog entry whose rating is published as aggregateRating (when it has a count). */
+  app?: AppId;
 }
 
 export const profile = {
@@ -72,14 +74,15 @@ export const profile = {
       name: 'Strong Workout Tracker Gym Log',
       operatingSystem: 'iOS, watchOS',
       category: 'HealthApplication',
-      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
-      rating: { value: '4.9', count: '185000' },
+      link: appStoreLink('strong'),
+      app: 'strong',
     },
     {
       name: 'SELECT — Your Community',
       operatingSystem: 'iOS, Android',
       category: 'SocialNetworkingApplication',
-      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
+      link: appStoreLink('select'),
+      app: 'select',
     },
     {
       name: 'CURIO EYE — WeChat Official Account Monitoring System',
@@ -91,8 +94,8 @@ export const profile = {
       name: 'Talkmate Language Learning',
       operatingSystem: 'iOS',
       category: 'EducationalApplication',
-      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
-      rating: { value: '4.7', count: '19000' },
+      link: appStoreLink('talkmate'),
+      app: 'talkmate',
     },
   ] satisfies ShowcasedApp[],
 };
@@ -137,6 +140,19 @@ export function quickFactLines(): string[] {
     `- **LinkedIn**: ${siteMetadata.linkedinUrl}`,
     `- **GitHub**: ${siteMetadata.githubUrl}`,
   ];
+}
+
+function aggregateRating(id: AppId | undefined) {
+  const rating = id ? apps[id].rating : undefined;
+  if (rating?.count === undefined) return {};
+  return {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: formatRating(rating.value),
+      ratingCount: String(rating.count),
+      bestRating: '5',
+    },
+  };
 }
 
 export interface StructuredDataInput {
@@ -234,14 +250,7 @@ export function buildStructuredData({
             applicationCategory: app.category,
             url: linkUrl(app.link, defaultLocale),
             author: { '@id': personId },
-            ...(app.rating && {
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: app.rating.value,
-                ratingCount: app.rating.count,
-                bestRating: '5',
-              },
-            }),
+            ...aggregateRating(app.app),
           },
         })),
       },

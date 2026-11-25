@@ -1,5 +1,6 @@
 import type { PortfolioData } from '../portfolio';
 import { localeConfigs } from '../locales';
+import { appRatingLabel, appStoreLink } from '../apps';
 import { baseMetadata } from './shared';
 
 export const zhTw: PortfolioData = {
@@ -182,7 +183,7 @@ export const zhTw: PortfolioData = {
       subtitle: 'iOS 客戶端 • ~500萬註冊用戶 • ~58萬 MAU',
       period: '2019 — 至今',
       icon: '/images/apps/strong.jpg',
-      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
+      link: appStoreLink('strong'),
       description:
         '全球頂尖健身訓練紀錄 App，擁有約 500 萬註冊用戶、58 萬月活躍用戶 (MAU) 及 4.9 ★ 評價（全球逾 18.5 萬則評分）。參與 Strong 6.0 的 SwiftUI 與 Combine 大型重構、實作即時動態 (Live Activity) 與動態島 (Dynamic Island) 休息計時器、導入 Brzycki 與 Epley 公式提升 xRM 最大肌力估算精準度，並強化動作列表快取、篩選與模糊搜尋功能。',
     },
@@ -191,7 +192,7 @@ export const zhTw: PortfolioData = {
       subtitle: 'Super Effective',
       period: '2017 — 2019',
       icon: '/images/apps/select.jpg',
-      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
+      link: appStoreLink('select'),
       description:
         '同時參與原生 iOS 版本（透過 CocoaPods 模組化與 MVVM + 依賴注入將編譯時間從 70 分鐘縮短至 11 分鐘）與 React Native 跨平台重寫版本（制定 WebSocket 通訊協定、開發 MFS 多重好友推薦系統、深層連結自訂引導頁，以及 Objective-C 原生圖片選擇器橋接模組）。',
     },
@@ -209,7 +210,7 @@ export const zhTw: PortfolioData = {
       subtitle: '北京兩百小時教育科技 • 1,000萬+ 用戶',
       period: '2015',
       icon: '/images/apps/talkmate.jpg',
-      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
+      link: appStoreLink('talkmate'),
       description:
         '帶領 3–4 名 iOS 工程師開發 Talkmate 語言學習平台（4.7 ★、1.9 萬+ 評分、獲 Apple App Store 官方精選推薦及聯合國教科文組織 UNESCO 官方合作夥伴）。接手停滯逾一年的專案，以 Swift 全面重寫架構、大幅縮減 App 體積並順利交付 v1.0 至 v2.1 版本。',
     },
@@ -302,7 +303,7 @@ export const zhTw: PortfolioData = {
       ],
       footerNote:
         'App Store：4.9 ★ (18.5萬+ 則評分) • ~500萬註冊用戶 • ~58萬 MAU',
-      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
+      link: appStoreLink('strong'),
       appStoreLabel: '於 App Store 查看',
     },
     {
@@ -340,7 +341,7 @@ export const zhTw: PortfolioData = {
         },
       ],
       footerNote: 'App Store：5.0 ★ • 於 iOS 與 Google Play 雙平台發布',
-      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
+      link: appStoreLink('select'),
       appStoreLabel: '於 App Store 查看',
     },
   ],
@@ -374,9 +375,9 @@ export const zhTw: PortfolioData = {
         '透過資源最佳化縮減 App 安裝包大小，並主導 ASO 與產品功能演進。',
       ],
       company: '北京兩百小時教育科技',
-      ratingLabel: 'App Store：4.7 ★ (19,000+ 則評分)',
+      ratingLabel: appRatingLabel('talkmate', 'zh-tw'),
       locationOrLinkText: '於 App Store 查看',
-      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
+      link: appStoreLink('talkmate'),
     },
   ],
   agencyProjects: [
@@ -399,23 +400,23 @@ export const zhTw: PortfolioData = {
     {
       title: "myPMU — L'information Hippique (v1.0)",
       subtitle: '法國權威賽馬資訊 App (iPhone & iPad)',
-      ratingLabel: 'App Store：4.6 ★ (45,400+ 則評分)',
+      ratingLabel: appRatingLabel('pmu', 'zh-tw'),
       icon: '/images/apps/mypmu.jpg',
       description:
         '於 3 人 iOS 工程團隊中接手開發中的法國最大賽馬平台專案，負責客製化 UI 元件實作與 Core Data 本地資料庫架構支援。',
       techLabel: 'Objective-C / Core Data',
-      link: { url: 'https://apps.apple.com/fr/app/pmu-turf/id719630042' },
+      link: appStoreLink('pmu'),
       appStoreLabel: '於 App Store 查看',
     },
     {
       title: 'Belles Demeures (v1.0)',
       subtitle: '頂級豪宅房地產平台 (iPhone & iPad)',
-      ratingLabel: 'App Store：4.8 ★ (3,100+ 則評分)',
+      ratingLabel: appRatingLabel('belles-demeures', 'zh-tw'),
       icon: '/images/apps/belledemeures.jpg',
       description:
         '於 3 人開發團隊中完成 iPhone 與 iPad 通用版開發與客製化介面整合，支援橫跨 10 多個國家、超過 30,000 筆頂級豪宅物件瀏覽。',
       techLabel: 'Objective-C / UIKit',
-      link: { url: 'https://apps.apple.com/fr/app/belles-demeures/id398333286' },
+      link: appStoreLink('belles-demeures'),
       appStoreLabel: '於 App Store 查看',
     },
     {

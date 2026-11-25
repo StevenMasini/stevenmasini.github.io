@@ -1,5 +1,6 @@
 import type { PortfolioData } from '../portfolio';
 import { localeConfigs } from '../locales';
+import { appRatingLabel, appStoreLink } from '../apps';
 import { baseMetadata } from './shared';
 
 export const en: PortfolioData = {
@@ -178,7 +179,7 @@ export const en: PortfolioData = {
       subtitle: 'iOS Client • ~5M Users • ~580k MAU',
       period: '2019 — Present',
       icon: '/images/apps/strong.jpg',
-      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
+      link: appStoreLink('strong'),
       description:
         'Workout tracker with ~5,000,000 registered users, ~580,000 monthly active users, and 4.9 ★ (185k+ global ratings). Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas), and enhanced Exercise List caching, filtering, and fuzzy search.',
     },
@@ -187,7 +188,7 @@ export const en: PortfolioData = {
       subtitle: 'Super Effective',
       period: '2017 — 2019',
       icon: '/images/apps/select.jpg',
-      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
+      link: appStoreLink('select'),
       description:
         'Contributed to both the native iOS app (cutting build times from 70 to 11 minutes via CocoaPods modularization and MVVM + DI) and the complete React Native rewrite (WebSocket protocol, Multi Friend Selector, custom deep-link intro screens, and an Objective-C native image picker bridge).',
     },
@@ -205,7 +206,7 @@ export const en: PortfolioData = {
       subtitle: 'Beijing 200H Education • 10M+ Users',
       period: '2015',
       icon: '/images/apps/talkmate.jpg',
-      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
+      link: appStoreLink('talkmate'),
       description:
         'Led a team of 3–4 iOS developers for Talkmate (4.7 ★, 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a stalled 1+ year project, completely rewrote the codebase in Swift, reduced bundle size, and shipped v1.0 through v2.1.',
     },
@@ -298,7 +299,7 @@ export const en: PortfolioData = {
       ],
       footerNote:
         'App Store: 4.9 ★ (185k+ ratings) • ~5M Registered Users • ~580k MAU',
-      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
+      link: appStoreLink('strong'),
       appStoreLabel: 'View on App Store',
     },
     {
@@ -337,7 +338,7 @@ export const en: PortfolioData = {
         },
       ],
       footerNote: 'App Store: 5.0 ★ • Shipped on iOS & Google Play',
-      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
+      link: appStoreLink('select'),
       appStoreLabel: 'View on App Store',
     },
   ],
@@ -371,9 +372,9 @@ export const en: PortfolioData = {
         'Reduced app bundle size through resource optimization and drove App Store Optimization (ASO) and product decisions.',
       ],
       company: 'Beijing 200H Education',
-      ratingLabel: 'App Store: 4.7 ★ (19,000+ ratings)',
+      ratingLabel: appRatingLabel('talkmate', 'en'),
       locationOrLinkText: 'View on App Store',
-      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
+      link: appStoreLink('talkmate'),
     },
   ],
   agencyProjects: [
@@ -396,23 +397,23 @@ export const en: PortfolioData = {
     {
       title: "myPMU — L'information Hippique (v1.0)",
       subtitle: 'Horse Racing Information (iPhone & iPad)',
-      ratingLabel: 'App Store: 4.6 ★ (45,400+ ratings)',
+      ratingLabel: appRatingLabel('pmu', 'en'),
       icon: '/images/apps/mypmu.jpg',
       description:
         "Took over a project already in development within a 3-developer iOS engineering team for France's premier horse-racing platform, responsible for custom UI implementation and Core Data local database support.",
       techLabel: 'Objective-C / Core Data',
-      link: { url: 'https://apps.apple.com/fr/app/pmu-turf/id719630042' },
+      link: appStoreLink('pmu'),
       appStoreLabel: 'View on App Store',
     },
     {
       title: 'Belles Demeures (v1.0)',
       subtitle: 'Luxury Real Estate (iPhone & iPad)',
-      ratingLabel: 'App Store: 4.8 ★ (3,100+ ratings)',
+      ratingLabel: appRatingLabel('belles-demeures', 'en'),
       icon: '/images/apps/belledemeures.jpg',
       description:
         'Worked in a 3-developer team delivering full universal iPhone and iPad development and custom UI integration for 30,000+ prestige property listings across 10+ countries.',
       techLabel: 'Objective-C / UIKit',
-      link: { url: 'https://apps.apple.com/fr/app/belles-demeures/id398333286' },
+      link: appStoreLink('belles-demeures'),
       appStoreLabel: 'View on App Store',
     },
     {

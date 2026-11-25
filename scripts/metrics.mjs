@@ -1,120 +1,121 @@
 #!/usr/bin/env node
 
 /**
- * Fetches live App Store and Google Play metrics for Steven Masini's portfolio apps.
+ * Compares live App Store / Google Play metrics with the App catalog
+ * (src/data/apps.ts) and reports drift.
  * Run via: npm run metrics
+ *
+ * When a catalog rating or count is out of date, update src/data/apps.ts —
+ * generated rating labels and JSON-LD follow automatically — then review the
+ * listed content lines, which mention the figure in prose.
  */
+import { readFileSync } from 'node:fs';
+import { apps, formatRating } from '../src/data/apps.ts';
 
-const iosApps = [
-  { name: 'Strong Workout Tracker', id: '464254577', country: 'us' },
-  { name: 'SELECT - Your Community', id: '1076478889', country: 'us' },
-  { name: 'Talkmate (全球说)', id: '959231176', country: 'cn' },
-  { name: 'myPMU (PMU+)', id: '719630042', country: 'fr' },
-  { name: 'Belles Demeures', id: '398333286', country: 'fr' },
-];
+const contentFiles = ['en', 'fr', 'zh-tw'].map((lang) => `src/data/content/${lang}.ts`);
 
-const androidApps = [
-  { name: 'Strong Workout Tracker', id: 'io.strongapp.strong' },
-  { name: 'RATP (Bonjour RATP)', id: 'com.fabernovel.ratp' },
-  { name: 'Qobuz Music', id: 'com.qobuz.music' },
-  { name: 'SELECT - Your Community', id: 'co.s12e.one' },
-];
-
+/** Strong's catalog count is a global figure: summed over its largest storefronts. */
 const strongCountries = [
-  'us',
-  'gb',
-  'ca',
-  'au',
-  'de',
-  'fr',
-  'nl',
-  'se',
-  'br',
-  'mx',
-  'in',
-  'sg',
-  'tw',
-  'jp',
+  'us', 'gb', 'ca', 'au', 'de', 'fr', 'nl', 'se', 'br', 'mx', 'in', 'sg', 'tw', 'jp',
 ];
 
-async function fetchIosMetrics() {
-  console.log('\n📱 Apple App Store Metrics (iTunes Lookup API):');
-  console.log('─'.repeat(65));
+async function lookup(id, country) {
+  const res = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=${country}`);
+  const data = await res.json();
+  return data.results?.[0];
+}
 
-  for (const app of iosApps) {
+/** Content lines that mention the app and a rating, for manual review. */
+function proseMentions(app) {
+  const hits = [];
+  for (const file of contentFiles) {
+    readFileSync(file, 'utf-8')
+      .split('\n')
+      .forEach((line, i) => {
+        if (line.includes('★') && app.aliases.some((a) => line.includes(a))) {
+          hits.push(`    ${file}:${i + 1}  ${line.trim().slice(0, 90)}…`);
+        }
+      });
+  }
+  return hits;
+}
+
+const drift = [];
+
+async function checkIos() {
+  console.log('\n📱 App Store (iTunes Lookup API) — live vs catalog:');
+  console.log('─'.repeat(72));
+
+  for (const [id, app] of Object.entries(apps)) {
+    if (!app.appStore) continue;
     try {
-      const res = await fetch(
-        `https://itunes.apple.com/lookup?id=${app.id}&country=${app.country}`
-      );
-      const data = await res.json();
-      const info = data.results?.[0];
-
+      const info = await lookup(app.appStore.id, app.appStore.country);
       if (!info) {
-        console.log(`• ${app.name} (${app.country.toUpperCase()}): Not currently active`);
+        console.log(`• ${app.name.padEnd(26)} not currently listed (${app.appStore.country})`);
         continue;
       }
-
-      const rating = info.averageUserRating
-        ? `${info.averageUserRating.toFixed(2)} ★`
-        : 'N/A';
-      const count = info.userRatingCount
-        ? info.userRatingCount.toLocaleString('en-US')
-        : '0';
-
+      let liveCount = info.userRatingCount ?? 0;
+      if (id === 'strong') {
+        liveCount = 0;
+        for (const country of strongCountries) {
+          liveCount += (await lookup(app.appStore.id, country).catch(() => null))?.userRatingCount ?? 0;
+        }
+      }
+      const liveRating = info.averageUserRating ? formatRating(info.averageUserRating) : 'N/A';
+      const catalog = app.rating;
+      const notes = [];
+      if (catalog && liveRating !== formatRating(catalog.value)) {
+        notes.push(`rating ${formatRating(catalog.value)} → ${liveRating}`);
+      }
+      if (catalog?.count !== undefined && liveCount < catalog.count) {
+        notes.push(`count overstated: catalog ${catalog.count}+, live ${liveCount}`);
+      } else if (catalog?.count !== undefined && liveCount >= catalog.count * 1.1) {
+        notes.push(`count could rise: catalog ${catalog.count}+, live ${liveCount}`);
+      }
       console.log(
-        `• ${app.name.padEnd(26)} [${app.country.toUpperCase()}]  ${rating.padEnd(8)} (${count} ratings)  v${info.version}`
+        `• ${app.name.padEnd(26)} ${`${liveRating} ★`.padEnd(8)} ${liveCount.toLocaleString('en-US').padStart(9)} ratings  v${info.version}` +
+          (notes.length ? `  ⚠ ${notes.join('; ')}` : '  ✓')
       );
+      if (notes.length) drift.push({ id, app, notes });
     } catch (err) {
-      console.error(`• ${app.name}: Failed to fetch (${err.message})`);
+      console.error(`• ${app.name}: failed to fetch (${err.message})`);
     }
   }
-
-  // Aggregate Strong ratings across top 14 storefronts
-  let strongGlobalRatings = 0;
-  for (const country of strongCountries) {
-    try {
-      const res = await fetch(
-        `https://itunes.apple.com/lookup?id=464254577&country=${country}`
-      );
-      const data = await res.json();
-      strongGlobalRatings += data.results?.[0]?.userRatingCount || 0;
-    } catch {
-      // ignore individual country errors
-    }
-  }
-  console.log(
-    `  ↳ Strong Global Sample (14 countries): ${strongGlobalRatings.toLocaleString('en-US')}+ ratings`
-  );
 }
 
-async function fetchAndroidMetrics() {
-  console.log('\n🤖 Google Play Store Metrics:');
-  console.log('─'.repeat(65));
+async function checkAndroid() {
+  console.log('\n🤖 Google Play (informational):');
+  console.log('─'.repeat(72));
 
-  for (const app of androidApps) {
+  for (const app of Object.values(apps)) {
+    if (!app.googlePlay) continue;
     try {
       const res = await fetch(
-        `https://play.google.com/store/apps/details?id=${app.id}&hl=en`
+        `https://play.google.com/store/apps/details?id=${app.googlePlay.id}&hl=en`
       );
       const html = await res.text();
-      const downloadsMatch =
-        html.match(/>(\d+[KMB+]+\+?)<\/div><div[^>]*>Downloads/i) ||
-        html.match(/(\d[\d,.]*[KMB]\+)\s*Downloads/i) ||
-        html.match(/"(\d+[KMB]\+)"/);
-      const ratingMatch = html.match(/Rated (\d\.\d) stars/i);
-
-      const downloads = downloadsMatch?.[1] || 'N/A';
-      const rating = ratingMatch?.[1] ? `${ratingMatch[1]} ★` : 'Unrated';
-
-      console.log(
-        `• ${app.name.padEnd(26)} ${downloads.padEnd(10)} downloads   ${rating}`
-      );
+      const downloads =
+        (html.match(/>(\d+[KMB+]+\+?)<\/div><div[^>]*>Downloads/i) ||
+          html.match(/(\d[\d,.]*[KMB]\+)\s*Downloads/i) ||
+          html.match(/"(\d+[KMB]\+)"/))?.[1] ?? 'N/A';
+      const rating = html.match(/Rated (\d\.\d) stars/i)?.[1];
+      console.log(`• ${app.name.padEnd(26)} ${downloads.padEnd(10)} downloads   ${rating ? `${rating} ★` : 'Unrated'}`);
     } catch (err) {
-      console.error(`• ${app.name}: Failed to fetch (${err.message})`);
+      console.error(`• ${app.name}: failed to fetch (${err.message})`);
     }
   }
-  console.log('');
 }
 
-await fetchIosMetrics();
-await fetchAndroidMetrics();
+await checkIos();
+await checkAndroid();
+
+if (drift.length) {
+  console.log('\n⚠ Catalog drift — update src/data/apps.ts, then review these prose mentions:');
+  for (const { app, notes } of drift) {
+    console.log(`\n  ${app.name}: ${notes.join('; ')}`);
+    console.log(proseMentions(app).join('\n') || '    (no prose mentions)');
+  }
+} else {
+  console.log('\n✓ App catalog matches live App Store data.');
+}
+console.log('');
