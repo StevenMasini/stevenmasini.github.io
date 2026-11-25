@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
 
+/*
+ * Typography roles shared across pages. Change a role here, not per page.
+ * - type-page-title:    the <h1> of every page
+ * - type-section-label: small uppercase mono section headings
+ */
+@utility type-page-title {
+  @apply text-3xl sm:text-4xl font-semibold tracking-tight leading-tight;
+}
+
+@utility type-section-label {
+  @apply text-xs font-mono font-medium uppercase tracking-widest text-neutral-500;
+}
+
 html,
 body {
   margin: 0;

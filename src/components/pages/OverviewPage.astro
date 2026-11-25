@@ -34,7 +34,7 @@ const contactHref = pagePath('contact', lang);
     <section class="flex flex-col gap-6 max-w-2xl" id="about">
       <div class="flex flex-col gap-2">
         <h1
-          class="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight"
+          class="type-page-title text-neutral-900"
         >
           {siteMetadata.name}
         </h1>
@@ -67,7 +67,7 @@ const contactHref = pagePath('contact', lang);
     <!-- Selected Works (Calm, Editorial List) -->
     <section class="flex flex-col gap-8" id="work">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">
+        <h2 class="type-section-label">
           {ui.overview.selectedWorkTitle}
         </h2>
         <div class="flex items-center gap-4">
@@ -97,7 +97,7 @@ const contactHref = pagePath('contact', lang);
       id="experience"
     >
       <div class="md:col-span-4 flex flex-col gap-2">
-        <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">
+        <h2 class="type-section-label">
           {ui.overview.backgroundTitle}
         </h2>
         <p class="text-sm text-neutral-600 leading-relaxed pt-2">
@@ -150,7 +150,7 @@ const contactHref = pagePath('contact', lang);
     <!-- Quiet Contact Footer Callout -->
     <section class="flex flex-col gap-4 py-2" id="contact">
       <div class="flex flex-col gap-2">
-        <h2 class="text-lg font-medium text-neutral-900 tracking-tight">
+        <h2 class="text-2xl font-semibold text-neutral-900 tracking-tight">
           {ui.overview.contactTitle}
         </h2>
         <p class="text-sm text-neutral-600 leading-relaxed max-w-lg">
