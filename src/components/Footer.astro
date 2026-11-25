@@ -1,20 +1,20 @@
 ---
 import {
   defaultLocale,
-  getLocalizedPath,
   getPortfolioData,
   type Locale,
-  type NavItem,
 } from '../data/portfolio';
+import { navLinks, pagePath, type SectionId } from '../data/pages';
 
 interface Props {
-  activeNav: NavItem['id'];
+  activeSection?: SectionId;
   lang?: Locale;
 }
 
-const { activeNav, lang = defaultLocale } = Astro.props;
-const { siteMetadata, navItems } = getPortfolioData(lang);
-const homeHref = getLocalizedPath(lang, '/');
+const { activeSection, lang = defaultLocale } = Astro.props;
+const { siteMetadata } = getPortfolioData(lang);
+const navItems = navLinks(lang);
+const homeHref = pagePath('overview', lang);
 ---
 
 <footer class="w-full bg-white border-t border-neutral-200/80 mt-16 print:hidden">
@@ -42,7 +42,7 @@ const homeHref = getLocalizedPath(lang, '/');
       <nav class="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Footer Navigation">
         {
           navItems.map((item) => {
-            const isActive = item.id === activeNav;
+            const isActive = item.section === activeSection;
             return (
               <a
                 href={item.href}

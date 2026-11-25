@@ -4,23 +4,28 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import {
   defaultLocale,
-  getLocalizedPath,
   getPortfolioData,
   localeConfigs,
   locales,
   type Locale,
-  type NavItem,
 } from '../data/portfolio';
+import {
+  getPage,
+  pageAlternates,
+  pageUrl,
+  type PageId,
+} from '../data/pages';
 
 interface Props {
   title?: string;
   description?: string;
-  activeNav: NavItem['id'];
+  /** The Page being rendered. Omit for pages outside the registry (e.g. 404): no Section highlight, no hreflang, noindex. */
+  page?: PageId;
   lang?: Locale;
 }
 
 const {
-  activeNav,
+  page,
   lang = defaultLocale,
   title: propTitle,
   description: propDescription,
@@ -32,40 +37,12 @@ const { siteMetadata, localeInfo, ui } = data;
 const title = propTitle ?? ui.overview.metaTitle;
 const description = propDescription ?? ui.overview.metaDescription;
 
-const pageSlugMap: Record<NavItem['id'], string> = {
-  overview: '/',
-  'apps-and-work': '/apps-and-work/',
-  experience: '/experience/',
-  contact: '/contact/',
-};
-const rawPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const strippedPath =
-  rawPath.replace(/^\/(fr|zh-tw)(?=\/|$)/, '') || pageSlugMap[activeNav] || '/';
-const currentSlug = strippedPath.endsWith('/')
-  ? strippedPath
-  : `${strippedPath}/`;
-
-const canonicalUrl = new URL(
-  Astro.url.pathname,
-  Astro.site ?? siteMetadata.siteUrl
-).toString();
-const ogImageUrl = new URL(
-  '/og-image.png',
-  Astro.site ?? siteMetadata.siteUrl
-).toString();
-
-const alternateLinks = locales.map((loc) => ({
-  hreflang: localeConfigs[loc].htmlLang,
-  href: new URL(
-    getLocalizedPath(loc, currentSlug),
-    Astro.site ?? siteMetadata.siteUrl
-  ).toString(),
-}));
-
-const defaultHref = new URL(
-  getLocalizedPath(defaultLocale, currentSlug),
-  Astro.site ?? siteMetadata.siteUrl
-).toString();
+const activeSection = page ? getPage(page).section : undefined;
+const canonicalUrl = page
+  ? pageUrl(page, lang)
+  : new URL(Astro.url.pathname, siteMetadata.siteUrl).toString();
+const alternateLinks = page ? pageAlternates(page) : [];
+const ogImageUrl = new URL('/og-image.png', siteMetadata.siteUrl).toString();
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -271,14 +248,13 @@ gtag('config', '${siteMetadata.googleAnalyticsId}');`}
     <meta name="description" content={description} />
     <meta name="author" content={siteMetadata.name} />
     <meta name="keywords" content={siteMetadata.keywords.join(', ')} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content={page ? 'index, follow' : 'noindex, follow'} />
+    {page && <link rel="canonical" href={canonicalUrl} />}
     {
       alternateLinks.map((alt) => (
         <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
       ))
     }
-    <link rel="alternate" hreflang="x-default" href={defaultHref} />
     <link rel="sitemap" href="/sitemap.xml" />
     <link
       rel="alternate"
@@ -346,11 +322,11 @@ gtag('config', '${siteMetadata.googleAnalyticsId}');`}
   <body
     class="bg-background font-sans text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white min-h-screen flex flex-col"
   >
-    <Header activeNav={activeNav} lang={lang} />
+    <Header page={page} activeSection={activeSection} lang={lang} />
     <main class="flex-1 w-full">
       <slot />
     </main>
-    <Footer activeNav={activeNav} lang={lang} />
+    <Footer activeSection={activeSection} lang={lang} />
 
     <script>
       document.addEventListener('click', (e) => {

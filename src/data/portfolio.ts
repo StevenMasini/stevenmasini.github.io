@@ -1,3 +1,5 @@
+import type { PageId, SectionId } from './pages';
+
 export type Locale = 'en' | 'fr' | 'zh-tw';
 
 export const locales: Locale[] = ['en', 'fr', 'zh-tw'];
@@ -46,11 +48,6 @@ export function getLocalizedPath(lang: Locale, path: string = '/'): string {
   return `/${lang}${normalized}`;
 }
 
-export interface NavItem {
-  label: string;
-  href: string;
-  id: 'overview' | 'apps-and-work' | 'experience' | 'contact';
-}
 
 export interface StatItem {
   label: string;
@@ -272,7 +269,8 @@ export interface PortfolioData {
   lang: Locale;
   localeInfo: LocaleInfo;
   siteMetadata: SiteMetadata;
-  navItems: NavItem[];
+  /** Navigation label for each Section, in this Locale. */
+  sectionLabels: Record<SectionId, string>;
   ui: PortfolioUI;
   overviewSelectedWork: OverviewWorkItem[];
   overviewExperience: OverviewExperienceSummary[];
@@ -326,12 +324,12 @@ const enData: PortfolioData = {
     timezoneLabel: 'Taipei Standard Time (UTC+8)',
     timezoneShort: 'Taipei (UTC+8)',
   },
-  navItems: [
-    { label: 'Overview', href: '/', id: 'overview' },
-    { label: 'Apps & Work', href: '/apps-and-work', id: 'apps-and-work' },
-    { label: 'Experience', href: '/experience', id: 'experience' },
-    { label: 'Contact', href: '/contact', id: 'contact' },
-  ],
+  sectionLabels: {
+    overview: 'Overview',
+    'apps-and-work': 'Apps & Work',
+    experience: 'Experience',
+    contact: 'Contact',
+  },
   ui: {
     header: {
       getInTouch: 'Get in touch',
@@ -985,16 +983,12 @@ const frData: PortfolioData = {
       'Taïwan',
     ],
   },
-  navItems: [
-    { label: 'Aperçu', href: '/fr', id: 'overview' },
-    {
-      label: 'Applications & Projets',
-      href: '/fr/apps-and-work',
-      id: 'apps-and-work',
-    },
-    { label: 'Expérience', href: '/fr/experience', id: 'experience' },
-    { label: 'Contact', href: '/fr/contact', id: 'contact' },
-  ],
+  sectionLabels: {
+    overview: 'Aperçu',
+    'apps-and-work': 'Applications & Projets',
+    experience: 'Expérience',
+    contact: 'Contact',
+  },
   ui: {
     header: {
       getInTouch: 'Me contacter',
@@ -1650,12 +1644,12 @@ const zhTwData: PortfolioData = {
       '台灣',
     ],
   },
-  navItems: [
-    { label: '總覽', href: '/zh-tw', id: 'overview' },
-    { label: '作品與專案', href: '/zh-tw/apps-and-work', id: 'apps-and-work' },
-    { label: '經歷與背景', href: '/zh-tw/experience', id: 'experience' },
-    { label: '聯絡方式', href: '/zh-tw/contact', id: 'contact' },
-  ],
+  sectionLabels: {
+    overview: '總覽',
+    'apps-and-work': '作品與專案',
+    experience: '經歷與背景',
+    contact: '聯絡方式',
+  },
   ui: {
     header: {
       getInTouch: '聯絡我',
@@ -2287,7 +2281,6 @@ export function getPortfolioData(lang: Locale = defaultLocale): PortfolioData {
 
 // Default English exports for backwards compatibility
 export const siteMetadata = enData.siteMetadata;
-export const navItems = enData.navItems;
 export const overviewSelectedWork = enData.overviewSelectedWork;
 export const overviewExperience = enData.overviewExperience;
 export const workPageStats = enData.workPageStats;
@@ -2300,3 +2293,30 @@ export const experienceTimeline = enData.experienceTimeline;
 export const educationList = enData.educationList;
 export const technicalFocusList = enData.technicalFocusList;
 export const languagesList = enData.languagesList;
+
+/** English one-line summary of each Page, listed under "Key Pages" in llms.txt. */
+export const llmsPageSummaries: Record<PageId, { title: string; summary: string }> = {
+  overview: {
+    title: 'Overview (English)',
+    summary: 'Portfolio summary, selected works, and career highlights.',
+  },
+  'apps-and-work': {
+    title: 'Apps & Shipped Work',
+    summary:
+      'Detailed case studies of flagship iOS apps, scale metrics, and agency productions.',
+  },
+  'curio-eye': {
+    title: 'CURIO EYE Product Showcase',
+    summary:
+      'Archive showcase of the CURIO EYE companion iOS app built at CuriosityChina (Farfetch Group).',
+  },
+  experience: {
+    title: 'Experience & Resume',
+    summary:
+      'Full chronological work history (2009–Present), education, and technical focus.',
+  },
+  contact: {
+    title: 'Contact',
+    summary: 'Direct inquiry form and Taipei availability details.',
+  },
+};

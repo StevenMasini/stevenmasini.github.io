@@ -1,35 +1,31 @@
 ---
 import {
   defaultLocale,
-  getLocalizedPath,
   getPortfolioData,
   localeConfigs,
   locales,
   type Locale,
-  type NavItem,
 } from '../data/portfolio';
+import {
+  navLinks,
+  pagePath,
+  type PageId,
+  type SectionId,
+} from '../data/pages';
 
 interface Props {
-  activeNav: NavItem['id'];
+  /** Current Page; the language switcher links to it in each Locale. */
+  page?: PageId;
+  activeSection?: SectionId;
   lang?: Locale;
 }
 
-const { activeNav, lang = defaultLocale } = Astro.props;
-const data = getPortfolioData(lang);
-const { siteMetadata, navItems, ui, localeInfo } = data;
+const { page, activeSection, lang = defaultLocale } = Astro.props;
+const { siteMetadata, ui, localeInfo } = getPortfolioData(lang);
 
-const pageSlugMap: Record<NavItem['id'], string> = {
-  overview: '/',
-  'apps-and-work': '/apps-and-work',
-  experience: '/experience',
-  contact: '/contact',
-};
-
-const rawPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const currentSlug =
-  rawPath.replace(/^\/(fr|zh-tw)(?=\/|$)/, '') || pageSlugMap[activeNav] || '/';
-const homeHref = getLocalizedPath(lang, '/');
-const contactHref = getLocalizedPath(lang, '/contact');
+const navItems = navLinks(lang);
+const homeHref = pagePath('overview', lang);
+const contactHref = pagePath('contact', lang);
 ---
 
 <header
@@ -68,7 +64,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
     >
       {
         navItems.map((item) => {
-          const isActive = item.id === activeNav;
+          const isActive = item.section === activeSection;
           return (
             <a
               href={item.href}
@@ -121,7 +117,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
             locales.map((targetLocale) => {
               const info = localeConfigs[targetLocale];
               const isCurrent = targetLocale === lang;
-              const targetHref = getLocalizedPath(targetLocale, currentSlug);
+              const targetHref = pagePath(page ?? 'overview', targetLocale);
               return (
                 <a
                   href={targetHref}
@@ -175,7 +171,7 @@ const contactHref = getLocalizedPath(lang, '/contact');
     <div class="flex flex-col space-y-1">
       {
         navItems.map((item) => {
-          const isActive = item.id === activeNav;
+          const isActive = item.section === activeSection;
           return (
             <a
               href={item.href}

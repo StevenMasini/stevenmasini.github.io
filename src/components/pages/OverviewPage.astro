@@ -3,10 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import OverviewProjectItem from '../OverviewProjectItem.astro';
 import {
   defaultLocale,
-  getLocalizedPath,
   getPortfolioData,
   type Locale,
 } from '../../data/portfolio';
+import { pagePath } from '../../data/pages';
 
 interface Props {
   lang?: Locale;
@@ -20,15 +20,15 @@ const {
   overviewExperience,
 } = getPortfolioData(lang);
 
-const appsHref = getLocalizedPath(lang, '/apps-and-work');
-const experienceHref = getLocalizedPath(lang, '/experience');
-const contactHref = getLocalizedPath(lang, '/contact');
+const appsHref = pagePath('apps-and-work', lang);
+const experienceHref = pagePath('experience', lang);
+const contactHref = pagePath('contact', lang);
 ---
 
 <BaseLayout
   title={ui.overview.metaTitle}
   description={ui.overview.metaDescription}
-  activeNav="overview"
+  page="overview"
   lang={lang}
 >
   <div

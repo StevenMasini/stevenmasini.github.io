@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
-import { getPortfolioData } from '../data/portfolio';
+import { getPortfolioData, llmsPageSummaries } from '../data/portfolio';
+import { pages, pageUrl } from '../data/pages';
 
 export const GET: APIRoute = () => {
   const en = getPortfolioData('en');
@@ -13,6 +14,13 @@ export const GET: APIRoute = () => {
     technicalFocusList,
     languagesList,
   } = en;
+
+  const keyPageLines = pages
+    .map((page) => {
+      const { title, summary } = llmsPageSummaries[page.id];
+      return `- [${title}](${pageUrl(page.id, 'en')}): ${summary}`;
+    })
+    .join('\n');
 
   const flagshipLines = flagshipProjects
     .map(
@@ -76,11 +84,7 @@ export const GET: APIRoute = () => {
 - **GitHub**: ${siteMetadata.githubUrl}
 
 ## Key Pages
-- [Overview (English)](${siteMetadata.siteUrl}/): Portfolio summary, selected works, and career highlights.
-- [Apps & Shipped Work](${siteMetadata.siteUrl}/apps-and-work/): Detailed case studies of flagship iOS apps, scale metrics, and agency productions.
-- [CURIO EYE Product Showcase](${siteMetadata.siteUrl}/curio-eye/): Archive showcase of the CURIO EYE companion iOS app built at CuriosityChina (Farfetch Group).
-- [Experience & Resume](${siteMetadata.siteUrl}/experience/): Full chronological work history (2009–Present), education, and technical focus.
-- [Contact](${siteMetadata.siteUrl}/contact/): Direct inquiry form and Taipei availability details.
+${keyPageLines}
 - [Complete LLM Portfolio Reference](${siteMetadata.siteUrl}/llms-full.txt): Full case studies, bullet-level engineering achievements, and multilingual profiles (English, Français, 繁體中文).
 
 ## Localized Versions

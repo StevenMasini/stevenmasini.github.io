@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   defaultLocale,
-  getLocalizedPath,
   type Locale,
 } from '../../data/portfolio';
+import { pagePath } from '../../data/pages';
 
 interface Props {
   lang?: Locale;
 }
 
 const { lang = defaultLocale } = Astro.props;
-const appsHref = getLocalizedPath(lang, '/apps-and-work');
+const appsHref = pagePath('apps-and-work', lang);
 
 const archiveBannerCopy: Record<
   Locale,
@@ -40,7 +40,7 @@ const banner = archiveBannerCopy[lang] ?? archiveBannerCopy.en;
 <BaseLayout
   title="CURIO EYE — Advanced WeChat Official Account Monitoring System | Steven Masini"
   description="Historical product showcase of CURIO EYE by CuriosityChina (A Farfetch Company). Companion iOS application built from scratch in Swift for WeChat Official Account monitoring and analytics."
-  activeNav="apps-and-work"
+  page="curio-eye"
   lang={lang}
 >
   <!-- Subtle Top Return Bar -->

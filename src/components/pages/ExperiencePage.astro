@@ -4,10 +4,10 @@ import StatsGrid from '../StatsGrid.astro';
 import TimelineItem from '../TimelineItem.astro';
 import {
   defaultLocale,
-  getLocalizedPath,
   getPortfolioData,
   type Locale,
 } from '../../data/portfolio';
+import { pagePath } from '../../data/pages';
 
 interface Props {
   lang?: Locale;
@@ -24,13 +24,13 @@ const {
   languagesList,
 } = getPortfolioData(lang);
 
-const contactHref = getLocalizedPath(lang, '/contact');
+const contactHref = pagePath('contact', lang);
 ---
 
 <BaseLayout
   title={ui.experience.metaTitle}
   description={ui.experience.metaDescription}
-  activeNav="experience"
+  page="experience"
   lang={lang}
 >
   <div
