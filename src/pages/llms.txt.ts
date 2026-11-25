@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getPortfolioData, llmsPageSummaries } from '../data/portfolio';
 import { linkUrl, pages, pageUrl } from '../data/pages';
+import { profile, quickFactLines } from '../data/profile';
 
 export const GET: APIRoute = () => {
   const en = getPortfolioData('en');
@@ -67,19 +68,10 @@ export const GET: APIRoute = () => {
 
   const content = `# ${siteMetadata.name} — ${siteMetadata.tagline}
 
-> ${en.ui.overview.heroBio} Based in Taipei, Taiwan (UTC+8). Available for senior native iOS engineering, Swift/Objective-C architecture consulting, performance optimization, and Node.js backend development in Taipei and worldwide remote.
+> ${en.ui.overview.heroBio} Based in ${profile.location.city}, ${profile.location.country} (${profile.location.utcOffset}). Available for senior native iOS engineering, Swift/Objective-C architecture consulting, performance optimization, and Node.js backend development in Taipei and worldwide remote.
 
 ## Quick Facts
-- **Name**: ${siteMetadata.name}
-- **Role**: Senior iOS & Backend Developer (15+ years experience since 2011)
-- **Location**: ${siteMetadata.location} (${siteMetadata.timezoneLabel})
-- **Availability**: Open to freelance/contract iOS projects, technical consulting, legacy Objective-C/Swift refactoring, and greenfield app development (Taipei on-site/hybrid or global remote)
-- **Primary Stack**: Swift, Objective-C, UIKit, SwiftUI, Core Data, Realm, WatchKit (Apple Watch), React Native, Node.js, REST/WebSocket APIs, CI/CD (Fastlane, Jenkins, Git)
-- **Education**: Master's Degree in Information Technology from EPITECH (Paris, France) & Exchange at Beijing Jiaotong University
-- **Spoken Languages**: French (Native), English (Fluent), Mandarin Chinese (Conversational), Japanese (Conversational)
-- **Website**: ${siteMetadata.siteUrl}
-- **LinkedIn**: ${siteMetadata.linkedinUrl}
-- **GitHub**: ${siteMetadata.githubUrl}
+${quickFactLines().join('\n')}
 
 ## Key Pages
 ${keyPageLines}
@@ -107,7 +99,6 @@ ${skillsLines}
 
 ## Education
 ${educationLines}
-- **CHINICT 2012 Hackathon**: Winner / Honors & Awards (Beijing, China)
 
 ## Spoken Languages
 ${languageLines}

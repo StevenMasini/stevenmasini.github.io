@@ -15,6 +15,7 @@ import {
   pageUrl,
   type PageId,
 } from '../data/pages';
+import { buildStructuredData } from '../data/profile';
 
 interface Props {
   title?: string;
@@ -44,185 +45,13 @@ const canonicalUrl = page
 const alternateLinks = page ? pageAlternates(page) : [];
 const ogImageUrl = new URL('/og-image.png', siteMetadata.siteUrl).toString();
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'ProfilePage',
-      '@id': `${canonicalUrl}#profilepage`,
-      url: canonicalUrl,
-      name: title,
-      description,
-      inLanguage: localeInfo.htmlLang,
-      isPartOf: {
-        '@id': `${siteMetadata.siteUrl}/#website`,
-      },
-      mainEntity: {
-        '@id': `${siteMetadata.siteUrl}/#person`,
-      },
-    },
-    {
-      '@type': 'Person',
-      '@id': `${siteMetadata.siteUrl}/#person`,
-      name: siteMetadata.name,
-      jobTitle: siteMetadata.jobTitleSchema,
-      description,
-      url: siteMetadata.siteUrl,
-      image: ogImageUrl,
-      sameAs: [
-        siteMetadata.linkedinUrl,
-        siteMetadata.githubUrl,
-        'https://stevenmasini.github.io',
-      ],
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Taipei',
-        addressCountry: 'TW',
-      },
-      workLocation: {
-        '@type': 'Place',
-        name: 'Taipei, Taiwan',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Taipei',
-          addressCountry: 'TW',
-        },
-      },
-      hasOccupation: {
-        '@type': 'Occupation',
-        name: 'Senior iOS and Backend Developer',
-        occupationLocation: {
-          '@type': 'City',
-          name: 'Taipei',
-        },
-        experienceRequirements: '15+ years of software and native iOS engineering experience',
-        skills:
-          'Swift, Objective-C, UIKit, SwiftUI, Core Data, Realm, WatchKit, Apple Watch Companion Apps, React Native, Node.js, REST APIs, WebSocket, CI/CD, Fastlane',
-      },
-      alumniOf: [
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'EPITECH - European Institute of Technology',
-        },
-        {
-          '@type': 'CollegeOrUniversity',
-          name: 'Beijing Jiaotong University',
-        },
-      ],
-      award: 'CHINICT 2012 Hackathon Winner (Beijing, China)',
-      knowsLanguage: ['fr', 'en', 'zh', 'ja'],
-      knowsAbout: [
-        'iOS Development',
-        'Swift',
-        'Objective-C',
-        'SwiftUI',
-        'UIKit',
-        'Core Data',
-        'Realm',
-        'WatchKit',
-        'Node.js',
-        'React Native',
-        'Mobile Architecture',
-        'Performance Optimization',
-      ],
-      makesOffer: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Native iOS Application Development (Swift, SwiftUI, UIKit, Objective-C)',
-            areaServed: ['Taipei', 'Taiwan', 'Worldwide'],
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Mobile Architecture Consulting, Legacy Codebase Refactoring & Backend Engineering (Node.js)',
-            areaServed: ['Taipei', 'Taiwan', 'Worldwide'],
-          },
-        },
-      ],
-    },
-    {
-      '@type': 'ItemList',
-      '@id': `${siteMetadata.siteUrl}/#applications`,
-      name: 'Shipped Mobile Applications by Steven Masini',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@type': 'SoftwareApplication',
-            name: 'Strong Workout Tracker Gym Log',
-            operatingSystem: 'iOS, watchOS',
-            applicationCategory: 'HealthApplication',
-            url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
-            author: { '@id': `${siteMetadata.siteUrl}/#person` },
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '4.9',
-              ratingCount: '185000',
-              bestRating: '5',
-            },
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          item: {
-            '@type': 'SoftwareApplication',
-            name: 'SELECT — Your Community',
-            operatingSystem: 'iOS, Android',
-            applicationCategory: 'SocialNetworkingApplication',
-            url: 'https://apps.apple.com/us/app/select-your-community/id1076478889',
-            author: { '@id': `${siteMetadata.siteUrl}/#person` },
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          item: {
-            '@type': 'SoftwareApplication',
-            name: 'CURIO EYE — WeChat Official Account Monitoring System',
-            operatingSystem: 'iOS',
-            applicationCategory: 'BusinessApplication',
-            url: `${siteMetadata.siteUrl}/curio-eye/`,
-            author: { '@id': `${siteMetadata.siteUrl}/#person` },
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 4,
-          item: {
-            '@type': 'SoftwareApplication',
-            name: 'Talkmate Language Learning',
-            operatingSystem: 'iOS',
-            applicationCategory: 'EducationalApplication',
-            url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
-            author: { '@id': `${siteMetadata.siteUrl}/#person` },
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '4.7',
-              ratingCount: '19000',
-              bestRating: '5',
-            },
-          },
-        },
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${siteMetadata.siteUrl}/#website`,
-      url: siteMetadata.siteUrl,
-      name: `${siteMetadata.name} — ${siteMetadata.tagline}`,
-      publisher: {
-        '@id': `${siteMetadata.siteUrl}/#person`,
-      },
-      inLanguage: localeInfo.htmlLang,
-    },
-  ],
-};
+const jsonLd = buildStructuredData({
+  page,
+  lang,
+  title,
+  description,
+  fallbackUrl: canonicalUrl,
+});
 ---
 
 <!doctype html>

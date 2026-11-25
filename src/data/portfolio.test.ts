@@ -26,6 +26,7 @@ const invariantFields: { [K in ListKey]?: (keyof ItemOf<K>)[] } = {
   agencyProjects: ['title', 'icon', 'techLabel', 'appStoreUrl'],
   experienceTimeline: ['isCurrent', 'isCompact', 'highlightProject'],
   educationList: ['period'],
+  languagesList: ['code'],
 };
 
 /** Nested lists whose length must match across Locales (one bullet per bullet). */

@@ -665,9 +665,9 @@ export const en: PortfolioData = {
     },
   ],
   languagesList: [
-    { language: 'French', proficiency: 'Native' },
-    { language: 'English', proficiency: 'Bilingual' },
-    { language: 'Mandarin Chinese', proficiency: 'Working Proficiency' },
-    { language: 'Japanese', proficiency: 'Learning' },
+    { code: 'fr', language: 'French', proficiency: 'Native' },
+    { code: 'en', language: 'English', proficiency: 'Bilingual' },
+    { code: 'zh', language: 'Mandarin Chinese', proficiency: 'Working Proficiency' },
+    { code: 'ja', language: 'Japanese', proficiency: 'Learning' },
   ],
 };

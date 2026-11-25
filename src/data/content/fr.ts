@@ -676,9 +676,9 @@ export const fr: PortfolioData = {
     },
   ],
   languagesList: [
-    { language: 'Français', proficiency: 'Langue maternelle' },
-    { language: 'Anglais', proficiency: 'Bilingue' },
-    { language: 'Chinois Mandarin', proficiency: 'Compétence professionnelle' },
-    { language: 'Japonais', proficiency: 'En apprentissage' },
+    { code: 'fr', language: 'Français', proficiency: 'Langue maternelle' },
+    { code: 'en', language: 'Anglais', proficiency: 'Bilingue' },
+    { code: 'zh', language: 'Chinois Mandarin', proficiency: 'Compétence professionnelle' },
+    { code: 'ja', language: 'Japonais', proficiency: 'En apprentissage' },
   ],
 };

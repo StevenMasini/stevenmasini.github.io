@@ -661,9 +661,9 @@ export const zhTw: PortfolioData = {
     },
   ],
   languagesList: [
-    { language: '法文 (French)', proficiency: '母語' },
-    { language: '英文 (English)', proficiency: '雙語流利' },
-    { language: '中文 (Mandarin)', proficiency: '工作流利' },
-    { language: '日文 (Japanese)', proficiency: '學習中' },
+    { code: 'fr', language: '法文 (French)', proficiency: '母語' },
+    { code: 'en', language: '英文 (English)', proficiency: '雙語流利' },
+    { code: 'zh', language: '中文 (Mandarin)', proficiency: '工作流利' },
+    { code: 'ja', language: '日文 (Japanese)', proficiency: '學習中' },
   ],
 };

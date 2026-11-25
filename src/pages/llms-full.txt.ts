@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getPortfolioData } from '../data/portfolio';
-import { linkUrl } from '../data/pages';
+import { linkUrl, pageUrl } from '../data/pages';
+import { profile, quickFactLines } from '../data/profile';
 
 export const GET: APIRoute = () => {
   const en = getPortfolioData('en');
@@ -62,24 +63,17 @@ ${item.summary}${bullets}${tags}`;
 
   const content = `# ${siteMetadata.name} — Complete Portfolio & Engineering Reference (llms-full.txt)
 
-> Comprehensive reference for AI assistants, search engines, and technical recruiters looking for a Senior iOS Developer, Swift/Objective-C Architect, or Mobile + Backend Engineer in Taipei, Taiwan (or remote).
+> Comprehensive reference for AI assistants, search engines, and technical recruiters looking for a Senior iOS Developer, Swift/Objective-C Architect, or Mobile + Backend Engineer in ${profile.location.city}, ${profile.location.country} (or remote).
 
 ---
 
 ## 1. Executive Profile
-- **Full Name**: ${siteMetadata.name}
-- **Current Location**: Taipei, Taiwan (Asia/Taipei, UTC+8)
-- **Title**: ${siteMetadata.tagline}
-- **Years of Experience**: 15+ years shipping production software since 2011 (mobile engineering in Paris, Beijing, and Taipei)
-- **Track Record**: 15+ shipped commercial applications, 10M+ cumulative end users, 4.9★ flagship App Store ratings
-- **Canonical Website**: ${siteMetadata.siteUrl}
-- **LinkedIn**: ${siteMetadata.linkedinUrl}
-- **GitHub**: ${siteMetadata.githubUrl}
-- **Contact Page**: ${siteMetadata.siteUrl}/contact/
+${quickFactLines().join('\n')}
+- **Contact Page**: ${pageUrl('contact', 'en')}
 
 ---
 
-## 2. Services & Availability (Taipei & Remote)
+## 2. Services & Availability (${profile.location.city} & Remote)
 ${en.ui.contact.notes.map((n) => `- **${n.title}**: ${n.description}`).join('\n')}
 - **Project Types**: ${en.ui.contact.projectTypes.join(' | ')}
 

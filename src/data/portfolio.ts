@@ -106,6 +106,8 @@ export interface TechnicalFocusItem {
 }
 
 export interface LanguageItem {
+  /** BCP 47 code of the spoken language (Schema.org knowsLanguage). */
+  code: string;
   language: string;
   proficiency: string;
 }
