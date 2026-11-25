@@ -10,11 +10,15 @@
     "preview": "astro preview",
     "deploy": "astro build && node scripts/deploy.mjs",
     "metrics": "node scripts/metrics.mjs",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.4.2",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.1"
   }
 }
