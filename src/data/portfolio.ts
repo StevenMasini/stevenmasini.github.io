@@ -38,7 +38,7 @@ export interface FlagshipProject {
   tags: string[];
   highlights: FlagshipHighlight[];
   footerNote: string;
-  appStoreUrl?: string;
+  link?: Link;
   appStoreLabel?: string;
 }
 
@@ -62,7 +62,7 @@ export interface AgencyProject {
   icon: string;
   description: string;
   techLabel: string;
-  appStoreUrl?: string;
+  link?: Link;
   appStoreLabel?: string;
 }
 

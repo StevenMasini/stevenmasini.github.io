@@ -26,7 +26,7 @@ export const GET: APIRoute = () => {
   const flagshipLines = flagshipProjects
     .map(
       (p) =>
-        `- **${p.title}** (${p.period}, ${p.roleType}): ${p.summary} (${p.footerNote})${p.appStoreUrl ? ` — [App Store](${p.appStoreUrl})` : ''}`
+        `- **${p.title}** (${p.period}, ${p.roleType}): ${p.summary} (${p.footerNote})${p.link ? ` — [App Store](${linkUrl(p.link, 'en')})` : ''}`
     )
     .join('\n');
 

@@ -302,8 +302,7 @@ export const zhTw: PortfolioData = {
       ],
       footerNote:
         'App Store：4.9 ★ (18.5萬+ 則評分) • ~500萬註冊用戶 • ~58萬 MAU',
-      appStoreUrl:
-        'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
+      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
       appStoreLabel: '於 App Store 查看',
     },
     {
@@ -341,8 +340,7 @@ export const zhTw: PortfolioData = {
         },
       ],
       footerNote: 'App Store：5.0 ★ • 於 iOS 與 Google Play 雙平台發布',
-      appStoreUrl:
-        'https://apps.apple.com/us/app/select-your-community/id1076478889',
+      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
       appStoreLabel: '於 App Store 查看',
     },
   ],
@@ -406,7 +404,7 @@ export const zhTw: PortfolioData = {
       description:
         '於 3 人 iOS 工程團隊中接手開發中的法國最大賽馬平台專案，負責客製化 UI 元件實作與 Core Data 本地資料庫架構支援。',
       techLabel: 'Objective-C / Core Data',
-      appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
+      link: { url: 'https://apps.apple.com/fr/app/pmu-turf/id719630042' },
       appStoreLabel: '於 App Store 查看',
     },
     {
@@ -417,7 +415,7 @@ export const zhTw: PortfolioData = {
       description:
         '於 3 人開發團隊中完成 iPhone 與 iPad 通用版開發與客製化介面整合，支援橫跨 10 多個國家、超過 30,000 筆頂級豪宅物件瀏覽。',
       techLabel: 'Objective-C / UIKit',
-      appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
+      link: { url: 'https://apps.apple.com/fr/app/belles-demeures/id398333286' },
       appStoreLabel: '於 App Store 查看',
     },
     {

@@ -1,15 +1,15 @@
 ---
+import ContentLink from './ContentLink.astro';
 import type { FlagshipProject } from '../data/portfolio';
+import type { Locale } from '../data/locales';
 import Badge from './Badge.astro';
 
 interface Props {
   project: FlagshipProject;
+  lang: Locale;
 }
 
-const { project } = Astro.props;
-const isExternal = project.appStoreUrl
-  ? project.appStoreUrl.startsWith('http')
-  : false;
+const { project, lang } = Astro.props;
 ---
 
 <article
@@ -32,20 +32,10 @@ const isExternal = project.appStoreUrl
       />
       <h3 class="text-2xl font-semibold text-neutral-950 tracking-tight">
         {
-          project.appStoreUrl ? (
-            <a
-              class="group/link inline-flex items-center gap-1.5"
-              href={project.appStoreUrl}
-              rel={isExternal ? 'noopener noreferrer' : undefined}
-              target={isExternal ? '_blank' : undefined}
-            >
-              <span class="group-hover/link:underline underline-offset-4">
-                {project.title}
-              </span>
-              <span class="material-symbols-outlined text-xs text-neutral-400">
-                {isExternal ? 'arrow_outward' : 'arrow_forward'}
-              </span>
-            </a>
+          project.link ? (
+            <ContentLink link={project.link} lang={lang} variant="title" class="group/link inline-flex items-center gap-1.5">
+              {project.title}
+            </ContentLink>
           ) : (
             project.title
           )
@@ -86,20 +76,10 @@ const isExternal = project.appStoreUrl
     >
       <span>{project.footerNote}</span>
       {
-        project.appStoreUrl && (
-          <a
-            class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 transition-colors whitespace-nowrap shrink-0"
-            href={project.appStoreUrl}
-            rel={isExternal ? 'noopener noreferrer' : undefined}
-            target={isExternal ? '_blank' : undefined}
-          >
-            <span class="underline underline-offset-4">
-              {project.appStoreLabel ?? 'View on App Store'}
-            </span>
-            <span class="material-symbols-outlined text-xs">
-              {isExternal ? 'arrow_outward' : 'arrow_forward'}
-            </span>
-          </a>
+        project.link && (
+          <ContentLink link={project.link} lang={lang} variant="cta" class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 transition-colors whitespace-nowrap shrink-0">
+            {project.appStoreLabel ?? 'View on App Store'}
+          </ContentLink>
         )
       }
     </div>

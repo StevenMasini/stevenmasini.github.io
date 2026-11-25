@@ -1,0 +1,49 @@
+---
+/**
+ * The site's one way to render a content link (see `Link` in data/pages.ts).
+ *
+ * Owns everything that depends on where the link goes: href resolution per
+ * Locale, opening external links in a new tab safely, and the arrow icon
+ * (↗ external, → internal). The icon sits outside the underlined text span so
+ * hover underlines never run under it.
+ *
+ * Variants:
+ * - `title`: link text underlines on hover, muted icon (project titles)
+ * - `cta`:   link text always underlined, inherits colour (calls to action)
+ */
+import type { Locale } from '../data/locales';
+import { isExternalLink, linkHref, type Link } from '../data/pages';
+
+interface Props {
+  link: Link;
+  lang: Locale;
+  variant: 'title' | 'cta';
+  /** Classes for the <a> element (layout, colour, gap). */
+  class?: string;
+}
+
+const { link, lang, variant, class: className } = Astro.props;
+const external = isExternalLink(link);
+---
+
+<a
+  class={className}
+  href={linkHref(link, lang)}
+  rel={external ? 'noopener noreferrer' : undefined}
+  target={external ? '_blank' : undefined}
+>
+  <span
+    class={variant === 'title'
+      ? 'group-hover/link:underline underline-offset-4'
+      : 'underline underline-offset-4'}
+  >
+    <slot />
+  </span>
+  <span
+    class={variant === 'title'
+      ? 'material-symbols-outlined text-xs text-neutral-400'
+      : 'material-symbols-outlined text-xs'}
+  >
+    {external ? 'arrow_outward' : 'arrow_forward'}
+  </span>
+</a>

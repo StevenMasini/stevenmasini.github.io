@@ -19,7 +19,7 @@ export const GET: APIRoute = () => {
 - **Summary**: ${p.summary}
 - **Technologies**: ${p.tags.join(', ')}
 - **Scale & Ratings**: ${p.footerNote}
-${p.appStoreUrl ? `- **App Store**: ${p.appStoreUrl}\n` : ''}- **Key Engineering Contributions**:
+${p.link ? `- **App Store**: ${linkUrl(p.link, 'en')}\n` : ''}- **Key Engineering Contributions**:
 ${highlights}`;
     })
     .join('\n\n');
@@ -39,7 +39,7 @@ ${bullets}`;
   const agencyDetails = en.agencyProjects
     .map(
       (p) =>
-        `- **${p.title}** (${p.subtitle}) [${p.techLabel}]: ${p.description}${p.ratingLabel ? ` (${p.ratingLabel})` : ''}${p.appStoreUrl ? ` — ${p.appStoreUrl}` : ''}`
+        `- **${p.title}** (${p.subtitle}) [${p.techLabel}]: ${p.description}${p.ratingLabel ? ` (${p.ratingLabel})` : ''}${p.link ? ` — ${linkUrl(p.link, 'en')}` : ''}`
     )
     .join('\n');
 

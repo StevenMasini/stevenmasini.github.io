@@ -21,9 +21,9 @@ type ItemOf<K extends ListKey> = PortfolioData[K][number];
 /** Fields that must be identical in every Locale. Translated fields are omitted. */
 const invariantFields: { [K in ListKey]?: (keyof ItemOf<K>)[] } = {
   overviewSelectedWork: ['icon', 'link'],
-  flagshipProjects: ['title', 'icon', 'tags', 'appStoreUrl'],
+  flagshipProjects: ['title', 'icon', 'tags', 'link'],
   spotlightProjects: ['icon', 'period', 'link'],
-  agencyProjects: ['title', 'icon', 'techLabel', 'appStoreUrl'],
+  agencyProjects: ['title', 'icon', 'techLabel', 'link'],
   experienceTimeline: ['isCurrent', 'isCompact', 'highlightProject'],
   educationList: ['period'],
   languagesList: ['code'],

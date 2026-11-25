@@ -1,7 +1,7 @@
 ---
+import ContentLink from './ContentLink.astro';
 import type { SpotlightProject } from '../data/portfolio';
 import type { Locale } from '../data/locales';
-import { isExternalLink, linkHref } from '../data/pages';
 
 interface Props {
   project: SpotlightProject;
@@ -9,8 +9,6 @@ interface Props {
 }
 
 const { project, lang } = Astro.props;
-const href = project.link ? linkHref(project.link, lang) : undefined;
-const isExternal = project.link ? isExternalLink(project.link) : false;
 ---
 
 <div
@@ -36,20 +34,10 @@ const isExternal = project.link ? isExternalLink(project.link) : false;
       />
       <h4 class="text-xl font-semibold text-neutral-950">
         {
-          href ? (
-            <a
-              class="group/link inline-flex items-center gap-1.5"
-              href={href}
-              rel={isExternal ? 'noopener noreferrer' : undefined}
-              target={isExternal ? '_blank' : undefined}
-            >
-              <span class="group-hover/link:underline underline-offset-4">
-                {project.title}
-              </span>
-              <span class="material-symbols-outlined text-xs text-neutral-400">
-                {isExternal ? 'arrow_outward' : 'arrow_forward'}
-              </span>
-            </a>
+          project.link ? (
+            <ContentLink link={project.link} lang={lang} variant="title" class="group/link inline-flex items-center gap-1.5">
+              {project.title}
+            </ContentLink>
           ) : (
             project.title
           )
@@ -85,20 +73,10 @@ const isExternal = project.link ? isExternalLink(project.link) : false;
       }
     </div>
     {
-      href ? (
-        <a
-          class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 font-mono transition-colors whitespace-nowrap shrink-0"
-          href={href}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          target={isExternal ? '_blank' : undefined}
-        >
-          <span class="underline underline-offset-4">
-            {project.locationOrLinkText}
-          </span>
-          <span class="material-symbols-outlined text-xs">
-            {isExternal ? 'arrow_outward' : 'arrow_forward'}
-          </span>
-        </a>
+      project.link ? (
+        <ContentLink link={project.link} lang={lang} variant="cta" class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 font-mono transition-colors whitespace-nowrap shrink-0">
+          {project.locationOrLinkText}
+        </ContentLink>
       ) : (
         <span class="shrink-0">{project.locationOrLinkText}</span>
       )

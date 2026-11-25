@@ -310,8 +310,7 @@ export const fr: PortfolioData = {
       ],
       footerNote:
         'App Store : 4.9 ★ (185k+ avis) • ~5M d’inscrits • ~580k MAU',
-      appStoreUrl:
-        'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
+      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
       appStoreLabel: 'Voir sur l’App Store',
     },
     {
@@ -350,8 +349,7 @@ export const fr: PortfolioData = {
         },
       ],
       footerNote: 'App Store : 5.0 ★ • Publié sur iOS & Google Play',
-      appStoreUrl:
-        'https://apps.apple.com/us/app/select-your-community/id1076478889',
+      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
       appStoreLabel: 'Voir sur l’App Store',
     },
   ],
@@ -415,7 +413,7 @@ export const fr: PortfolioData = {
       description:
         'Reprise d’un projet en cours de développement au sein d’une équipe de 3 ingénieurs iOS pour la principale plateforme hippique française, en charge des interfaces sur mesure et de la base de données locale Core Data.',
       techLabel: 'Objective-C / Core Data',
-      appStoreUrl: 'https://apps.apple.com/fr/app/pmu-turf/id719630042',
+      link: { url: 'https://apps.apple.com/fr/app/pmu-turf/id719630042' },
       appStoreLabel: 'Voir sur l’App Store',
     },
     {
@@ -426,7 +424,7 @@ export const fr: PortfolioData = {
       description:
         'Développement universel iPhone et iPad au sein d’une équipe de 3 développeurs et intégration d’interfaces personnalisées pour plus de 30 000 annonces immobilières de luxe dans plus de 10 pays.',
       techLabel: 'Objective-C / UIKit',
-      appStoreUrl: 'https://apps.apple.com/fr/app/belles-demeures/id398333286',
+      link: { url: 'https://apps.apple.com/fr/app/belles-demeures/id398333286' },
       appStoreLabel: 'Voir sur l’App Store',
     },
     {

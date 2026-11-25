@@ -1,4 +1,5 @@
 ---
+import ContentLink from '../ContentLink.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OverviewProjectItem from '../OverviewProjectItem.astro';
 import { getPortfolioData } from '../../data/portfolio';
@@ -17,8 +18,6 @@ const {
   overviewExperience,
 } = getPortfolioData(lang);
 
-const appsHref = pagePath('apps-and-work', lang);
-const experienceHref = pagePath('experience', lang);
 const contactHref = pagePath('contact', lang);
 ---
 
@@ -75,15 +74,9 @@ const contactHref = pagePath('contact', lang);
           <span class="text-xs text-neutral-400 font-mono">
             {ui.overview.selectedWorkPeriod}
           </span>
-          <a
-            href={appsHref}
-            class="inline-flex items-center gap-1 text-xs font-mono text-neutral-900 hover:text-neutral-600 transition-colors"
-          >
-            <span class="underline underline-offset-4">
-              {ui.overview.allAppsLink}
-            </span>
-            <span class="material-symbols-outlined text-xs">arrow_forward</span>
-          </a>
+          <ContentLink link={{ page: 'apps-and-work' }} lang={lang} variant="cta" class="inline-flex items-center gap-1 text-xs font-mono text-neutral-900 hover:text-neutral-600 transition-colors">
+            {ui.overview.allAppsLink}
+          </ContentLink>
         </div>
       </div>
 
@@ -117,15 +110,9 @@ const contactHref = pagePath('contact', lang);
           </span>
         </div>
         <div class="pt-3">
-          <a
-            href={experienceHref}
-            class="inline-flex items-center gap-1 text-xs font-mono text-neutral-900 hover:text-neutral-600 transition-colors"
-          >
-            <span class="underline underline-offset-4">
-              {ui.overview.fullResumeLink}
-            </span>
-            <span class="material-symbols-outlined text-xs">arrow_forward</span>
-          </a>
+          <ContentLink link={{ page: 'experience' }} lang={lang} variant="cta" class="inline-flex items-center gap-1 text-xs font-mono text-neutral-900 hover:text-neutral-600 transition-colors">
+            {ui.overview.fullResumeLink}
+          </ContentLink>
         </div>
       </div>
 
@@ -183,15 +170,9 @@ const contactHref = pagePath('contact', lang);
         <span class="text-neutral-400 text-xs">
           {ui.overview.orReachOutVia}
         </span>
-        <a
-          class="text-xs font-mono text-neutral-900 hover:text-neutral-600 inline-flex items-center gap-1"
-          href={siteMetadata.linkedinUrl}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span class="underline underline-offset-4">LinkedIn</span>
-          <span class="material-symbols-outlined text-xs">arrow_outward</span>
-        </a>
+        <ContentLink link={{ url: siteMetadata.linkedinUrl }} lang={lang} variant="cta" class="text-xs font-mono text-neutral-900 hover:text-neutral-600 inline-flex items-center gap-1">
+          LinkedIn
+        </ContentLink>
       </div>
     </section>
   </div>

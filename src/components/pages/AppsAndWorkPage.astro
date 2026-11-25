@@ -69,7 +69,7 @@ const experienceHref = pagePath('experience', lang);
 
       {
         flagshipProjects.map((project) => (
-          <FlagshipProjectCard project={project} />
+          <FlagshipProjectCard project={project} lang={lang} />
         ))
       }
 
@@ -101,7 +101,7 @@ const experienceHref = pagePath('experience', lang);
             <div class="divide-y divide-neutral-200">
               {
                 agencyProjects.map((project) => (
-                  <AgencyAppRow project={project} />
+                  <AgencyAppRow project={project} lang={lang} />
                 ))
               }
             </div>
