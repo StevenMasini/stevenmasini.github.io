@@ -1,12 +1,16 @@
 ---
 import type { OverviewWorkItem } from '../data/portfolio';
+import type { Locale } from '../data/locales';
+import { isExternalLink, linkHref } from '../data/pages';
 
 interface Props {
   project: OverviewWorkItem;
+  lang: Locale;
 }
 
-const { project } = Astro.props;
-const isExternal = project.href ? project.href.startsWith('http') : false;
+const { project, lang } = Astro.props;
+const href = project.link ? linkHref(project.link, lang) : undefined;
+const isExternal = project.link ? isExternalLink(project.link) : false;
 ---
 
 <article
@@ -26,10 +30,10 @@ const isExternal = project.href ? project.href.startsWith('http') : false;
       <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
         <h3 class="text-lg font-medium text-neutral-900 tracking-tight">
           {
-            project.href ? (
+            href ? (
               <a
                 class="group/link inline-flex items-center gap-1"
-                href={project.href}
+                href={href}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
                 target={isExternal ? '_blank' : undefined}
               >

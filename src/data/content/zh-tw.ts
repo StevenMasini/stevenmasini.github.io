@@ -173,7 +173,7 @@ export const zhTw: PortfolioData = {
       subtitle: 'iOS 客戶端 • ~500萬註冊用戶 • ~58萬 MAU',
       period: '2019 — 至今',
       icon: '/images/apps/strong.jpg',
-      href: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
+      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
       description:
         '全球頂尖健身訓練紀錄 App，擁有約 500 萬註冊用戶、58 萬月活躍用戶 (MAU) 及 4.9 ★ 評價（全球逾 18.5 萬則評分）。參與 Strong 6.0 的 SwiftUI 與 Combine 大型重構、實作即時動態 (Live Activity) 與動態島 (Dynamic Island) 休息計時器、導入 Brzycki 與 Epley 公式提升 xRM 最大肌力估算精準度，並強化動作列表快取、篩選與模糊搜尋功能。',
     },
@@ -182,7 +182,7 @@ export const zhTw: PortfolioData = {
       subtitle: 'Super Effective',
       period: '2017 — 2019',
       icon: '/images/apps/select.jpg',
-      href: 'https://apps.apple.com/us/app/select-your-community/id1076478889',
+      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
       description:
         '同時參與原生 iOS 版本（透過 CocoaPods 模組化與 MVVM + 依賴注入將編譯時間從 70 分鐘縮短至 11 分鐘）與 React Native 跨平台重寫版本（制定 WebSocket 通訊協定、開發 MFS 多重好友推薦系統、深層連結自訂引導頁，以及 Objective-C 原生圖片選擇器橋接模組）。',
     },
@@ -191,7 +191,7 @@ export const zhTw: PortfolioData = {
       subtitle: 'CuriosityChina (Farfetch 集團旗下)',
       period: '2016 — 2017',
       icon: '/images/apps/curioeye.jpg',
-      href: '/zh-tw/curio-eye',
+      link: { page: 'curio-eye' },
       description:
         '擔任 CURIO EYE 唯一 iOS 開發工程師，專為微信公眾號管理者打造的行動端工具。以 Swift 從零獨立完成 v1.0 至 v1.1.5 全部開發，負責雙週版本發布、App Store 搜尋優化 (ASO)、安裝包體積瘦身與產品規劃。',
     },
@@ -200,7 +200,7 @@ export const zhTw: PortfolioData = {
       subtitle: '北京兩百小時教育科技 • 1,000萬+ 用戶',
       period: '2015',
       icon: '/images/apps/talkmate.jpg',
-      href: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
+      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
       description:
         '帶領 3–4 名 iOS 工程師開發 Talkmate 語言學習平台（4.7 ★、1.9 萬+ 評分、獲 Apple App Store 官方精選推薦及聯合國教科文組織 UNESCO 官方合作夥伴）。接手停滯逾一年的專案，以 Swift 全面重寫架構、大幅縮減 App 體積並順利交付 v1.0 至 v2.1 版本。',
     },
@@ -352,7 +352,7 @@ export const zhTw: PortfolioData = {
       ],
       company: 'CuriosityChina (Farfetch 集團旗下)',
       locationOrLinkText: '查看產品專頁',
-      appStoreUrl: '/zh-tw/curio-eye',
+      link: { page: 'curio-eye' },
     },
     {
       title: 'Talkmate (全球說)',
@@ -369,8 +369,7 @@ export const zhTw: PortfolioData = {
       company: '北京兩百小時教育科技',
       ratingLabel: 'App Store：4.7 ★ (19,000+ 則評分)',
       locationOrLinkText: '於 App Store 查看',
-      appStoreUrl:
-        'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
+      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
     },
   ],
   agencyProjects: [

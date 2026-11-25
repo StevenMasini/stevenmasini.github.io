@@ -167,7 +167,7 @@ export const en: PortfolioData = {
       subtitle: 'iOS Client • ~5M Users • ~580k MAU',
       period: '2019 — Present',
       icon: '/images/apps/strong.jpg',
-      href: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577',
+      link: { url: 'https://apps.apple.com/us/app/strong-workout-tracker-gym-log/id464254577' },
       description:
         'Workout tracker with ~5,000,000 registered users, ~580,000 monthly active users, and 4.9 ★ (185k+ global ratings). Contributed to the SwiftUI & Combine refactoring for Strong 6.0, implemented Live Activity and Dynamic Island rest timers, improved xRM estimation accuracy (Brzycki & Epley formulas), and enhanced Exercise List caching, filtering, and fuzzy search.',
     },
@@ -176,7 +176,7 @@ export const en: PortfolioData = {
       subtitle: 'Super Effective',
       period: '2017 — 2019',
       icon: '/images/apps/select.jpg',
-      href: 'https://apps.apple.com/us/app/select-your-community/id1076478889',
+      link: { url: 'https://apps.apple.com/us/app/select-your-community/id1076478889' },
       description:
         'Contributed to both the native iOS app (cutting build times from 70 to 11 minutes via CocoaPods modularization and MVVM + DI) and the complete React Native rewrite (WebSocket protocol, Multi Friend Selector, custom deep-link intro screens, and an Objective-C native image picker bridge).',
     },
@@ -185,7 +185,7 @@ export const en: PortfolioData = {
       subtitle: 'CuriosityChina (A Farfetch Company)',
       period: '2016 — 2017',
       icon: '/images/apps/curioeye.jpg',
-      href: '/curio-eye',
+      link: { page: 'curio-eye' },
       description:
         'Sole iOS developer for CURIO EYE, a companion app for WeChat Official Account managers. Built the entire application from scratch in Swift (v1.0 to v1.1.5), managing bi-weekly releases, ASO, bundle optimization, and product direction.',
     },
@@ -194,7 +194,7 @@ export const en: PortfolioData = {
       subtitle: 'Beijing 200H Education • 10M+ Users',
       period: '2015',
       icon: '/images/apps/talkmate.jpg',
-      href: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
+      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
       description:
         'Led a team of 3–4 iOS developers for Talkmate (4.7 ★, 19k+ ratings, Apple App Store Featured & UNESCO Official Partner). Inherited a stalled 1+ year project, completely rewrote the codebase in Swift, reduced bundle size, and shipped v1.0 through v2.1.',
     },
@@ -347,7 +347,7 @@ export const en: PortfolioData = {
       ],
       company: 'CuriosityChina (A Farfetch Company)',
       locationOrLinkText: 'View Product Showcase',
-      appStoreUrl: '/curio-eye',
+      link: { page: 'curio-eye' },
     },
     {
       title: 'Talkmate',
@@ -364,8 +364,7 @@ export const en: PortfolioData = {
       company: 'Beijing 200H Education',
       ratingLabel: 'App Store: 4.7 ★ (19,000+ ratings)',
       locationOrLinkText: 'View on App Store',
-      appStoreUrl:
-        'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176',
+      link: { url: 'https://apps.apple.com/cn/app/quan-qiu-shuotalkmate-ti-gao/id959231176' },
     },
   ],
   agencyProjects: [

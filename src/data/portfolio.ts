@@ -2,7 +2,7 @@
  * Portfolio data: the shape of each Locale's content and the accessor for it.
  * The content itself lives in ./content/<locale>.ts, one file per Locale.
  */
-import type { PageId, SectionId } from './pages';
+import type { Link, PageId, SectionId } from './pages';
 
 import { defaultLocale, type Locale, type LocaleInfo } from './locales';
 import { en } from './content/en';
@@ -20,7 +20,7 @@ export interface OverviewWorkItem {
   subtitle: string;
   period: string;
   icon: string;
-  href?: string;
+  link?: Link;
   description: string;
 }
 
@@ -52,7 +52,7 @@ export interface SpotlightProject {
   company: string;
   ratingLabel?: string;
   locationOrLinkText: string;
-  appStoreUrl?: string;
+  link?: Link;
 }
 
 export interface AgencyProject {

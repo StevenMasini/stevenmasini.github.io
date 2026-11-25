@@ -99,6 +99,23 @@ export function pageUrl(id: PageId, lang: Locale): string {
   return `${siteMetadata.siteUrl}${pagePath(id, lang)}`;
 }
 
+/** Where a piece of content points: a Page on this site, or an external URL. */
+export type Link = { page: PageId } | { url: string };
+
+export function isExternalLink(link: Link): link is { url: string } {
+  return 'url' in link;
+}
+
+/** href for a Link as rendered on a page in `lang` (site-relative for Pages). */
+export function linkHref(link: Link, lang: Locale): string {
+  return isExternalLink(link) ? link.url : pagePath(link.page, lang);
+}
+
+/** Absolute URL for a Link (for llms.txt and other off-site output). */
+export function linkUrl(link: Link, lang: Locale): string {
+  return isExternalLink(link) ? link.url : pageUrl(link.page, lang);
+}
+
 export interface NavLink {
   section: SectionId;
   label: string;

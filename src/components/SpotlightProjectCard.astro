@@ -1,14 +1,16 @@
 ---
 import type { SpotlightProject } from '../data/portfolio';
+import type { Locale } from '../data/locales';
+import { isExternalLink, linkHref } from '../data/pages';
 
 interface Props {
   project: SpotlightProject;
+  lang: Locale;
 }
 
-const { project } = Astro.props;
-const isExternal = project.appStoreUrl
-  ? project.appStoreUrl.startsWith('http')
-  : false;
+const { project, lang } = Astro.props;
+const href = project.link ? linkHref(project.link, lang) : undefined;
+const isExternal = project.link ? isExternalLink(project.link) : false;
 ---
 
 <div
@@ -34,10 +36,10 @@ const isExternal = project.appStoreUrl
       />
       <h4 class="text-xl font-semibold text-neutral-950">
         {
-          project.appStoreUrl ? (
+          href ? (
             <a
               class="group/link inline-flex items-center gap-1.5"
-              href={project.appStoreUrl}
+              href={href}
               rel={isExternal ? 'noopener noreferrer' : undefined}
               target={isExternal ? '_blank' : undefined}
             >
@@ -83,10 +85,10 @@ const isExternal = project.appStoreUrl
       }
     </div>
     {
-      project.appStoreUrl ? (
+      href ? (
         <a
           class="inline-flex items-center gap-1 text-neutral-900 hover:text-neutral-600 font-mono transition-colors whitespace-nowrap shrink-0"
-          href={project.appStoreUrl}
+          href={href}
           rel={isExternal ? 'noopener noreferrer' : undefined}
           target={isExternal ? '_blank' : undefined}
         >

@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getPortfolioData, llmsPageSummaries } from '../data/portfolio';
-import { pages, pageUrl } from '../data/pages';
+import { linkUrl, pages, pageUrl } from '../data/pages';
 
 export const GET: APIRoute = () => {
   const en = getPortfolioData('en');
@@ -31,10 +31,8 @@ export const GET: APIRoute = () => {
 
   const spotlightLines = spotlightProjects
     .map((p) => {
-      const linkUrl = p.appStoreUrl?.startsWith('http')
-        ? p.appStoreUrl
-        : `${siteMetadata.siteUrl}${p.appStoreUrl}`;
-      return `- **${p.title}** (${p.period}, ${p.company}): ${p.summary}${p.ratingLabel ? ` (${p.ratingLabel})` : ''}${linkUrl ? ` — [${p.locationOrLinkText}](${linkUrl})` : ''}`;
+      const url = p.link ? linkUrl(p.link, 'en') : undefined;
+      return `- **${p.title}** (${p.period}, ${p.company}): ${p.summary}${p.ratingLabel ? ` (${p.ratingLabel})` : ''}${url ? ` — [${p.locationOrLinkText}](${url})` : ''}`;
     })
     .join('\n');
 

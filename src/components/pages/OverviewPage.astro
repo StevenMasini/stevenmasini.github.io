@@ -90,7 +90,7 @@ const contactHref = pagePath('contact', lang);
       <div class="flex flex-col divide-y divide-neutral-200/80">
         {
           overviewSelectedWork.map((project) => (
-            <OverviewProjectItem project={project} />
+            <OverviewProjectItem project={project} lang={lang} />
           ))
         }
       </div>
