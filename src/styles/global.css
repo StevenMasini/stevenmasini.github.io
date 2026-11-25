@@ -2,6 +2,27 @@
 @config "../../tailwind.config.mjs";
 
 /*
+ * Font scale: every Tailwind size is 1px larger than the default
+ * (xs 13px, sm 15px, base 17px …). Line heights keep Tailwind's default
+ * ratios, so they grow proportionally.
+ */
+@theme {
+  --text-xs: 0.8125rem; /* 13px */
+  --text-sm: 0.9375rem; /* 15px */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lg: 1.1875rem; /* 19px */
+  --text-xl: 1.3125rem; /* 21px */
+  --text-2xl: 1.5625rem; /* 25px */
+  --text-3xl: 1.9375rem; /* 31px */
+  --text-4xl: 2.3125rem; /* 37px */
+  --text-5xl: 3.0625rem; /* 49px */
+  --text-6xl: 3.8125rem; /* 61px */
+  --text-7xl: 4.5625rem; /* 73px */
+  --text-8xl: 6.0625rem; /* 97px */
+  --text-9xl: 8.0625rem; /* 129px */
+}
+
+/*
  * Typography roles shared across pages. Change a role here, not per page.
  * - type-page-title:    the <h1> of every page
  * - type-section-label: small uppercase mono section headings
@@ -20,6 +41,7 @@ body {
   padding: 0;
   background-color: #fafafa;
   color: #18181b;
+  font-size: var(--text-base);
   -webkit-text-size-adjust: 100%;
 }
 
