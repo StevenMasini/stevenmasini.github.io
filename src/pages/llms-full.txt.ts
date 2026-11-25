@@ -46,7 +46,7 @@ ${bullets}`;
   const foundationDetails = en.earlyFoundations
     .map(
       (f) =>
-        `- **${f.title}** (${f.category}) [${f.techLabel}]: ${f.description}`
+        `- **${f.title}** (${f.category}) [${f.stack}]: ${f.description}`
     )
     .join('\n');
 
