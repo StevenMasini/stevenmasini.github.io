@@ -20,6 +20,17 @@ export const en: PortfolioData = {
     contact: 'Contact',
   },
   ui: {
+    curioEye: {
+      metaTitle:
+        'CURIO EYE — Advanced WeChat Official Account Monitoring System | Steven Masini',
+      metaDescription:
+        'Historical product showcase of CURIO EYE by CuriosityChina (A Farfetch Company). Companion iOS application built from scratch in Swift for WeChat Official Account monitoring and analytics.',
+      backLink: 'Back to Apps & Work',
+      badge: 'Historical Product Showcase (2016–2017)',
+      note: 'Sole iOS Developer at CuriosityChina (A Farfetch Company) • Swift v1.0 – v1.1.5',
+      infographicAlt:
+        'CURIO EYE — Advanced WeChat Official Account Monitoring System by CuriosityChina',
+    },
     notFound: {
       metaTitle: '404 — Page Not Found | Steven Masini',
       metaDescription: 'The page you are looking for could not be found.',

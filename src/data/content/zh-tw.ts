@@ -31,6 +31,15 @@ export const zhTw: PortfolioData = {
     contact: '聯絡方式',
   },
   ui: {
+    curioEye: {
+      metaTitle: 'CURIO EYE — 微信公眾號進階監測系統 | Steven Masini',
+      metaDescription:
+        'CuriosityChina（Farfetch 集團旗下）CURIO EYE 歷史產品專頁。以 Swift 從零打造的 iOS 配套應用程式，用於微信公眾號監測與數據分析。',
+      backLink: '返回作品與專案',
+      badge: '歷史產品專頁存檔 (2016–2017)',
+      note: 'CuriosityChina (Farfetch 集團旗下) 唯一 iOS 開發工程師 • Swift v1.0 – v1.1.5',
+      infographicAlt: 'CURIO EYE — CuriosityChina 微信公眾號進階監測系統',
+    },
     notFound: {
       metaTitle: '404 — 找不到此頁面 | Steven Masini',
       metaDescription: '找不到您所尋找的頁面。',

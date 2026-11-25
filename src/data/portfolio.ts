@@ -129,6 +129,14 @@ export interface SiteMetadata {
 }
 
 export interface PortfolioUI {
+  curioEye: {
+    metaTitle: string;
+    metaDescription: string;
+    backLink: string;
+    badge: string;
+    note: string;
+    infographicAlt: string;
+  };
   notFound: {
     metaTitle: string;
     metaDescription: string;
