@@ -61,9 +61,9 @@ export const fr: PortfolioData = {
     overview: {
       metaTitle: 'Steven Masini — Développeur iOS & Backend à Taipei',
       metaDescription:
-        'Plus de 15 ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Architecture propre, performance et pérennité.',
+        'Plus de {years} ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Architecture propre, performance et pérennité.',
       heroBio:
-        'Plus de 15 ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Orienté architecture propre, haute performance et code pérenne.',
+        'Plus de {years} ans d’expérience dans le développement d’applications iOS natives et de services backend depuis 2011. Orienté architecture propre, haute performance et code pérenne.',
       selectedWorkTitle: 'Projets Sélectionnés',
       selectedWorkPeriod: '2015 — Présent',
       allAppsLink: 'Toutes les applications',
@@ -84,7 +84,7 @@ export const fr: PortfolioData = {
       metaDescription:
         'Un historique documenté d’applications iOS natives, d’optimisations de performance et d’infrastructures clientes déployées auprès de millions d’utilisateurs.',
       heroEyebrowLeft: 'Portfolio',
-      heroEyebrowRight: '15+ ans de logiciels natifs en production',
+      heroEyebrowRight: '{years}+ ans de logiciels natifs en production',
       heroTitle: 'Applications & Réalisations',
       heroDescription:
         'Un historique documenté d’applications iOS natives, d’optimisations de performance et d’infrastructures clientes déployées auprès de millions d’utilisateurs dans le monde.',
@@ -106,11 +106,11 @@ export const fr: PortfolioData = {
     experience: {
       metaTitle: 'Expérience & Parcours — Steven Masini',
       metaDescription:
-        'Développement logiciel et applications iOS natives depuis 2011. Plus de 15 ans d’expérience entre Paris, Pékin et Taipei.',
+        'Développement logiciel et applications iOS natives depuis 2011. Plus de {years} ans d’expérience entre Paris, Pékin et Taipei.',
       eyebrow: 'CV & Parcours Professionnel',
       title: 'Expérience & Parcours',
       description:
-        'Développement logiciel et applications iOS natives depuis 2011. Plus de 15 ans d’expérience entre Paris, Pékin et Taipei. Des fondations systèmes Unix et C jusqu’aux architectures iOS modernes, services backend Node.js et workflows d’IA.',
+        'Développement logiciel et applications iOS natives depuis 2011. Plus de {years} ans d’expérience entre Paris, Pékin et Taipei. Des fondations systèmes Unix et C jusqu’aux architectures iOS modernes, services backend Node.js et workflows d’IA.',
       downloadPdfBtn: 'Télécharger le CV en PDF',
       contactFormLink: 'Formulaire de contact',
       workHistoryTitle: 'Parcours Professionnel',
@@ -485,7 +485,7 @@ export const fr: PortfolioData = {
     {
       label: 'Expérience Totale',
       value: 'Depuis 2011',
-      sublabel: '15+ ans en ingénierie',
+      sublabel: '{years}+ ans en ingénierie',
     },
     {
       label: 'Apps Publiées',

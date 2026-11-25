@@ -51,9 +51,9 @@ export const en: PortfolioData = {
     overview: {
       metaTitle: 'Steven Masini — iOS and Backend Developer in Taipei',
       metaDescription:
-        '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
+        '{years}+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
       heroBio:
-        '15+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
+        '{years}+ years building native iOS apps and backend services since 2011. Focused on clean architecture, performance, and code that lasts.',
       selectedWorkTitle: 'Selected Work',
       selectedWorkPeriod: '2015 — Present',
       allAppsLink: 'All Apps',
@@ -74,7 +74,7 @@ export const en: PortfolioData = {
       metaDescription:
         'A documented record of native iOS applications, performance turnarounds, and client infrastructure shipped to millions of users worldwide.',
       heroEyebrowLeft: 'Portfolio',
-      heroEyebrowRight: '15+ Years Shipped Native Software',
+      heroEyebrowRight: '{years}+ Years Shipped Native Software',
       heroTitle: 'Apps & Shipped Work',
       heroDescription:
         'A documented record of native iOS applications, performance turnarounds, and client infrastructure shipped to millions of users worldwide.',
@@ -96,11 +96,11 @@ export const en: PortfolioData = {
     experience: {
       metaTitle: 'Experience & Background — Steven Masini',
       metaDescription:
-        'Developing software & native iOS applications since 2011. 15+ years across Paris, Beijing, and Taipei.',
+        'Developing software & native iOS applications since 2011. {years}+ years across Paris, Beijing, and Taipei.',
       eyebrow: 'Resume & Work History',
       title: 'Experience & Background',
       description:
-        'Developing software & native iOS applications since 2011. 15+ years across Paris, Beijing, and Taipei. From fundamental Unix and C systems to native iOS architecture, companion Node.js backend infrastructure, and modern AI workflows.',
+        'Developing software & native iOS applications since 2011. {years}+ years across Paris, Beijing, and Taipei. From fundamental Unix and C systems to native iOS architecture, companion Node.js backend infrastructure, and modern AI workflows.',
       downloadPdfBtn: 'Download PDF Resume',
       contactFormLink: 'Contact Form',
       workHistoryTitle: 'Work History',
@@ -473,7 +473,7 @@ export const en: PortfolioData = {
     {
       label: 'Total Experience',
       value: 'Since 2011',
-      sublabel: '15+ Years in Engineering',
+      sublabel: '{years}+ Years in Engineering',
     },
     {
       label: 'Shipped Apps',

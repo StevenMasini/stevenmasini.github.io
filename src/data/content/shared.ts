@@ -25,3 +25,15 @@ export const baseMetadata = {
     'Mobile Architecture',
   ],
 };
+
+/**
+ * Start of Steven's professional career (first role on the Experience page:
+ * May 2011). "Years of experience" figures are computed from it at build time.
+ */
+export const careerStart = { year: 2011, month: 5 } as const;
+
+/** Whole years of experience at `now`, e.g. 15 between May 2026 and April 2027. */
+export function yearsOfExperienceCount(now: Date = new Date()): number {
+  const months = (now.getFullYear() - careerStart.year) * 12 + (now.getMonth() + 1 - careerStart.month);
+  return Math.floor(months / 12);
+}

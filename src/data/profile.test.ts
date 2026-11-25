@@ -16,8 +16,9 @@ const nodeOfType = (graph: Node[], type: string) => graph.find((n) => n['@type']
 
 describe('yearsOfExperience', () => {
   it('counts whole years since the career start', () => {
-    expect(yearsOfExperience(new Date('2026-11-25'))).toBe('15+');
-    expect(yearsOfExperience(new Date(`${profile.careerStartYear + 20}-01-01`))).toBe('20+');
+    expect(yearsOfExperience(new Date(2026, 10, 25))).toBe('15+');
+    expect(yearsOfExperience(new Date(2027, 3, 30))).toBe('15+');
+    expect(yearsOfExperience(new Date(2027, 4, 1))).toBe('16+');
   });
 });
 

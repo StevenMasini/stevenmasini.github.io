@@ -8,6 +8,7 @@ import { defaultLocale, type Locale, type LocaleInfo } from './locales';
 import { en } from './content/en';
 import { fr } from './content/fr';
 import { zhTw } from './content/zh-tw';
+import { yearsOfExperienceCount } from './content/shared';
 
 export interface StatItem {
   label: string;
@@ -266,18 +267,55 @@ export interface PortfolioData {
   languagesList: LanguageItem[];
 }
 
-const portfolioByLocale: Record<Locale, PortfolioData> = {
+const rawContentByLocale: Record<Locale, PortfolioData> = {
   en,
   fr,
   'zh-tw': zhTw,
 };
+
+/**
+ * Figures that content strings reference as `{name}` instead of retyping,
+ * because they change over time. Each Locale words the sentence around them.
+ */
+export function contentPlaceholders(now: Date = new Date()): Record<string, string> {
+  return { years: String(yearsOfExperienceCount(now)) };
+}
+
+/** Replace `{name}` placeholders in every string of `value`; unknown names throw. */
+export function fillPlaceholders<T>(value: T, vars: Record<string, string>): T {
+  if (typeof value === 'string') {
+    return value.replace(/\{(\w+)\}/g, (match, name: string) => {
+      if (!(name in vars)) throw new Error(`Unknown content placeholder ${match}`);
+      return vars[name];
+    }) as T;
+  }
+  if (Array.isArray(value)) return value.map((v) => fillPlaceholders(v, vars)) as T;
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [k, fillPlaceholders(v, vars)])
+    ) as T;
+  }
+  return value;
+}
+
+const portfolioByLocale = Object.fromEntries(
+  Object.entries(rawContentByLocale).map(([lang, data]) => [
+    lang,
+    fillPlaceholders(data, contentPlaceholders()),
+  ])
+) as Record<Locale, PortfolioData>;
+
+/** Raw content as written in src/data/content/, placeholders unfilled (for tests). */
+export function getRawContent(lang: Locale): PortfolioData {
+  return rawContentByLocale[lang];
+}
 
 export function getPortfolioData(lang: Locale = defaultLocale): PortfolioData {
   return portfolioByLocale[lang] ?? portfolioByLocale[defaultLocale];
 }
 
 /** Locale-independent site facts (URL, name, social links). */
-export const siteMetadata = en.siteMetadata;
+export const siteMetadata = portfolioByLocale[defaultLocale].siteMetadata;
 
 /** English one-line summary of each Page, listed under "Key Pages" in llms.txt. */
 export const llmsPageSummaries: Record<PageId, { title: string; summary: string }> = {

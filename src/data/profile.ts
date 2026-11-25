@@ -10,6 +10,7 @@ import { getPortfolioData, siteMetadata } from './portfolio';
 import { defaultLocale, localeConfigs, type Locale } from './locales';
 import { linkUrl, pageUrl, type Link, type PageId } from './pages';
 import { appStoreLink, apps, formatRating, type AppId } from './apps';
+import { careerStart, yearsOfExperienceCount } from './content/shared';
 
 export interface ShowcasedApp {
   name: string;
@@ -23,7 +24,7 @@ export interface ShowcasedApp {
 
 export const profile = {
   headline: 'Senior iOS & Backend Developer',
-  careerStartYear: 2011,
+  careerStartYear: careerStart.year,
   location: {
     city: 'Taipei',
     country: 'Taiwan',
@@ -100,9 +101,9 @@ export const profile = {
   ] satisfies ShowcasedApp[],
 };
 
-/** "15+" in 2026: whole years since the career started, as a floor. */
+/** "15+" from May 2026 to April 2027: whole years since the career started, as a floor. */
 export function yearsOfExperience(now: Date = new Date()): string {
-  return `${now.getFullYear() - profile.careerStartYear}+`;
+  return `${yearsOfExperienceCount(now)}+`;
 }
 
 const defaultContent = () => getPortfolioData(defaultLocale);

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPortfolioData } from '../../data/portfolio';
+import { profile } from '../../data/profile';
 import { defaultLocale, type Locale } from '../../data/locales';
 
 interface Props {
@@ -70,6 +71,7 @@ const projectTypes = ui.contact.projectTypes;
                 <span
                   id="taipei-clock"
                   data-prefix={ui.contact.clockPrefix}
+                  data-timezone={profile.location.timeZone}
                   data-fallback={siteMetadata.timezoneShort}
                 >
                   {siteMetadata.timezoneShort}
@@ -323,7 +325,7 @@ const projectTypes = ui.contact.projectTypes;
         clockEl.getAttribute('data-fallback') || 'Taipei (UTC+8)';
       try {
         const options: Intl.DateTimeFormatOptions = {
-          timeZone: 'Asia/Taipei',
+          timeZone: clockEl.dataset.timezone,
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,

@@ -1,7 +1,14 @@
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { getPortfolioData, type PortfolioData } from './portfolio';
+import {
+  contentPlaceholders,
+  fillPlaceholders,
+  getPortfolioData,
+  getRawContent,
+  type PortfolioData,
+} from './portfolio';
+import { yearsOfExperienceCount } from './content/shared';
 import { defaultLocale, locales } from './locales';
 
 /**
@@ -80,5 +87,46 @@ describe('content assets', () => {
     expect(icons.size).toBeGreaterThan(0);
     const missing = [...icons].filter((icon) => !existsSync(`${publicDir}${icon}`));
     expect(missing).toEqual([]);
+  });
+});
+
+describe('content placeholders', () => {
+  const placeholdersIn = (value: unknown) =>
+    (JSON.stringify(value).match(/\{\w+\}/g) ?? []).sort();
+
+  it('every Locale uses the same placeholders the same number of times', () => {
+    const reference = placeholdersIn(getRawContent(defaultLocale));
+    expect(reference.length).toBeGreaterThan(0);
+    for (const lang of otherLocales) expect(placeholdersIn(getRawContent(lang))).toEqual(reference);
+  });
+
+  it('no years-of-experience figure is typed into content as a literal', () => {
+    const literal = /\b\d+\+? ?(years|Years)\b|\d+\+? ans\b|Plus de \d+ ans|逾 ?\d+ ?年|\d+\+ ?年/;
+    for (const lang of locales) {
+      const strings = JSON.stringify(getRawContent(lang));
+      expect(strings.match(literal)?.[0]).toBeUndefined();
+    }
+  });
+
+  it('rendered content has every placeholder filled', () => {
+    for (const lang of locales) expect(placeholdersIn(getPortfolioData(lang))).toEqual([]);
+  });
+
+  it('fills the current years-of-experience count', () => {
+    expect(getPortfolioData('en').ui.overview.heroBio).toContain(
+      `${yearsOfExperienceCount()}+ years`
+    );
+  });
+
+  it('rejects unknown placeholders instead of rendering them', () => {
+    expect(() => fillPlaceholders({ a: ['x {nope} y'] }, contentPlaceholders())).toThrow('{nope}');
+  });
+});
+
+describe('yearsOfExperienceCount', () => {
+  it('counts whole years from the May 2011 career start', () => {
+    expect(yearsOfExperienceCount(new Date(2026, 10, 25))).toBe(15);
+    expect(yearsOfExperienceCount(new Date(2027, 3, 30))).toBe(15);
+    expect(yearsOfExperienceCount(new Date(2027, 4, 1))).toBe(16);
   });
 });

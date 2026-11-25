@@ -60,9 +60,9 @@ export const zhTw: PortfolioData = {
     overview: {
       metaTitle: 'Steven Masini — 駐台北的 iOS 與後端開發工程師',
       metaDescription:
-        '自 2011 年起深耕原生 iOS 應用程式與後端服務開發逾 15 年。專注於清晰架構、極致效能與經得起時間考驗的程式碼。',
+        '自 2011 年起深耕原生 iOS 應用程式與後端服務開發逾 {years} 年。專注於清晰架構、極致效能與經得起時間考驗的程式碼。',
       heroBio:
-        '自 2011 年起投入原生 iOS 應用程式與後端服務開發，累積逾 15 年實戰經驗。專注於高擴充性架構、極致效能與易於長期維護的程式碼。',
+        '自 2011 年起投入原生 iOS 應用程式與後端服務開發，累積逾 {years} 年實戰經驗。專注於高擴充性架構、極致效能與易於長期維護的程式碼。',
       selectedWorkTitle: '精選專案作品',
       selectedWorkPeriod: '2015 — 至今',
       allAppsLink: '查看所有作品',
@@ -83,7 +83,7 @@ export const zhTw: PortfolioData = {
       metaDescription:
         '完整記錄服務全球數百萬用戶的原生 iOS 應用程式、編譯與執行效能優化，以及跨平台客戶端基礎設施。',
       heroEyebrowLeft: '作品集',
-      heroEyebrowRight: '15+ 年原生軟體開發與上線實績',
+      heroEyebrowRight: '{years}+ 年原生軟體開發與上線實績',
       heroTitle: '作品與專案實績',
       heroDescription:
         '完整記錄服務全球數百萬用戶的原生 iOS 應用程式、效能重構工程，以及客戶端架構實踐。',
@@ -103,11 +103,11 @@ export const zhTw: PortfolioData = {
     experience: {
       metaTitle: '經歷與專業背景 — Steven Masini',
       metaDescription:
-        '自 2011 年起開發軟體與原生 iOS 應用程式。橫跨巴黎、北京與台北逾 15 年的工程實戰經驗。',
+        '自 2011 年起開發軟體與原生 iOS 應用程式。橫跨巴黎、北京與台北逾 {years} 年的工程實戰經驗。',
       eyebrow: '履歷與職涯紀錄',
       title: '經歷與專業背景',
       description:
-        '自 2011 年起從事軟體與原生 iOS 應用程式開發，橫跨巴黎、北京與台北逾 15 年。從底層 Unix 與 C 語言系統出發，延伸至現代原生 iOS 架構、Node.js 後端服務與 AI 輔助開發流程。',
+        '自 2011 年起從事軟體與原生 iOS 應用程式開發，橫跨巴黎、北京與台北逾 {years} 年。從底層 Unix 與 C 語言系統出發，延伸至現代原生 iOS 架構、Node.js 後端服務與 AI 輔助開發流程。',
       downloadPdfBtn: '下載 PDF 履歷',
       contactFormLink: '聯絡表單',
       workHistoryTitle: '工作經歷',
@@ -476,7 +476,7 @@ export const zhTw: PortfolioData = {
     {
       label: '總開發年資',
       value: '自 2011 年起',
-      sublabel: '15+ 年軟體工程經驗',
+      sublabel: '{years}+ 年軟體工程經驗',
     },
     {
       label: '已發布應用',
