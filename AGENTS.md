@@ -9,7 +9,8 @@
 - **Do not run `npm run deploy` unless requested**: Only deploy to `master` when the user asks to publish/deploy changes live.
 
 ## Architecture & Component Conventions
-- Keep all portfolio content and metadata centralized in `src/data/portfolio.ts`.
+- Keep all portfolio content and metadata centralized in `src/data/`: the data shape and `getPortfolioData()` live in `portfolio.ts`, and the content lives in one file per Locale under `src/data/content/` (`en.ts`, `fr.ts`, `zh-tw.ts`; facts shared by all Locales are in `shared.ts`). Every Locale must list the same items in the same order, because items are matched by position. When adding, removing or reordering an item, change all three files. `portfolio.test.ts` enforces this.
+- Content links use `link: { page: PageId }` for site Pages or `link: { url }` for external URLs, never hand-written localized paths.
 - Site structure (Pages, Sections, paths, sitemap hints) lives in `src/data/pages.ts`. To add a Page: register it there, add its two route stubs (`src/pages/<name>.astro` and `src/pages/[lang]/<name>.astro`), and add its `llmsPageSummaries` entry. Link internally with `pagePath(id, lang)`, never hand-written paths. `npm test` checks all of this. Domain terms are defined in `CONTEXT.md`.
 - Locales (the list, path prefixing/parsing, saved language preference) live in `src/data/locales.ts`. It must stay free of portfolio content because browser `<script>`s import it. Never hardcode Locale codes like `'fr'` in components or scripts.
 - Use reusable Astro components in `src/components/` and the shared shell in `src/layouts/BaseLayout.astro` so UI elements (Header, Footer, Cards, Badges, Stats, Timeline) stay consistent across all pages.
